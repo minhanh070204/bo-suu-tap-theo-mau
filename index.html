@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ecb613",
+                        "background-light": "#ffffff",
+                        "background-dark": "#121212",
+                    },
+                    fontFamily: {
+                        "sans": ["Nunito Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "8px",
+                        "lg": "12px",
+                        "xl": "16px",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #ecb613;
+        }
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .thin-stroke {
+            border: 1px solid #000000;
+        }
+        .dark .thin-stroke {
+            border: 1px solid #ffffff;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-white dark:bg-background-dark min-h-screen text-black dark:text-white">
+<div class="relative flex h-auto min-h-screen w-full max-w-[480px] mx-auto flex-col bg-white dark:bg-background-dark overflow-x-hidden shadow-2xl">
+<div class="sticky top-0 z-50 flex items-center bg-white/80 backdrop-blur-md dark:bg-background-dark/80 border-b border-gray-100 dark:border-white/10 p-4 pb-4 justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer" style="font-size: 24px;">arrow_back_ios</span>
+<h2 class="text-lg font-extrabold leading-tight tracking-tight">Bộ sưu tập theo Màu</h2>
+</div>
+<div class="flex items-center">
+<button class="flex items-center justify-center w-10 h-10 rounded-full border border-black dark:border-white hover:bg-black/5">
+<span class="material-symbols-outlined" style="font-size: 20px;">search</span>
+</button>
+</div>
+</div>
+<div class="px-4 pt-6 pb-2">
+<p class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">Chọn tông màu</p>
+</div>
+<div class="flex items-center gap-6 p-4 overflow-x-auto no-scrollbar">
+<label class="flex flex-col items-center gap-3 cursor-pointer group">
+<div class="size-14 rounded-full border border-black dark:border-white ring-offset-2 ring-black dark:ring-white has-[:checked]:ring-2 p-1 transition-all">
+<input class="sr-only" name="color-select" type="radio"/>
+<div class="w-full h-full rounded-full bg-black shadow-inner"></div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider">Đen</span>
+</label>
+<label class="flex flex-col items-center gap-3 cursor-pointer group">
+<div class="size-14 rounded-full border border-gray-100 dark:border-white/20 ring-offset-2 ring-black dark:ring-white has-[:checked]:ring-2 p-1 transition-all">
+<input class="sr-only" name="color-select" type="radio"/>
+<div class="w-full h-full rounded-full bg-white border border-gray-100 shadow-inner"></div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider">Trắng</span>
+</label>
+<label class="flex flex-col items-center gap-3 cursor-pointer group">
+<div class="size-14 rounded-full border border-gray-100 dark:border-white/20 ring-offset-2 ring-black dark:ring-white has-[:checked]:ring-2 p-1 transition-all">
+<input checked="" class="sr-only" name="color-select" type="radio"/>
+<div class="w-full h-full rounded-full bg-[#E6D5B8] shadow-inner"></div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider">Beige</span>
+</label>
+<label class="flex flex-col items-center gap-3 cursor-pointer group">
+<div class="size-14 rounded-full border border-gray-100 dark:border-white/20 ring-offset-2 ring-black dark:ring-white has-[:checked]:ring-2 p-1 transition-all">
+<input class="sr-only" name="color-select" type="radio"/>
+<div class="w-full h-full rounded-full bg-[#808080] shadow-inner"></div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider">Xám</span>
+</label>
+<label class="flex flex-col items-center gap-3 cursor-pointer group">
+<div class="size-14 rounded-full border border-gray-100 dark:border-white/20 ring-offset-2 ring-black dark:ring-white has-[:checked]:ring-2 p-1 transition-all">
+<input class="sr-only" name="color-select" type="radio"/>
+<div class="w-full h-full rounded-full bg-[#1560BD] shadow-inner"></div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider">Denim</span>
+</label>
+</div>
+<div class="flex items-center justify-between px-4 pb-4 pt-8">
+<h3 class="text-xl font-extrabold leading-tight tracking-tight">Bộ sưu tập Beige</h3>
+<span class="text-xs font-semibold text-gray-400">12 sản phẩm</span>
+</div>
+<div class="grid grid-cols-2 gap-4 px-4 mt-2">
+<div class="flex flex-col gap-3 group">
+<div class="relative w-full aspect-[3/4] bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2401avx1R_bHvemnBdluuyk-C82bAPiWy4aX63mBZAfSU_Y2aETi3n5mbCYQ2I5x3Ipp8c998krKrBBfv-vt_4C9AzNx7nqYEhIuqyz_llkmOP7wexaw7jrWpNOOkziFqJO_NZ8c_rKcXjIwyCLrAdJOoKu8NcHU-XS_y8Va_z1BHp0TvkzrbLAxW9uhoMN-TilJb8voRsStAE5Idw33mVG24dL4WAlYXnfc-KlZa0MA3iwOpp2kQpYV0gqSU16zi17wbZ64nIOc");'>
+<div class="absolute top-3 right-3">
+<button class="bg-white/90 dark:bg-black/90 size-8 flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-black dark:text-white text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute top-3 left-3">
+<span class="bg-black text-white dark:bg-white dark:text-black text-[9px] font-extrabold px-2 py-1 rounded-sm uppercase tracking-wider">Mới</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<p class="text-black dark:text-white text-sm font-bold leading-tight line-clamp-1">Áo Sơ Mi Linen Beige</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">550.000đ</p>
+</div>
+<button class="w-full thin-stroke py-2.5 text-[10px] font-extrabold uppercase tracking-widest rounded hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+                Thêm vào giỏ
+            </button>
+</div>
+<div class="flex flex-col gap-3 group">
+<div class="relative w-full aspect-[3/4] bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBFECq7z7crh9FbW7UjjA2wg65OUO7KNwMYaT9YJlzoRYM1WvawbSYcbh19PSh7OB9umvEP4qdZaVfzlBDzVZK12y3B0VlXOC5bor3j2hOfuViwixykwbyLbXR1PwSu0pVbeAR9ASFO-mOAzGDUHd1CKlrTODZid8o6a47P3k4wXyx0kRSa7__8s_T1s1v2OILLUE9fhkiVVR9Hq_i2KYSLEdRZ69i7Kr-bijHmvQoU7k50NOO__rIeyq5Efs7MbGG9t7xCs2dBwc8");'>
+<div class="absolute top-3 right-3">
+<button class="bg-white/90 dark:bg-black/90 size-8 flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-black dark:text-white text-[18px]">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<p class="text-black dark:text-white text-sm font-bold leading-tight line-clamp-1">Quần Khaki Slim Fit</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">720.000đ</p>
+</div>
+<button class="w-full thin-stroke py-2.5 text-[10px] font-extrabold uppercase tracking-widest rounded hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+                Thêm vào giỏ
+            </button>
+</div>
+<div class="flex flex-col gap-3 group">
+<div class="relative w-full aspect-[3/4] bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_uLXXPQCvF5O1w9O_rZVBxl7zUCTt30C5PM4b4ACEk0ypp0JnadvHHnC9sxwwAbb20F1swSImjRma0UZYKjvVlK4QPfqEGf08xBkr7pfCEEkB06ZG0drRfwMezgtrQ-52CymLzTytYCSfWp0hKUUeUkCuUW_nKc2p50WAZmBNFnAv15w-Wn74Q1im374GBQacCoNawG7x-x5GLbR42EjUUSK6JtRZsu7ZJXzUC_4wkfoCubL19iHlSD3Gjw3maB-GYRMNfSZlhb0");'>
+<div class="absolute top-3 right-3">
+<button class="bg-white/90 dark:bg-black/90 size-8 flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-black dark:text-white text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-3 left-3 bg-primary text-black text-[9px] font-extrabold px-2 py-1 rounded-sm uppercase tracking-wider">Routine Club</div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<p class="text-black dark:text-white text-sm font-bold leading-tight line-clamp-1">Áo Thun Cotton Organic</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">350.000đ</p>
+</div>
+<button class="w-full thin-stroke py-2.5 text-[10px] font-extrabold uppercase tracking-widest rounded hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+                Thêm vào giỏ
+            </button>
+</div>
+<div class="flex flex-col gap-3 group">
+<div class="relative w-full aspect-[3/4] bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATY0ZouLbIdnsWpCmrvmyx7arqXNg1Gsn6EtUFHXXBHX26u86NlaPHK7m44H6aiNKd6Oe97Z1cudookNrxdy621jvf7eYjsAdqLFbY0pTcs5fUI2ZV_iaPmjPUMMNQ2ZgkDrRGcc1p3BlRz0fTk-KLOLpfWgNiNTUTWd3JttZrWJ9rbOrD9l1RtHu4TiUPyOA7f89hRqSjTEU4tiMFZC77I94JfxZgiyhg1wAsoJGFcALnXddwh9ZZv7T3AaAryaG1LNNYje74yuE");'>
+<div class="absolute top-3 right-3">
+<button class="bg-white/90 dark:bg-black/90 size-8 flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-black dark:text-white text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute top-3 left-3">
+<span class="bg-red-600 text-white text-[9px] font-extrabold px-2 py-1 rounded-sm uppercase tracking-wider">Sale</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<p class="text-black dark:text-white text-sm font-bold leading-tight line-clamp-1">Áo Khoác Bomber Beige</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">980.000đ</p>
+</div>
+<button class="w-full thin-stroke py-2.5 text-[10px] font-extrabold uppercase tracking-widest rounded hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+                Thêm vào giỏ
+            </button>
+</div>
+</div>
+<div class="h-32"></div>
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white/95 backdrop-blur-md dark:bg-background-dark/95 border-t border-gray-100 dark:border-white/10 z-50">
+<div class="flex gap-2 px-4 pb-8 pt-4">
+<a class="flex flex-1 flex-col items-center justify-center gap-1.5 text-gray-400 dark:text-gray-600" href="#">
+<span class="material-symbols-outlined" style="font-size: 24px;">home</span>
+<p class="text-[9px] font-extrabold uppercase tracking-widest">Trang chủ</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1.5 text-black dark:text-white" href="#">
+<span class="material-symbols-outlined" style="font-size: 24px; font-variation-settings: 'FILL' 1;">grid_view</span>
+<p class="text-[9px] font-extrabold uppercase tracking-widest border-b-2 border-black dark:border-white pb-0.5">Bộ sưu tập</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1.5 text-gray-400 dark:text-gray-600" href="#">
+<span class="material-symbols-outlined" style="font-size: 24px;">sell</span>
+<p class="text-[9px] font-extrabold uppercase tracking-widest">Ưu đãi</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1.5 text-gray-400 dark:text-gray-600" href="#">
+<span class="material-symbols-outlined" style="font-size: 24px;">person</span>
+<p class="text-[9px] font-extrabold uppercase tracking-widest">Cá nhân</p>
+</a>
+</div>
+</div>
+</div>
+
+</body></html>
