@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Routine Bảng xếp hạng Tuần - Tối Giản</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000000",
+                        "background-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "sans": ["Maven Pro", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Maven Pro', sans-serif;
+            background-color: #ffffff;
+        }
+        .ios-shadow {
+            box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+        }
+        .grayscale-avatar {
+            filter: grayscale(100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="mobile.css"/>
+<link rel='stylesheet' href='status-bar.css'/></head>
+<body class="bg-white text-black antialiased">
+<div class="status-bar">
+    <div class="status-bar-time">9:41</div>
+    <div class="status-bar-icons">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <rect x="12" y="4" width="2" height="8" rx="1" />
+            <rect x="9" y="6" width="2" height="6" rx="1" />
+            <rect x="6" y="3" width="2" height="9" rx="1" />
+            <rect x="3" y="5" width="2" height="7" rx="1" />
+        </svg>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 8.5C2 7.67 2.67 7 3.5 7h1C5.33 7 6 7.67 6 8.5v6c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-6zm4.5-3c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H8c-.83 0-1.5-.67-1.5-1.5v-9zm5.5-2c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-11z" />
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none" class="battery-icon">
+            <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor"/>
+            <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor"/>
+            <path d="M23 4V8" stroke="currentColor" stroke-linecap="round"/>
+        </svg>
+    </div>
+</div>
+<div class="relative flex h-screen w-full flex-col overflow-hidden max-w-md mx-auto border-x border-gray-100">
+<header class="flex items-center bg-white px-4 py-4 justify-between border-b border-gray-100 shrink-0">
+<div class="flex size-10 items-center justify-center border border-black rounded-lg">
+<span class="material-symbols-outlined text-black">arrow_back</span>
+</div>
+<h2 class="text-black text-lg font-extrabold leading-tight tracking-tight flex-1 text-center pr-10 uppercase">Bảng xếp hạng</h2>
+</header>
+<main class="flex-1 overflow-y-auto pb-40">
+<div class="px-6 pt-6">
+<div class="flex border-b border-gray-100 justify-between">
+<a class="flex flex-col items-center justify-center border-b-2 border-black pb-3 flex-1" href="#">
+<p class="text-black text-sm font-bold">Tuần này</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-gray-400 pb-3 flex-1" href="#">
+<p class="text-sm font-bold">Tuần trước</p>
+</a>
+</div>
+</div>
+<div class="px-6 py-4 flex justify-center">
+<div class="bg-zinc-50 border border-zinc-100 px-3 py-1.5 rounded-full">
+<p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+                    Kết thúc: 2 ngày 04 giờ
+                </p>
+</div>
+</div>
+<div class="px-6 py-2 text-center">
+<h4 class="text-black text-xl font-black uppercase tracking-widest">Fashionista của tuần</h4>
+<div class="h-[1px] w-8 bg-black mx-auto mt-3"></div>
+</div>
+<div class="flex items-end justify-center gap-4 px-6 py-12">
+<div class="flex flex-col items-center flex-1">
+<div class="relative mb-3">
+<div class="size-20 rounded-xl border border-black grayscale-avatar overflow-hidden bg-zinc-50" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsq5mbCIpUg_RONNEi6p8CN7JdTtpcVWVJUaDjOQhq4qM5SVZed_ljJahw5A5PLN2tjr7zHR31ATHv-9RzcFnSzC5kWacv4_Vd7ZgKKP7XwulLoSDI43yvhmXiEmJdwSco-DOtdbGNwiVTLKKlUHiYpjfJxUZRPvCKQ2-MDuLkcByHasNSOwCbGuT4TTkNCPom6BzUYMbZ5ip7_HyEHYs-c7FCotDGsHeXxTABNKwUVPT-3eLXD1-QIn3SP1oG5Uu8WGtuXPnIxw8"); background-size: cover;'></div>
+<div class="absolute -bottom-2 -right-2 bg-white border border-black size-8 rounded-lg flex items-center justify-center">
+<span class="text-xs font-black">2</span>
+</div>
+</div>
+<p class="text-xs font-bold truncate w-full text-center">Hoàng Nam</p>
+<p class="text-xs font-black text-black mt-0.5">8,920 pts</p>
+</div>
+<div class="flex flex-col items-center flex-1 pb-4">
+<div class="relative mb-4">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2">
+<span class="material-symbols-outlined text-black text-4xl" style="font-variation-settings: 'FILL' 0, 'wght' 200">workspace_premium</span>
+</div>
+<div class="size-28 rounded-xl border border-black grayscale-avatar overflow-hidden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD4CVvDCi5uL12AXFvXIWKNl6s2__9PXr-KTQTAbyAAYRkeA8yXwVp6oWoNzNlAtpNTa7AKO2vWQPPfS0W0w6cMa6P3GQMlMwYzZ2TpToYS3onmiumLpNOhcu8cLrV--iF1aYnmmSeKcBo-e7PyR0Y0FO9sjuzYtGN4ur1Zuqtl2JSWGJ6A2PBT33uC6lrTlVBTQhPbhskUQUYxsbSYv3Abmadhq5GhJ5pkVoAVforTlzjGyufyJYhkZdsth1BRzD5b6bytDqVhzl4"); background-size: cover;'></div>
+<div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white text-black size-10 rounded-xl flex items-center justify-center border border-black">
+<span class="text-base font-black">1</span>
+</div>
+</div>
+<p class="text-sm font-black truncate w-full text-center uppercase tracking-tight">Linh Nguyễn</p>
+<p class="text-sm font-black text-black mt-0.5">12,500 pts</p>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="relative mb-3">
+<div class="size-20 rounded-xl border border-black grayscale-avatar overflow-hidden bg-zinc-50" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAiBDtsdY5Wn5xAJDwpAd2mnLtXbzJFYfiXGzdRRtBU3q-cRXyDouz1-ePq3kShB1ghj7JjCGelt8fLwWq66eSfsFtiqmfRmTnEWJJo5HS9N-uY4_voB4l8vTsrViRqKTnzw8MUiUjg4fVm0SR4wWxz088k57jIlNb5Xla1Zl6bONHBxgCg-qApvBbOUWd1EJsWkSSSYCCzvzFMknVxDheqxp_P7Bgemu1xZwgFKnEA8PC8GW2ClvVVzPAFHEmQNAsvkimJ9l8nkuo"); background-size: cover;'></div>
+<div class="absolute -bottom-2 -right-2 bg-white border border-black size-8 rounded-lg flex items-center justify-center">
+<span class="text-xs font-black">3</span>
+</div>
+</div>
+<p class="text-xs font-bold truncate w-full text-center">Minh Tú</p>
+<p class="text-xs font-black text-black mt-0.5">7,450 pts</p>
+</div>
+</div>
+<div class="px-6 space-y-1">
+<div class="flex items-center gap-4 py-3 border-b border-gray-50">
+<p class="w-6 text-[10px] font-black text-zinc-300 uppercase">04</p>
+<div class="size-10 rounded-lg border border-black/10 bg-cover bg-center grayscale-avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9BG3shfYylJjFGTWrVC76Hzzm4t6sEL4DpD3sKBcmjRqwTZWyMWoPxeweBQl5iIpCn2xSuVhgX0sevgb6XcPTdxziLR8pTsvYzlqPOix4GNm7cjRZSBJrCPUFx7QR2He_xohR9bneYt9rACVF_iipprJi5uxJyIRCGMysE8XTqHXclYTKpXIWPNWtxEMKxtuYMtpG0cGWKXD8qNH7V7IiuR5GFNYLQ396Kcthxah1hwHT1iRz3hsl7o9k2zxn0lPyR17cm1crUM8");'></div>
+<p class="flex-1 text-sm font-bold">Thanh Thảo</p>
+<p class="text-sm font-black text-black">6,200</p>
+</div>
+<div class="flex items-center gap-4 py-3 border-b border-gray-50">
+<p class="w-6 text-[10px] font-black text-zinc-300 uppercase">05</p>
+<div class="size-10 rounded-lg border border-black/10 bg-cover bg-center grayscale-avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBuwcilX6IRC1KJjKO_xR0s2WTu8d_A05xGXYlQqIei00Q9sQsEMTG5TS0o4b0J03LUwNkxuYYsNGvOVcD5mQnhKnby76d0wIctV74yuTjve9bUUAhqfnMreIo1IGYDOhl0CqAxhOBeBCqw3X2N-26N_80F090ZX33QftVkhzT-b2XD4aGg1nh-8ziHy3jPkspfhKF9BgAbJAUoxn4YgU6omFxAWGGq82cupF4fs6KeGuExMFrF1LSeYA_4jGMIUThX0m-u61BiZ0c");'></div>
+<p class="flex-1 text-sm font-bold">Quốc Anh</p>
+<p class="text-sm font-black text-black">5,840</p>
+</div>
+<div class="flex items-center gap-4 py-3 border-b border-gray-50">
+<p class="w-6 text-[10px] font-black text-zinc-300 uppercase">06</p>
+<div class="size-10 rounded-lg border border-black/10 bg-cover bg-center grayscale-avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAeQWWEqlBVIZ2oWOhhQUeZW1-N77z531u964xMyMJYpKwlO6EWF-TaYsYCcEJ__fr1jFjgncngXj8Tcq-sZ5ADvkOF7-FyxdDDP5pF3cb8AhGt4JBuYR2vZ6Wdka2b3yIVPZ4-aqly8qMJu9KBS672lZ2ov_8mvyW1xpV9eZvgPyVX5C9UCftHYpE7-VZVCIlTeF2Wg2WsoTVd2jmT2cqQqnSAzxswMj22pE3CY9b_LToaUFDgWktthJ0-nRnHsGF4Nvgpim444vs");'></div>
+<p class="flex-1 text-sm font-bold">Bích Phương</p>
+<p class="text-sm font-black text-black">5,100</p>
+</div>
+<div class="flex items-center gap-4 py-3 border-b border-gray-50">
+<p class="w-6 text-[10px] font-black text-zinc-300 uppercase">07</p>
+<div class="size-10 rounded-lg border border-black/10 bg-cover bg-center grayscale-avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnhJ38YNh6oTC_iUJMpf_3AN-ma4QAHDjTxQLC2xN1ELZ-lRxnlESUzRuRcR7nHgNwkCSyvQkzzXdBsXI2MTs4k_a7qbWf056WYcIjO6T7t73A5NAnoZGQDyAOXnDGLjPHpyYga_N93lVxqeuXrfBfx1M5Gfqe5aovnv0vWWz7YN14KtyoCYQQ_t5V4nuVJz8PtUv7-8FNvheHEdl-6latq9MgkKs7bxuHbDGn6Vk2ei5aIZ14ax24RXKm3QoBchfSOh0OVEWgnu4");'></div>
+<p class="flex-1 text-sm font-bold">Khánh Linh</p>
+<p class="text-sm font-black text-black">4,920</p>
+</div>
+</div>
+</main>
+<footer class="absolute bottom-0 left-0 right-0 bg-white border-t border-black px-6 pt-6 pb-10 z-10">
+<div class="flex items-center gap-4 mb-6">
+<div class="flex flex-col items-center">
+<span class="text-[9px] font-black text-zinc-400 uppercase tracking-tight">Thứ hạng</span>
+<p class="text-xl font-black">24</p>
+</div>
+<div class="size-12 rounded-xl border border-black bg-cover bg-center grayscale-avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVOkMd4wJyjtAm0FmjXq7bXYvPw35vywMVEq-1z7ME5ugvYfLs_c7cUmvP-8IDo3ryj2luiGdQMHWXWOoEXtXu7WTb1nzMc6EPRwYySiZys9MWiaRIucowa2XMzKyonhsADRXfV5-y0DXYV42nvKaLYU7fX-LHnN_12kwR4T69oupk6frFJN28Dm7sBQ8jPX6-v7ke1dOMnhp-7uWixLznstmxnyEXSWgH-fuCrsE3pb53wlj1wRUVVhTaQTN35dNEHxjpD-HAo_E");'></div>
+<div class="flex-1">
+<p class="text-sm font-black uppercase">Thái Hà (Bạn)</p>
+<p class="text-[11px] font-bold text-zinc-500 uppercase tracking-wide">Tiếp tục cố gắng!</p>
+</div>
+<div class="text-right">
+<p class="text-lg font-black text-black leading-none">1,450</p>
+<p class="text-[9px] font-black text-black uppercase tracking-widest mt-1">điểm</p>
+</div>
+</div>
+<button class="w-full py-4 border border-black rounded-lg text-sm font-black uppercase tracking-[0.2em] hover:bg-black hover:text-white transition-all active:scale-[0.98]">
+            Chia sẻ thành tích
+        </button>
+</footer>
+</div>
+
+
+
+
+<script src='app-navigation.js'></script>
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 pb-safe pt-2 px-6 z-[99999]" style="max-width: 430px; margin: 0 auto; padding-bottom: calc(env(safe-area-inset-bottom) + 16px);">
+    <nav class="flex justify-between items-end">
+        <a href="home-dashboard.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="home">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">home</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Trang chá»§</span>
+        </a>
+        <a href="categories-selection.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="products">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">checkroom</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Sáº£n pháº©m</span>
+        </a>
+        <a href="loyalty-activity.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="activities">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">bar_chart</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Hoáº¡t Ä‘á»™ng</span>
+        </a>
+        <a href="user-profile.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="account">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">person</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">TÃ i khoáº£n</span>
+        </a>
+    </nav>
+    
+    <!-- Home Indicator -->
+    <div class="h-1 w-32 bg-gray-300 rounded-full mx-auto mt-4"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach(item => {
+        const page = item.getAttribute('data-page');
+        let isActive = false;
+
+        if (page === 'home' && (currentPath.includes('home-dashboard') || currentPath.endsWith('/index.html') || currentPath.endsWith('/'))) isActive = true;
+        if (page === 'products' && (currentPath.includes('product') || currentPath.includes('categor') || currentPath.includes('cart') || currentPath.includes('check'))) isActive = true;
+        if (page === 'activities' && (currentPath.includes('activity') || currentPath.includes('loyalty') || currentPath.includes('game') || currentPath.includes('streak') || currentPath.includes('leaderboard'))) isActive = true;
+        if (page === 'account' && (currentPath.includes('profile') || currentPath.includes('user') || currentPath.includes('settings') || currentPath.includes('store'))) isActive = true;
+
+        const icon = item.querySelector('.material-symbols-outlined');
+        const text = item.querySelector('span:last-child');
+
+        if (isActive) {
+            icon.classList.add('text-black');
+            text.classList.add('text-black');
+            icon.classList.remove('text-gray-400');
+            text.classList.remove('text-gray-400');
+        } else {
+            icon.classList.add('text-gray-400');
+            text.classList.add('text-gray-400');
+            icon.classList.remove('text-black');
+            text.classList.remove('text-black');
+        }
+    });
+});
+</script>
+</body></html>

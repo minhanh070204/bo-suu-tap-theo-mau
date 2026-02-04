@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: 'Maven Pro', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    max-width: 430px !important;
+    margin: 0 auto !important;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    font-family: 'Maven Pro', sans-serif !important;
+    min-height: 100vh;
+    height: auto !important;
+}
+
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.relative,
+.flex,
+div[class*="relative"],
+div[class*="flex"] {
+    min-height: auto !important;
+}
+
+div[class*="h-screen"],
+div[class*="min-h-screen"],
+.h-screen,
+.min-h-screen {
+    min-height: 100vh !important;
+    height: auto !important;
+}
+
+header[class*="sticky"],
+div[class*="sticky top"],
+.sticky {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+}
+
+nav[class*="fixed"],
+div[class*="fixed bottom"],
+.fixed.bottom-0,
+footer[class*="fixed"] {
+    position: sticky !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    max-width: 430px !important;
+    margin: 0 auto !important;
+}
+
+main,
+.main-content,
+div[class*="pb-32"],
+div[class*="pb-24"] {
+    padding-bottom: 120px !important;
+    min-height: calc(100vh - 60px);
+    overflow-y: visible !important;
+}
+
+.hide-on-desktop {
+    display: block;
+}
+
+.no-scrollbar::-webkit-scrollbar,
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar,
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
+@media (min-width: 431px) {
+    html {
+        background: #f0f0f0;
+    }
+
+    body {
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+        border-radius: 16px;
+        overflow: hidden auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .hide-on-desktop {
+        display: none !important;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: -webkit-fill-available;
+    }
+}
+
+body>div:first-child {
+    min-height: 100vh;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+}

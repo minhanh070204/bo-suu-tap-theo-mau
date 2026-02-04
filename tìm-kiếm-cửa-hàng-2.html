@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000000",
+                        "background-light": "#ffffff",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Maven Pro", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "8px",
+                        "lg": "12px",
+                        "xl": "16px",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Maven Pro', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #000;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="mobile.css"/>
+<link rel='stylesheet' href='status-bar.css'/></head>
+<body class="bg-background-light dark:bg-background-dark text-black dark:text-white font-display">
+<div class="status-bar">
+    <div class="status-bar-time">9:41</div>
+    <div class="status-bar-icons">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <rect x="12" y="4" width="2" height="8" rx="1" />
+            <rect x="9" y="6" width="2" height="6" rx="1" />
+            <rect x="6" y="3" width="2" height="9" rx="1" />
+            <rect x="3" y="5" width="2" height="7" rx="1" />
+        </svg>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 8.5C2 7.67 2.67 7 3.5 7h1C5.33 7 6 7.67 6 8.5v6c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-6zm4.5-3c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H8c-.83 0-1.5-.67-1.5-1.5v-9zm5.5-2c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-11z" />
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none" class="battery-icon">
+            <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor"/>
+            <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor"/>
+            <path d="M23 4V8" stroke="currentColor" stroke-linecap="round"/>
+        </svg>
+    </div>
+</div>
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden max-w-md mx-auto border-x border-gray-100 dark:border-gray-800">
+<div class="sticky top-0 z-50 flex items-center bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm p-4 border-b border-gray-100 dark:border-gray-800 justify-between">
+<div class="text-black dark:text-white flex size-10 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<h2 class="text-black dark:text-white text-lg font-extrabold leading-tight tracking-tight uppercase">Đặt lịch hẹn</h2>
+<p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Sư Vạn Hạnh</p>
+</div>
+<div class="size-10 shrink-0"></div>
+</div>
+<div class="flex flex-col p-6 gap-8">
+<div class="flex items-center gap-4 p-4 border border-black/5 bg-gray-50 dark:bg-gray-900 rounded-lg">
+<div class="w-16 h-16 bg-gray-200 shrink-0 grayscale border border-black/10 rounded-md overflow-hidden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAo2bR9t9mn2BfleGPE93FvdgMO2DlGQlNqzS7Qi_XUt2OzKYl5ReuxU0uIdWYRwa4WsNWAGLD2MTLmZON_3VuqPEeA-M4bzr_u0alVb3b7qQhovxlN0AVUStP0vBRvmgPo1UF5TynPJqvgIb1-4cega_0wS1xYOUlrou-XQll6guxBE6hPzxVcsV7xoadGyY1B9boZhDVJbLzThANI8tdnU_N0NfZpOyNMnCWEC8VlqZiSLV0zljcAEHw8jWaC_4DCqfxKaWTA8BA"); background-size: cover;'></div>
+<div class="flex flex-col">
+<p class="text-xs font-black uppercase tracking-widest text-gray-400">Cửa hàng đã chọn</p>
+<p class="text-sm font-bold uppercase">Sư Vạn Hạnh</p>
+<p class="text-[11px] text-gray-500 leading-tight mt-1">102 Sư Vạn Hạnh, Phường 12, Quận 10</p>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-black uppercase tracking-widest">Chọn ngày</h3>
+<p class="text-xs font-bold text-gray-500 uppercase">Tháng 12, 2024</p>
+</div>
+<div class="grid grid-cols-7 gap-2">
+<div class="text-[10px] font-black text-gray-400 text-center uppercase">T2</div>
+<div class="text-[10px] font-black text-gray-400 text-center uppercase">T3</div>
+<div class="text-[10px] font-black text-gray-400 text-center uppercase">T4</div>
+<div class="text-[10px] font-black text-gray-400 text-center uppercase">T5</div>
+<div class="text-[10px] font-black text-gray-400 text-center uppercase">T6</div>
+<div class="text-[10px] font-black text-gray-400 text-center uppercase">T7</div>
+<div class="text-[10px] font-black text-gray-400 text-center uppercase text-red-400">CN</div>
+<button class="aspect-square flex items-center justify-center text-sm font-medium text-gray-300 pointer-events-none">12</button>
+<button class="aspect-square flex items-center justify-center text-sm font-medium text-gray-300 pointer-events-none">13</button>
+<button class="aspect-square flex items-center justify-center text-sm font-bold border border-black bg-black text-white rounded-lg">14</button>
+<button class="aspect-square flex items-center justify-center text-sm font-bold border border-black/10 hover:border-black transition-colors rounded-lg">15</button>
+<button class="aspect-square flex items-center justify-center text-sm font-bold border border-black/10 hover:border-black transition-colors rounded-lg">16</button>
+<button class="aspect-square flex items-center justify-center text-sm font-bold border border-black/10 hover:border-black transition-colors rounded-lg">17</button>
+<button class="aspect-square flex items-center justify-center text-sm font-bold border border-black/10 hover:border-black transition-colors rounded-lg">18</button>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-sm font-black uppercase tracking-widest">Khung giờ trống</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 border border-black bg-black text-white text-xs font-bold tracking-widest uppercase rounded-lg">09:00</button>
+<button class="px-4 py-2 border border-black/20 text-black text-xs font-bold tracking-widest uppercase hover:border-black transition-colors rounded-lg">10:30</button>
+<button class="px-4 py-2 border border-black/20 text-black text-xs font-bold tracking-widest uppercase hover:border-black transition-colors rounded-lg">14:00</button>
+<button class="px-4 py-2 border border-black/20 text-black text-xs font-bold tracking-widest uppercase hover:border-black transition-colors rounded-lg">15:30</button>
+<button class="px-4 py-2 border border-black/20 text-black text-xs font-bold tracking-widest uppercase hover:border-black transition-colors rounded-lg">19:00</button>
+<button class="px-4 py-2 border border-black/20 text-black text-xs font-bold tracking-widest uppercase hover:border-black transition-colors rounded-lg">20:30</button>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-sm font-black uppercase tracking-widest">Ghi chú (Tùy chọn)</h3>
+<div class="w-full">
+<textarea class="w-full border border-black/20 focus:border-black focus:ring-0 text-sm font-medium p-3 placeholder:text-gray-300 min-h-[100px] resize-none rounded-lg" placeholder="Ví dụ: Tôi muốn xem BST mới..."></textarea>
+</div>
+</div>
+</div>
+<div class="mt-auto p-6 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-t border-gray-100 dark:border-gray-800">
+<button class="w-full h-14 border-2 border-black flex items-center justify-center gap-3 bg-transparent text-black dark:text-white hover:bg-black hover:text-white transition-all duration-300 rounded-xl">
+<span class="text-sm font-black uppercase tracking-[0.2em]">Xác nhận đặt lịch</span>
+<span class="material-symbols-outlined text-lg">calendar_add_on</span>
+</button>
+<p class="text-[10px] text-center text-gray-400 mt-4 font-bold uppercase tracking-widest">Dịch vụ ưu tiên dành cho thành viên</p>
+</div>
+</div>
+
+
+
+
+<script src='app-navigation.js'></script>
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 pb-safe pt-2 px-6 z-[99999]" style="max-width: 430px; margin: 0 auto; padding-bottom: calc(env(safe-area-inset-bottom) + 16px);">
+    <nav class="flex justify-between items-end">
+        <a href="home-dashboard.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="home">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">home</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Trang chá»§</span>
+        </a>
+        <a href="categories-selection.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="products">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">checkroom</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Sáº£n pháº©m</span>
+        </a>
+        <a href="loyalty-activity.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="activities">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">bar_chart</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Hoáº¡t Ä‘á»™ng</span>
+        </a>
+        <a href="user-profile.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="account">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">person</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">TÃ i khoáº£n</span>
+        </a>
+    </nav>
+    
+    <!-- Home Indicator -->
+    <div class="h-1 w-32 bg-gray-300 rounded-full mx-auto mt-4"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach(item => {
+        const page = item.getAttribute('data-page');
+        let isActive = false;
+
+        if (page === 'home' && (currentPath.includes('home-dashboard') || currentPath.endsWith('/index.html') || currentPath.endsWith('/'))) isActive = true;
+        if (page === 'products' && (currentPath.includes('product') || currentPath.includes('categor') || currentPath.includes('cart') || currentPath.includes('check'))) isActive = true;
+        if (page === 'activities' && (currentPath.includes('activity') || currentPath.includes('loyalty') || currentPath.includes('game') || currentPath.includes('streak') || currentPath.includes('leaderboard'))) isActive = true;
+        if (page === 'account' && (currentPath.includes('profile') || currentPath.includes('user') || currentPath.includes('settings') || currentPath.includes('store'))) isActive = true;
+
+        const icon = item.querySelector('.material-symbols-outlined');
+        const text = item.querySelector('span:last-child');
+
+        if (isActive) {
+            icon.classList.add('text-black');
+            text.classList.add('text-black');
+            icon.classList.remove('text-gray-400');
+            text.classList.remove('text-gray-400');
+        } else {
+            icon.classList.add('text-gray-400');
+            text.classList.add('text-gray-400');
+            icon.classList.remove('text-black');
+            text.classList.remove('text-black');
+        }
+    });
+});
+</script>
+</body></html>

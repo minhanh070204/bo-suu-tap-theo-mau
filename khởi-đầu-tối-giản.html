@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000000",
+                        "background-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "sans": ["Maven Pro", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Maven Pro', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background-color: #ffffff;
+        }.routine-logo {
+            display: flex;
+            align-items: center;
+            font-family: sans-serif;font-weight: 700;
+            color: #000000;
+            position: relative;
+        }
+        .routine-logo .char {
+            display: inline-block;
+            line-height: 1;
+        }.char-r {
+            position: relative;
+        }
+        .char-r::before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            top: 50%;
+            width: 100%;
+            height: 3px;
+            background: #000;
+            transform: translateY(-50%);
+        }.char-i-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            margin: 0 -2px;
+        }
+        .char-i-dot {
+            width: 6px;
+            height: 6px;
+            background: #000;
+            margin-bottom: 2px;
+        }
+        .char-i-body {
+            width: 5px;
+            height: 60px;background: #000;
+            margin-top: -2px;
+        }.char-e {
+            position: relative;
+        }
+        .char-e::after {
+            content: '';
+            position: absolute;
+            right: -100%;
+            top: 50%;
+            width: 100%;
+            height: 3px;
+            background: #000;
+            transform: translateY(-50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="mobile.css"/>
+<link rel='stylesheet' href='status-bar.css'/></head>
+<body class="bg-white text-black">
+<div class="status-bar">
+    <div class="status-bar-time">9:41</div>
+    <div class="status-bar-icons">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <rect x="12" y="4" width="2" height="8" rx="1" />
+            <rect x="9" y="6" width="2" height="6" rx="1" />
+            <rect x="6" y="3" width="2" height="9" rx="1" />
+            <rect x="3" y="5" width="2" height="7" rx="1" />
+        </svg>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 8.5C2 7.67 2.67 7 3.5 7h1C5.33 7 6 7.67 6 8.5v6c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-6zm4.5-3c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H8c-.83 0-1.5-.67-1.5-1.5v-9zm5.5-2c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-11z" />
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none" class="battery-icon">
+            <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor"/>
+            <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor"/>
+            <path d="M23 4V8" stroke="currentColor" stroke-linecap="round"/>
+        </svg>
+    </div>
+</div>
+<div class="relative flex h-screen w-full flex-col overflow-hidden bg-white">
+<div class="h-12 w-full bg-transparent"></div>
+<div class="flex flex-1 flex-col items-center justify-center px-8">
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-0 scale-90 sm:scale-100">
+<div class="relative flex items-center">
+<div class="w-10 h-[3px] bg-black"></div>
+<span class="text-6xl font-bold tracking-tighter">R</span>
+</div>
+<span class="text-6xl font-bold tracking-tighter">O</span>
+<span class="text-6xl font-bold tracking-tighter">U</span>
+<span class="text-6xl font-bold tracking-tighter">T</span>
+<div class="flex flex-col items-center mx-1">
+<div class="w-2.5 h-2.5 bg-black mb-1"></div>
+<div class="w-2.5 h-20 bg-black"></div>
+</div>
+<span class="text-6xl font-bold tracking-tighter">N</span>
+<div class="relative flex items-center">
+<span class="text-6xl font-bold tracking-tighter">E</span>
+<div class="w-10 h-[3px] bg-black"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col px-10 pb-20 pt-6 justify-center items-center gap-8">
+<button class="group relative flex min-w-[200px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-12 px-10 border border-black bg-transparent text-black text-[13px] font-semibold uppercase leading-normal tracking-[0.2em] transition-all active:opacity-60">
+<span>Khám phá</span>
+</button>
+<div class="h-1.5 w-36 bg-gray-100 rounded-full mb-2"></div>
+</div>
+</div>
+
+
+
+
+<script src='app-navigation.js'></script>
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 pb-safe pt-2 px-6 z-[99999]" style="max-width: 430px; margin: 0 auto; padding-bottom: calc(env(safe-area-inset-bottom) + 16px);">
+    <nav class="flex justify-between items-end">
+        <a href="home-dashboard.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="home">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">home</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Trang chá»§</span>
+        </a>
+        <a href="categories-selection.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="products">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">checkroom</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Sáº£n pháº©m</span>
+        </a>
+        <a href="loyalty-activity.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="activities">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">bar_chart</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Hoáº¡t Ä‘á»™ng</span>
+        </a>
+        <a href="user-profile.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="account">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">person</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">TÃ i khoáº£n</span>
+        </a>
+    </nav>
+    
+    <!-- Home Indicator -->
+    <div class="h-1 w-32 bg-gray-300 rounded-full mx-auto mt-4"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach(item => {
+        const page = item.getAttribute('data-page');
+        let isActive = false;
+
+        if (page === 'home' && (currentPath.includes('home-dashboard') || currentPath.endsWith('/index.html') || currentPath.endsWith('/'))) isActive = true;
+        if (page === 'products' && (currentPath.includes('product') || currentPath.includes('categor') || currentPath.includes('cart') || currentPath.includes('check'))) isActive = true;
+        if (page === 'activities' && (currentPath.includes('activity') || currentPath.includes('loyalty') || currentPath.includes('game') || currentPath.includes('streak') || currentPath.includes('leaderboard'))) isActive = true;
+        if (page === 'account' && (currentPath.includes('profile') || currentPath.includes('user') || currentPath.includes('settings') || currentPath.includes('store'))) isActive = true;
+
+        const icon = item.querySelector('.material-symbols-outlined');
+        const text = item.querySelector('span:last-child');
+
+        if (isActive) {
+            icon.classList.add('text-black');
+            text.classList.add('text-black');
+            icon.classList.remove('text-gray-400');
+            text.classList.remove('text-gray-400');
+        } else {
+            icon.classList.add('text-gray-400');
+            text.classList.add('text-gray-400');
+            icon.classList.remove('text-black');
+            text.classList.remove('text-black');
+        }
+    });
+});
+</script>
+</body></html>

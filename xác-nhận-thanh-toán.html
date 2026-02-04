@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Routine - Xác nhận Thanh toán</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000000",
+                        "background-light": "#ffffff",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "sans": ["'Maven Pro'", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "4px",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Maven Pro', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .ios-bottom-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="mobile.css"/>
+<link rel='stylesheet' href='status-bar.css'/></head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white antialiased">
+<div class="status-bar">
+    <div class="status-bar-time">9:41</div>
+    <div class="status-bar-icons">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <rect x="12" y="4" width="2" height="8" rx="1" />
+            <rect x="9" y="6" width="2" height="6" rx="1" />
+            <rect x="6" y="3" width="2" height="9" rx="1" />
+            <rect x="3" y="5" width="2" height="7" rx="1" />
+        </svg>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 8.5C2 7.67 2.67 7 3.5 7h1C5.33 7 6 7.67 6 8.5v6c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-6zm4.5-3c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H8c-.83 0-1.5-.67-1.5-1.5v-9zm5.5-2c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-11z" />
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none" class="battery-icon">
+            <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor"/>
+            <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor"/>
+            <path d="M23 4V8" stroke="currentColor" stroke-linecap="round"/>
+        </svg>
+    </div>
+</div>
+<div class="relative flex min-h-screen w-full flex-col max-w-[480px] mx-auto overflow-x-hidden border-x border-gray-100 dark:border-gray-800">
+<header class="sticky top-0 z-50 flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="text-[#111418] dark:text-white flex size-10 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-base font-extrabold uppercase tracking-widest flex-1 text-center pr-10">Xác nhận thanh toán</h2>
+</header>
+<main class="flex-1 overflow-y-auto">
+<div class="px-4 py-6 border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-[#111418] dark:text-white text-xs font-extrabold uppercase tracking-widest">Thông tin giao hàng</h3>
+<button class="text-xs font-bold underline uppercase tracking-tighter">Thay đổi</button>
+</div>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] text-gray-400">person</span>
+<div>
+<p class="text-sm font-bold">Nguyễn Văn An</p>
+<p class="text-sm text-gray-500">0901 234 567</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] text-gray-400">location_on</span>
+<div>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            123 Đường Lê Lợi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 py-6 border-b border-gray-100 dark:border-gray-800">
+<h3 class="text-[#111418] dark:text-white text-xs font-extrabold uppercase tracking-widest mb-4">Tóm tắt đơn hàng</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="h-24 w-20 bg-gray-50 dark:bg-gray-900 flex-shrink-0 rounded-sm overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="Black minimalist t-shirt lifestyle shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqFYvYLcZ5OZeTw_1Xdi79StWNRcgketHUS09Y9P-hMytOlKMlDjF59H_62A61F5iQsXR5serm_2FTNAMrs7S1CC8U8RERQe1d7EpsY0sV_EeTBCyp3xvD1Ry-VPg6S63bSQdw_uAYv4naLD8gFPNsIlus8Lpp_Dp1dZcq0bzEKz06Qd-ygynjvHMfKwFKr_rcf33v2X3C3wxZkEp5eb0oFIXbQsy52t5Gl_qvFwqDSYoUaAcRSCt1fPUkZOTeUtX8ehPoXz5xVR4"/>
+</div>
+<div class="flex flex-col justify-between flex-1 py-1">
+<div>
+<p class="text-sm font-bold uppercase truncate tracking-wide">Áo thun Cotton Compact</p>
+<p class="text-xs text-gray-400 mt-1">Size: L | Màu: Đen</p>
+</div>
+<div class="flex justify-between items-end">
+<p class="text-xs text-gray-500 italic">Số lượng: 1</p>
+<p class="text-sm font-bold">350.000đ</p>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="h-24 w-20 bg-gray-50 dark:bg-gray-900 flex-shrink-0 rounded-sm overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="Straight fit blue denim jeans" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4C28wKV33PZckDAvOOHOoD4Oj7Ml2v1HoSDcRo_o0OBAoxJLCFuBlUf0DP9e4CjilYuc-pvQgJ5p2QIAXwsXQDpS8ku_vWS2z50FpvdQxqd8dty99JkSJiANUjWQwnE1khprg4zRCUv_H0r_MfIFxMi3psFVOn1yOCr6CYRUmqVPSWeOd9syx48KGdCPbcmeuUd6vjJpgX6qxMO_AZe8qOR2x20CoJWgV3aEzdv3wcxIwfOnTk3ugTLHeSVlfPzmN_V8cPVPvpSU"/>
+</div>
+<div class="flex flex-col justify-between flex-1 py-1">
+<div>
+<p class="text-sm font-bold uppercase truncate tracking-wide">Quần Jean Slim Fit</p>
+<p class="text-xs text-gray-400 mt-1">Size: 32 | Màu: Xanh Indigo</p>
+</div>
+<div class="flex justify-between items-end">
+<p class="text-xs text-gray-500 italic">Số lượng: 1</p>
+<p class="text-sm font-bold">750.000đ</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 py-6 border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-[#111418] dark:text-white text-xs font-extrabold uppercase tracking-widest">Phương thức thanh toán</h3>
+<button class="text-xs font-bold underline uppercase tracking-tighter">Thay đổi</button>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<p class="text-sm font-medium">Thanh toán khi nhận hàng (COD)</p>
+</div>
+</div>
+<div class="px-4 py-8 space-y-3 bg-gray-50/50 dark:bg-gray-900/20">
+<div class="flex justify-between text-sm">
+<span class="text-gray-500">Tạm tính</span>
+<span class="font-medium">1.100.000đ</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-500">Phí vận chuyển</span>
+<span class="font-medium">30.000đ</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-500">Giảm giá thành viên</span>
+<span class="text-red-600 font-medium">-50.000đ</span>
+</div>
+<div class="pt-4 mt-2 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
+<span class="text-sm font-extrabold uppercase tracking-widest">Tổng cộng</span>
+<span class="text-xl font-extrabold">1.080.000đ</span>
+</div>
+</div>
+</main>
+<footer class="p-4 bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 ios-bottom-safe">
+<button class="w-full py-4 border-[1px] border-[#111418] dark:border-white text-[#111418] dark:text-white text-sm font-extrabold uppercase tracking-[0.2em] rounded-lg hover:bg-[#111418] hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-200 active:scale-[0.98]">
+            Xác nhận đặt hàng
+        </button>
+<p class="text-[9px] text-center text-gray-400 mt-4 uppercase tracking-[0.15em] px-8 leading-relaxed">
+            Bằng cách nhấn xác nhận, bạn đồng ý với các Điều khoản &amp; Chính sách của Routine.
+        </p>
+</footer>
+</div>
+
+
+
+
+<script src='app-navigation.js'></script>
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 pb-safe pt-2 px-6 z-[99999]" style="max-width: 430px; margin: 0 auto; padding-bottom: calc(env(safe-area-inset-bottom) + 16px);">
+    <nav class="flex justify-between items-end">
+        <a href="home-dashboard.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="home">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">home</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Trang chá»§</span>
+        </a>
+        <a href="categories-selection.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="products">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">checkroom</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Sáº£n pháº©m</span>
+        </a>
+        <a href="loyalty-activity.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="activities">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">bar_chart</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Hoáº¡t Ä‘á»™ng</span>
+        </a>
+        <a href="user-profile.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="account">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">person</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">TÃ i khoáº£n</span>
+        </a>
+    </nav>
+    
+    <!-- Home Indicator -->
+    <div class="h-1 w-32 bg-gray-300 rounded-full mx-auto mt-4"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach(item => {
+        const page = item.getAttribute('data-page');
+        let isActive = false;
+
+        if (page === 'home' && (currentPath.includes('home-dashboard') || currentPath.endsWith('/index.html') || currentPath.endsWith('/'))) isActive = true;
+        if (page === 'products' && (currentPath.includes('product') || currentPath.includes('categor') || currentPath.includes('cart') || currentPath.includes('check'))) isActive = true;
+        if (page === 'activities' && (currentPath.includes('activity') || currentPath.includes('loyalty') || currentPath.includes('game') || currentPath.includes('streak') || currentPath.includes('leaderboard'))) isActive = true;
+        if (page === 'account' && (currentPath.includes('profile') || currentPath.includes('user') || currentPath.includes('settings') || currentPath.includes('store'))) isActive = true;
+
+        const icon = item.querySelector('.material-symbols-outlined');
+        const text = item.querySelector('span:last-child');
+
+        if (isActive) {
+            icon.classList.add('text-black');
+            text.classList.add('text-black');
+            icon.classList.remove('text-gray-400');
+            text.classList.remove('text-gray-400');
+        } else {
+            icon.classList.add('text-gray-400');
+            text.classList.add('text-gray-400');
+            icon.classList.remove('text-black');
+            text.classList.remove('text-black');
+        }
+    });
+});
+</script>
+</body></html>

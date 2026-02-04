@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1736cf",
+                        "background-light": "#ffffff",
+                        "background-dark": "#111421",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .canvas-grid {
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="mobile.css"/>
+<link rel='stylesheet' href='status-bar.css'/></head>
+<body class="bg-background-light dark:bg-background-dark text-[#111218] dark:text-white transition-colors duration-200">
+<div class="status-bar">
+    <div class="status-bar-time">9:41</div>
+    <div class="status-bar-icons">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <rect x="12" y="4" width="2" height="8" rx="1" />
+            <rect x="9" y="6" width="2" height="6" rx="1" />
+            <rect x="6" y="3" width="2" height="9" rx="1" />
+            <rect x="3" y="5" width="2" height="7" rx="1" />
+        </svg>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 8.5C2 7.67 2.67 7 3.5 7h1C5.33 7 6 7.67 6 8.5v6c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-6zm4.5-3c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H8c-.83 0-1.5-.67-1.5-1.5v-9zm5.5-2c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-11z" />
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none" class="battery-icon">
+            <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor"/>
+            <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor"/>
+            <path d="M23 4V8" stroke="currentColor" stroke-linecap="round"/>
+        </svg>
+    </div>
+</div>
+<div class="relative flex min-h-screen w-full max-w-[430px] mx-auto flex-col overflow-x-hidden border-x border-gray-100 dark:border-gray-800">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-background-dark/80 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="text-[#111218] dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-[#111218] dark:text-white text-base font-bold leading-tight tracking-tight flex-1 text-center">Tủ đồ ảo AI</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-transparent text-[#111218] dark:text-white border border-black/10 dark:border-white/10">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+</div>
+<!-- Headline & Meta -->
+<div class="px-6 py-6 text-center">
+<h3 class="text-[#111218] dark:text-white text-2xl font-bold tracking-tight mb-2">Routine Challenge 2025</h3>
+<p class="text-[#636988] dark:text-gray-400 text-sm font-normal">Kéo thả sản phẩm để phối đồ &amp; nhận +50 điểm</p>
+</div>
+<!-- Main Canvas (The Square Workspace) -->
+<div class="px-6 mb-8">
+<div class="relative w-full aspect-square rounded-xl border-2 border-black dark:border-white bg-white dark:bg-slate-900 overflow-hidden canvas-grid flex items-center justify-center">
+<!-- Empty State / Placeholder Slots -->
+<div class="grid grid-cols-2 grid-rows-2 gap-4 w-full h-full p-8 opacity-20">
+<div class="border-2 border-dashed border-black dark:border-white rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">checkroom</span>
+</div>
+<div class="border-2 border-dashed border-black dark:border-white rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">straighten</span>
+</div>
+<div class="border-2 border-dashed border-black dark:border-white rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">apparel</span>
+</div>
+<div class="border-2 border-dashed border-black dark:border-white rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">shopping_bag</span>
+</div>
+</div>
+<!-- Floating Labels/Action -->
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+<div class="bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full mb-4 tracking-widest uppercase">Canvas Trống</div>
+<button class="pointer-events-auto bg-primary text-white px-6 py-2 rounded-full font-bold text-sm flex items-center gap-2 shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg">auto_fix_high</span>
+                        Gợi ý AI
+                    </button>
+</div>
+<!-- Reward Badge -->
+<div class="absolute top-4 right-4 bg-yellow-400 text-black px-3 py-1 rounded-md text-xs font-bold border border-black">
+                    +50 PTS
+                </div>
+</div>
+</div>
+<!-- Inventory Section -->
+<div class="flex-1 bg-white dark:bg-background-dark">
+<!-- Tabs -->
+<div class="border-b border-[#dcdde5] dark:border-gray-800 px-4 flex gap-6 overflow-x-auto no-scrollbar">
+<a class="flex flex-col items-center justify-center border-b-[2px] border-b-black dark:border-b-white text-black dark:text-white pb-3 pt-4 shrink-0" href="#">
+<p class="text-sm font-bold tracking-tight uppercase">Tất cả</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[2px] border-b-transparent text-[#636988] pb-3 pt-4 shrink-0" href="#">
+<p class="text-sm font-bold tracking-tight uppercase">Áo</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[2px] border-b-transparent text-[#636988] pb-3 pt-4 shrink-0" href="#">
+<p class="text-sm font-bold tracking-tight uppercase">Quần</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[2px] border-b-transparent text-[#636988] pb-3 pt-4 shrink-0" href="#">
+<p class="text-sm font-bold tracking-tight uppercase">Váy</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[2px] border-b-transparent text-[#636988] pb-3 pt-4 shrink-0" href="#">
+<p class="text-sm font-bold tracking-tight uppercase">Phụ kiện</p>
+</a>
+</div>
+<!-- Image Grid Inventory -->
+<div class="grid grid-cols-3 gap-3 p-4">
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative w-full aspect-square bg-gray-50 dark:bg-slate-800 rounded-lg border border-black/5 dark:border-white/5 p-2 transition-all group-hover:border-primary">
+<div class="w-full h-full bg-center bg-no-repeat bg-contain" data-alt="Minimalist white oversized t-shirt" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuABQTthJqMRCTh2U_xNSjwshdmrXuF0Wo-OHB4cNYnLe919dN5q_vZi9thhKit_Pi2yN0kX9RVvu8tXV6rUeCxTf5LxYM6wOS-TLqB8pbfzsIXznHwjPNww9tUBifaggqGAjhhTfpGYeo_OuIFx2cG9GtS1knXIYKpXlyaPN87Ps0uTHmcGndeJfSP7UITe40AKch1dZziACexvTgRGgFaDwuuYbtOvRSzOtg_yiij8fPOTqiD8p7SXPPv39P4s-T6JXRYUhBQ6IrU");'></div>
+<div class="absolute bottom-1 right-1">
+<span class="material-symbols-outlined text-sm bg-black text-white rounded-full p-0.5">add</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative w-full aspect-square bg-gray-50 dark:bg-slate-800 rounded-lg border border-black/5 dark:border-white/5 p-2 transition-all group-hover:border-primary">
+<div class="w-full h-full bg-center bg-no-repeat bg-contain" data-alt="Black wide leg tailored trousers" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRUgvo_HZ_QTKOsmbEjYpAay9_rf1GuqAi8DNCSLnfRTxk9M3cXpB4ufpC91JyJRil3hWlM4S99j0iZaMI9TYgJem2Q_qudktA_H4quzcWKNQK_cjZU_HVKBTkAhJ8NOm0BUDcl4o1qr8efrlsF8iyM3fy-6sx8psJuUuYdVlPna96Ek7YrvcsseGUwTjwqkSXk5wzcTgPVgaPa_TJKhBINR6Rbw5WJAEvsMO-VQ3wKD70JYI5Mv8XynkBnAI28kpymSFZkujX6BY");'></div>
+<div class="absolute bottom-1 right-1">
+<span class="material-symbols-outlined text-sm bg-black text-white rounded-full p-0.5">add</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative w-full aspect-square bg-gray-50 dark:bg-slate-800 rounded-lg border border-black/5 dark:border-white/5 p-2 transition-all group-hover:border-primary">
+<div class="w-full h-full bg-center bg-no-repeat bg-contain" data-alt="Minimal beige linen blazer" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA-UYjjBdogHz_yjdfekdo_NuXCwZhjJCKOr2gNXrB4u6n9bpcoXcAfDiVyYOi9eSRIAlO9a2oQI7oij7tHaUywWAEl_-gQmNlSN-zv0goBRS1cIJdh559mCHTDzkNEWvPmeTmDWVrn48JKu04KcMvohYLVaKhJbazhPTPxf8cL-pMS12LPavWz6el7dd-bblVeGgGYAcI_Pl-wiplMXnqd104lfd6Z6tDoQufvf5YklBu-c9vU8FYfQHeaiuZa-7p9amBs1CD-Yvo");'></div>
+<div class="absolute bottom-1 right-1">
+<span class="material-symbols-outlined text-sm bg-black text-white rounded-full p-0.5">add</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative w-full aspect-square bg-gray-50 dark:bg-slate-800 rounded-lg border border-black/5 dark:border-white/5 p-2 transition-all group-hover:border-primary">
+<div class="w-full h-full bg-center bg-no-repeat bg-contain" data-alt="Silver minimalist jewelry chain" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_E_QfiuVJecqd44RVJe-IHHdJYb8gvNYWHOUaCTio8cKkEewG5_XULWBvlkZGP96rZGjs8P7dOAK5cJW7Qv2-E_Qqvcl3v6ZakHiabm1c18NXW1XWF44PgDFO5SPqY_Aa89ynXfQDBBIAHeid9epGyA82-ELG1JOMzLf0SaNYcMrFC-BpmaLdl0xptmlPPxmlwfLgGxbnjmjpXiZV2d2wyoYf_pFMK_JhbG2nj7yxl4-xuYh0oS3-_AShU4nmuAg9JNLW-lpnXZE");'></div>
+<div class="absolute bottom-1 right-1">
+<span class="material-symbols-outlined text-sm bg-black text-white rounded-full p-0.5">add</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative w-full aspect-square bg-gray-50 dark:bg-slate-800 rounded-lg border border-black/5 dark:border-white/5 p-2 transition-all group-hover:border-primary">
+<div class="w-full h-full bg-center bg-no-repeat bg-contain" data-alt="Cream knit vest top" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBSod3sw1quCPveYr2ziI_qf8rhiIG4nymY4q4hHpfO2CoT3c_flIZ1dW-N6p-yvdz0OIsffOpJeJuGvj93_7RGv4CNSpdwvyXh4FSVHqGko_ho5lyco5jV4gOGEhuK1Q-tCHkn79en9N8KYNKCSm0a-fkjkf2eYAYp9_cEfmk0-fQnRSXwu6mQXwED6vSwMzIot-uE0ORUmLLFuqzC9EJbCLcU8M6jgHk3JDFJu6OPNZsv2aSWe4hN3AxS80cEuMmpbMDGPoBGUsU");'></div>
+<div class="absolute bottom-1 right-1">
+<span class="material-symbols-outlined text-sm bg-black text-white rounded-full p-0.5">add</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative w-full aspect-square bg-gray-50 dark:bg-slate-800 rounded-lg border border-black/5 dark:border-white/5 p-2 transition-all group-hover:border-primary">
+<div class="w-full h-full bg-center bg-no-repeat bg-contain" data-alt="Black leather loafers" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBx-if7cwLnWJ7Frjmgt-4T7rVVzJw6i3KjTs2OMkLofnLE8I20BkSDhtsavxltGNe2PoPD5tCiUraucejuVR2m9li3RM17Vs6McdnAlTE1XcocyPkhPIN8HdQ1l4xhIhD5_b8WmZXs16HFg2IZvYuCXuvpwZIVtHxPRaQsv36p358xi-NiUIAPAiUWzpq13I2XflIkEReYrC--Ynqsb_Pm74YF4br8ZO3UrdSngKLaQYAkUPF_9-zVMYvdHLO8LiBMl-pWBiZhhs");'></div>
+<div class="absolute bottom-1 right-1">
+<span class="material-symbols-outlined text-sm bg-black text-white rounded-full p-0.5">add</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Footer Action -->
+<div class="p-6 bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800">
+<button class="w-full bg-black dark:bg-white text-white dark:text-black py-4 rounded-xl font-bold text-base flex items-center justify-center gap-3 active:scale-[0.98] transition-all">
+                Hoàn thành &amp; Nhận điểm
+                <span class="material-symbols-outlined">auto_awesome</span>
+</button>
+<div class="mt-4 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-green-500 text-sm">verified</span>
+<p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Phối đồ theo Routine 2025 Trend</p>
+</div>
+</div>
+<!-- iOS Home Indicator Spacing -->
+<div class="h-8 bg-white dark:bg-background-dark"></div>
+</div>
+
+
+
+<script src='app-navigation.js'></script>
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 pb-safe pt-2 px-6 z-[99999]" style="max-width: 430px; margin: 0 auto; padding-bottom: calc(env(safe-area-inset-bottom) + 16px);">
+    <nav class="flex justify-between items-end">
+        <a href="home-dashboard.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="home">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">home</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Trang chá»§</span>
+        </a>
+        <a href="categories-selection.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="products">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">checkroom</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Sáº£n pháº©m</span>
+        </a>
+        <a href="loyalty-activity.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="activities">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">bar_chart</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Hoáº¡t Ä‘á»™ng</span>
+        </a>
+        <a href="user-profile.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="account">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">person</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">TÃ i khoáº£n</span>
+        </a>
+    </nav>
+    
+    <!-- Home Indicator -->
+    <div class="h-1 w-32 bg-gray-300 rounded-full mx-auto mt-4"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach(item => {
+        const page = item.getAttribute('data-page');
+        let isActive = false;
+
+        if (page === 'home' && (currentPath.includes('home-dashboard') || currentPath.endsWith('/index.html') || currentPath.endsWith('/'))) isActive = true;
+        if (page === 'products' && (currentPath.includes('product') || currentPath.includes('categor') || currentPath.includes('cart') || currentPath.includes('check'))) isActive = true;
+        if (page === 'activities' && (currentPath.includes('activity') || currentPath.includes('loyalty') || currentPath.includes('game') || currentPath.includes('streak') || currentPath.includes('leaderboard'))) isActive = true;
+        if (page === 'account' && (currentPath.includes('profile') || currentPath.includes('user') || currentPath.includes('settings') || currentPath.includes('store'))) isActive = true;
+
+        const icon = item.querySelector('.material-symbols-outlined');
+        const text = item.querySelector('span:last-child');
+
+        if (isActive) {
+            icon.classList.add('text-black');
+            text.classList.add('text-black');
+            icon.classList.remove('text-gray-400');
+            text.classList.remove('text-gray-400');
+        } else {
+            icon.classList.add('text-gray-400');
+            text.classList.add('text-gray-400');
+            icon.classList.remove('text-black');
+            text.classList.remove('text-black');
+        }
+    });
+});
+</script>
+</body></html>

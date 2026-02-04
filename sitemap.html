@@ -1,0 +1,510 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Stitch Routine - Interactive Sitemap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fa;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 32px;
+            color: #1a1a1a;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .sitemap {
+            display: grid;
+            gap: 30px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid;
+        }
+
+        .section-title.home {
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+        }
+
+        .section-title.products {
+            border-color: #4ecdc4;
+            color: #4ecdc4;
+        }
+
+        .section-title.activities {
+            border-color: #ffd93d;
+            color: #ffd93d;
+        }
+
+        .section-title.account {
+            border-color: #a8e6cf;
+            color: #a8e6cf;
+        }
+
+        .section-title.loyalty {
+            border-color: #ff8fab;
+            color: #ff8fab;
+        }
+
+        .screen-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .screen-item {
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #ddd;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .screen-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .screen-item.home {
+            border-left-color: #ff6b6b;
+        }
+
+        .screen-item.products {
+            border-left-color: #4ecdc4;
+        }
+
+        .screen-item.activities {
+            border-left-color: #ffd93d;
+        }
+
+        .screen-item.account {
+            border-left-color: #a8e6cf;
+        }
+
+        .screen-item.loyalty {
+            border-left-color: #ff8fab;
+        }
+
+        .screen-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .screen-file {
+            font-size: 11px;
+            color: #666;
+            font-family: monospace;
+        }
+
+        .flow-diagram {
+            margin-top: 24px;
+            padding: 16px;
+            background: #f0f4f8;
+            border-radius: 8px;
+        }
+
+        .flow-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 12px;
+        }
+
+        .flow-path {
+            font-size: 12px;
+            color: #6c757d;
+            line-height: 1.8;
+            font-family: monospace;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .nav-item:hover {
+            background: #f8f9fa;
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        .nav-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🗺️ Stitch Routine - Interactive Sitemap</h1>
+        <p class="subtitle">Loyalty Mini App Information Architecture</p>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">35</div>
+                <div class="stat-label">Total Screens</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Main Sections</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">480px</div>
+                <div class="stat-label">Max Width</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">UI Preserved</div>
+            </div>
+        </div>
+
+        <div class="sitemap">
+
+            <div class="section">
+                <div class="section-title" style="border-color: #667eea; color: #667eea;">🚀 WELCOME Screen</div>
+                <div class="screen-list">
+                    <div class="screen-item" style="border-left-color: #667eea;" onclick="open('welcome.html')">
+                        <div class="screen-name">Welcome / Splash Screen</div>
+                        <div class="screen-file">welcome.html</div>
+                    </div>
+                </div>
+                <div class="flow-diagram">
+                    <div class="flow-title">📍 Entry Point:</div>
+                    <div class="flow-path">
+                        App Launch → Welcome Screen → Click "Khám phá" → Home Dashboard
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title home">🏠 HOME Section</div>
+                <div class="screen-list">
+                    <div class="screen-item home" onclick="open('home-dashboard.html')">
+                        <div class="screen-name">Home Dashboard</div>
+                        <div class="screen-file">home-dashboard.html</div>
+                    </div>
+                </div>
+                <div class="flow-diagram">
+                    <div class="flow-title">📍 Navigation Paths from Home:</div>
+                    <div class="flow-path">
+                        → Membership Card → Membership Tiers<br>
+                        → Product Collections → Color Collections<br>
+                        → Points History → Loyalty Activity<br>
+                        → Vouchers → Loyalty Activity
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title products">🛍️ PRODUCTS Section</div>
+                <div class="screen-list">
+                    <div class="screen-item products" onclick="open('categories-selection.html')">
+                        <div class="screen-name">Categories Selection</div>
+                        <div class="screen-file">categories-selection.html</div>
+                    </div>
+                    <div class="screen-item products" onclick="open('danh-mục-chính.html')">
+                        <div class="screen-name">Main Categories</div>
+                        <div class="screen-file">danh-mục-chính.html</div>
+                    </div>
+                    <div class="screen-item products" onclick="open('bộ-sưu-tập-theo-màu.html')">
+                        <div class="screen-name">Browse by Color</div>
+                        <div class="screen-file">bộ-sưu-tập-theo-màu.html</div>
+                    </div>
+                    <div class="screen-item products" onclick="open('săn-item-bền-vững.html')">
+                        <div class="screen-name">Sustainable Collection</div>
+                        <div class="screen-file">săn-item-bền-vững.html</div>
+                    </div>
+                    <div class="screen-item products" onclick="open('chi-tiết-sản-phẩm.html')">
+                        <div class="screen-name">Product Detail</div>
+                        <div class="screen-file">chi-tiết-sản-phẩm.html</div>
+                    </div>
+                    <div class="screen-item products" onclick="open('giỏ-hàng-tối-giản.html')">
+                        <div class="screen-name">Shopping Cart</div>
+                        <div class="screen-file">giỏ-hàng-tối-giản.html</div>
+                    </div>
+                    <div class="screen-item products" onclick="open('xác-nhận-thanh-toán.html')">
+                        <div class="screen-name">Checkout</div>
+                        <div class="screen-file">xác-nhận-thanh-toán.html</div>
+                    </div>
+                </div>
+                <div class="flow-diagram">
+                    <div class="flow-title">📍 Shopping Flow:</div>
+                    <div class="flow-path">
+                        Categories → Main Categories → Color Filter → Product Detail → Cart → Checkout
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title activities">🎮 ACTIVITIES Section</div>
+                <div class="screen-list">
+                    <div class="screen-item activities" onclick="open('trung-tâm-trò-chơi.html')">
+                        <div class="screen-name">Game Hub</div>
+                        <div class="screen-file">trung-tâm-trò-chơi.html</div>
+                    </div>
+                    <div class="screen-item activities" onclick="open('vòng-quay-may-mắn.html')">
+                        <div class="screen-name">Lucky Wheel</div>
+                        <div class="screen-file">vòng-quay-may-mắn.html</div>
+                    </div>
+                    <div class="screen-item activities" onclick="open('thử-đồ-ảo-(try-on).html')">
+                        <div class="screen-name">Virtual Try-On</div>
+                        <div class="screen-file">thử-đồ-ảo-(try-on).html</div>
+                    </div>
+                    <div class="screen-item activities" onclick="open('game-nối-đôi-phong-cách.html')">
+                        <div class="screen-name">Mix & Match Game</div>
+                        <div class="screen-file">game-nối-đôi-phong-cách.html</div>
+                    </div>
+                    <div class="screen-item activities" onclick="open('game-sắp-xếp-tủ-đồ.html')">
+                        <div class="screen-name">Wardrobe Game</div>
+                        <div class="screen-file">game-sắp-xếp-tủ-đồ.html</div>
+                    </div>
+                    <div class="screen-item activities" onclick="open('thử-thách-phối-đồ-ai.html')">
+                        <div class="screen-name">AI Styling Challenge</div>
+                        <div class="screen-file">thử-thách-phối-đồ-ai.html</div>
+                    </div>
+                    <div class="screen-item activities" onclick="open('trang-điểm-nhân-vật.html')">
+                        <div class="screen-name">Character Makeup</div>
+                        <div class="screen-file">trang-điểm-nhân-vật.html</div>
+                    </div>
+                    <div class="screen-item activities" onclick="open('bảng-xếp-hạng-tuần.html')">
+                        <div class="screen-name">Weekly Leaderboard</div>
+                        <div class="screen-file">bảng-xếp-hạng-tuần.html</div>
+                    </div>
+                    <div class="screen-item activities" onclick="open('bình-chọn-street-style.html')">
+                        <div class="screen-name">Street Style Voting</div>
+                        <div class="screen-file">bình-chọn-street-style.html</div>
+                    </div>
+                    <div class="screen-item activities" onclick="open('chuỗi-hoạt-động-daily-streak.html')">
+                        <div class="screen-name">Daily Streak</div>
+                        <div class="screen-file">chuỗi-hoạt-động-daily-streak.html</div>
+                    </div>
+                    <div class="screen-item activities" onclick="open('chuỗi-rực-cháy-(tiktok-style).html')">
+                        <div class="screen-name">TikTok Style Streak</div>
+                        <div class="screen-file">chuỗi-rực-cháy-(tiktok-style).html</div>
+                    </div>
+                    <div class="screen-item activities" onclick="open('quà-tặng-chuỗi-ngày.html')">
+                        <div class="screen-name">Streak Rewards</div>
+                        <div class="screen-file">quà-tặng-chuỗi-ngày.html</div>
+                    </div>
+                </div>
+                <div class="flow-diagram">
+                    <div class="flow-title">📍 Activities Categories:</div>
+                    <div class="flow-path">
+                        Mini Games: 7 screens | Social: 2 screens | Streaks: 3 screens
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title loyalty">💎 LOYALTY System (Cross-Section)</div>
+                <div class="screen-list">
+                    <div class="screen-item loyalty" onclick="open('loyalty-activity.html')">
+                        <div class="screen-name">Loyalty Activity</div>
+                        <div class="screen-file">loyalty-activity.html</div>
+                    </div>
+                    <div class="screen-item loyalty" onclick="open('hạng-thành-viên-&-đặc-quyền.html')">
+                        <div class="screen-name">Membership Tiers</div>
+                        <div class="screen-file">hạng-thành-viên-&-đặc-quyền.html</div>
+                    </div>
+                    <div class="screen-item loyalty" onclick="open('đặc-quyền-thành-viên.html')">
+                        <div class="screen-name">Member Benefits</div>
+                        <div class="screen-file">đặc-quyền-thành-viên.html</div>
+                    </div>
+                    <div class="screen-item loyalty" onclick="open('thẻ-vip-&-cá-nhân-1.html')">
+                        <div class="screen-name">VIP Card</div>
+                        <div class="screen-file">thẻ-vip-&-cá-nhân-1.html</div>
+                    </div>
+                </div>
+                <div class="flow-diagram">
+                    <div class="flow-title">📍 Access Points:</div>
+                    <div class="flow-path">
+                        From Home: Membership Card, Points, Vouchers<br>
+                        From Account: Membership, Benefits, VIP Card
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title account">👤 ACCOUNT Section</div>
+                <div class="screen-list">
+                    <div class="screen-item account" onclick="open('user-profile.html')">
+                        <div class="screen-name">User Profile</div>
+                        <div class="screen-file">user-profile.html</div>
+                    </div>
+                    <div class="screen-item account" onclick="open('tìm-kiếm-cửa-hàng-2.html')">
+                        <div class="screen-name">Store Locator</div>
+                        <div class="screen-file">tìm-kiếm-cửa-hàng-2.html</div>
+                    </div>
+                    <div class="screen-item account" onclick="open('danh-sách-lịch-hẹn-của-tôi.html')">
+                        <div class="screen-name">My Appointments</div>
+                        <div class="screen-file">danh-sách-lịch-hẹn-của-tôi.html</div>
+                    </div>
+                    <div class="screen-item account" onclick="open('xác-nhận-đặt-lịch-thành-công.html')">
+                        <div class="screen-name">Booking Confirmed</div>
+                        <div class="screen-file">xác-nhận-đặt-lịch-thành-công.html</div>
+                    </div>
+                    <div class="screen-item account" onclick="open('popup-xác-nhận-hủy-lịch.html')">
+                        <div class="screen-name">Cancel Appointment</div>
+                        <div class="screen-file">popup-xác-nhận-hủy-lịch.html</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title" style="border-color: #9c88ff; color: #9c88ff;">📋 TASKS & NOTIFICATIONS</div>
+                <div class="screen-list">
+                    <div class="screen-item" style="border-left-color: #9c88ff;"
+                        onclick="open('danh-sách-nhiệm-vụ-1.html')">
+                        <div class="screen-name">Daily Tasks</div>
+                        <div class="screen-file">danh-sách-nhiệm-vụ-1.html</div>
+                    </div>
+                    <div class="screen-item" style="border-left-color: #9c88ff;"
+                        onclick="open('danh-sách-nhiệm-vụ-2.html')">
+                        <div class="screen-name">Weekly Tasks</div>
+                        <div class="screen-file">danh-sách-nhiệm-vụ-2.html</div>
+                    </div>
+                    <div class="screen-item" style="border-left-color: #9c88ff;"
+                        onclick="open('thông-báo-nhiệm-vụ.html')">
+                        <div class="screen-name">Task Notifications</div>
+                        <div class="screen-file">thông-báo-nhiệm-vụ.html</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title" style="border-color: #95e1d3; color: #95e1d3;">🚀 ONBOARDING</div>
+                <div class="screen-list">
+                    <div class="screen-item" style="border-left-color: #95e1d3;"
+                        onclick="open('khởi-đầu-tối-giản.html')">
+                        <div class="screen-name">Welcome Onboarding</div>
+                        <div class="screen-file">khởi-đầu-tối-giản.html</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="height: 100px;"></div>
+
+    </div>
+
+    <div class="bottom-nav">
+        <div class="nav-item" onclick="open('home-dashboard.html')">
+            <div class="nav-icon" style="background: #ff6b6b;"></div>
+            <div class="nav-label" style="color: #ff6b6b;">Home</div>
+        </div>
+        <div class="nav-item" onclick="open('categories-selection.html')">
+            <div class="nav-icon" style="background: #4ecdc4;"></div>
+            <div class="nav-label" style="color: #4ecdc4;">Products</div>
+        </div>
+        <div class="nav-item" onclick="open('trung-tâm-trò-chơi.html')">
+            <div class="nav-icon" style="background: #ffd93d;"></div>
+            <div class="nav-label" style="color: #ffd93d;">Activities</div>
+        </div>
+        <div class="nav-item" onclick="open('user-profile.html')">
+            <div class="nav-icon" style="background: #a8e6cf;"></div>
+            <div class="nav-label" style="color: #a8e6cf;">Account</div>
+        </div>
+    </div>
+
+    <script>
+        function open(file) {
+            window.location.href = file;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+/* iOS Status Bar - Consistent across all screens */
+.status-bar {
+    position: sticky !important;
+    /* Force sticky */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 44px;
+    background: #ffffff;
+    /* White background as per image */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    /* Use system font for status bar to match iOS look */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #000000;
+    /* Black text */
+    z-index: 99999;
+    /* Highest Z to stay on top */
+    /* Removed border-bottom to match the clean look in the image */
+    box-shadow: none;
+}
+
+.status-bar-time {
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-left: 10px;
+    /* Slight offset */
+}
+
+.status-bar-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-right: 6px;
+}
+
+.status-bar-icons svg {
+    display: block;
+    /* Remove baseline space */
+}

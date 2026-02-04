@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Routine Thử đồ ảo - Bo Góc Tối Giản</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Maven+Pro:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000000",
+                        "background-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Maven Pro", "Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Maven Pro', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .camera-overlay {
+            background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 100%);
+        }
+        .scan-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #000000, transparent);
+        }
+        .minimal-panel {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #000000;
+            border-radius: 0.5rem;
+        }
+        .product-card-selected {
+            border: 1px solid #000000;
+            background: #ffffff;
+            border-radius: 0.5rem;
+        }
+        .product-card {
+            border: 1px solid #eeeeee;
+            background: #ffffff;
+            border-radius: 0.5rem;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="mobile.css"/>
+<link rel='stylesheet' href='status-bar.css'/></head>
+<body class="bg-white text-black overflow-hidden">
+<div class="status-bar">
+    <div class="status-bar-time">9:41</div>
+    <div class="status-bar-icons">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <rect x="12" y="4" width="2" height="8" rx="1" />
+            <rect x="9" y="6" width="2" height="6" rx="1" />
+            <rect x="6" y="3" width="2" height="9" rx="1" />
+            <rect x="3" y="5" width="2" height="7" rx="1" />
+        </svg>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 8.5C2 7.67 2.67 7 3.5 7h1C5.33 7 6 7.67 6 8.5v6c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-6zm4.5-3c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H8c-.83 0-1.5-.67-1.5-1.5v-9zm5.5-2c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-11z" />
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none" class="battery-icon">
+            <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor"/>
+            <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor"/>
+            <path d="M23 4V8" stroke="currentColor" stroke-linecap="round"/>
+        </svg>
+    </div>
+</div>
+<div class="relative flex h-screen w-full flex-col overflow-hidden max-w-[430px] mx-auto border-x border-black/5">
+<div class="absolute inset-0 z-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhIH2ZNUtd7w2NxByJbH3J4uDqd_1GS3Q3VQpANUDfqfmuPTfGrGw-znEOPJi0wX-X7A_vwXBYZyWqYD3mQZQt9v_a8pPIJdjg8mwTMh94s2ZV3JUF7eaCKiyoBnGaUZYhYyy-0omFUAUUFbXkLAGT4srDtQJYksRf4ENbnWh5ERrgJUR69mKF16toWy_wwkOpUT9PUL1oobNPLfKVQLcGur7yXJf2lXalMTPqz6JZnEaZUtzrKmv96rDFSQQyTcqutodxiSyVMSI"); filter: grayscale(100%) opacity(0.8);'>
+<div class="camera-overlay absolute inset-0"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
+<div class="w-64 h-[75%] border border-dashed border-black rounded-[100px] flex items-center justify-center">
+<span class="material-symbols-outlined text-black text-8xl font-light">person</span>
+</div>
+</div>
+</div>
+<div class="relative z-10 flex items-center bg-white/80 backdrop-blur-md p-4 pb-2 justify-between">
+<button class="text-black flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h2 class="text-black text-sm font-bold leading-tight tracking-[0.2em] flex-1 text-center uppercase">Thử đồ ảo</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex size-10 cursor-pointer items-center justify-center text-black">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</div>
+<div class="relative z-10 px-4 mt-4">
+<div class="bg-black text-white px-4 py-3 flex items-center gap-3 rounded-lg shadow-lg">
+<div class="size-1.5 rounded-full bg-white"></div>
+<p class="text-[11px] font-bold uppercase tracking-wider leading-normal">Căn chỉnh cơ thể vào khung hình</p>
+</div>
+</div>
+<div class="absolute top-1/2 left-0 w-full z-10 transform -translate-y-1/2">
+<div class="scan-line w-full"></div>
+</div>
+<div class="flex-1"></div>
+<div class="relative z-20 pb-8 pt-4 space-y-4 bg-white/90 backdrop-blur-md border-t border-black/5">
+<div class="px-4">
+<div class="border border-black p-3 flex items-center justify-between rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-xl">workspace_premium</span>
+<p class="text-black text-xs font-bold uppercase tracking-tight">Thử đồ để nhận <span class="underline">50 điểm</span></p>
+</div>
+<span class="material-symbols-outlined text-black text-sm cursor-pointer">close</span>
+</div>
+</div>
+<div class="flex overflow-x-auto no-scrollbar">
+<div class="flex items-stretch px-4 gap-3">
+<div class="flex flex-col gap-2 min-w-28 product-card-selected p-2 transition-all">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover grayscale rounded-md" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_6zfBNrVZxpGd1JLWjUduB-1KXNLR9ERqgRrzq3sOf78i2WEc7uF3kzQoeOe2wgN2vDud1BEHRsD_sJIx-lL6lPryADVUPjwbT4Iizk92F_SYfR9GvLxkYgrnfso3hVcSJIismN56HWPlLJ9UZ3Z8AuxKH4pcZwPY_C3m-V70Tbp66n-XrzIC_anlcBZmg3aHEJ_KefwsGFfYC9UA4aNRgdKzrWQTtpH8F1vgNJEy01DAmePKxE4q9qCjSNDMnHTlW-rvkAEbPPU");'></div>
+<div class="px-1">
+<p class="text-black text-[10px] font-bold uppercase truncate">Sơ mi Oxford</p>
+<p class="text-black text-[9px] mt-0.5 font-bold italic underline">Đang chọn</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 min-w-28 product-card p-2 opacity-60">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover grayscale rounded-md" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAkvYf6r34MbOwgwPR1dhuaP4VFaHs1L3EDorf1x4qt4L96JN3cOaIH-p_90rQJ7qF-JqvY4ckrnxunuKGURxdonGWnK-S4d-qyGXNKYV7EIFAoydmBGzxTX9gHBmskPzRVFFUlDU132KrhMqMuCIbhQVEWjXJ0ZYInbH1KPkz0rQckxGdQAs3Hc62VxAWdiNKXgsLG7jyJYjVhcQmBh2VJw9KP6LP7Uex_jBKS8Kn93ViIJ7s-RUM0su5EsGqndGW74GsdrylWwmo");'></div>
+<div class="px-1">
+<p class="text-black text-[10px] uppercase truncate">Áo thun Basic</p>
+<p class="text-black/40 text-[9px] mt-0.5">Thử ngay</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 min-w-28 product-card p-2 opacity-60">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover grayscale rounded-md" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDxftIi-CmCnsqHyyblUQqNbi-HiqOcDnzk4c2MXTFXN9tFL3W6UpR3o3D4iS_te9hJjPULx_Mk0F3pcPIchIAJIGEt1aO-PlsjsZLAK4Q4IzvJjQEYRfoYKulLaLQgBAB9RwpwkqbLojso1Mdn7kVd7U9zs9eK2U0M8mT1-l68uHQSrcdTPVMT07mUAkjknA2iPKrIrLzmWCk6qlp07AE_GP9QtUxdkFKL9pTnOBOGQxsnghCdTyVcK8A1N7IKY1_G5AvD2qaGbJo");'></div>
+<div class="px-1">
+<p class="text-black text-[10px] uppercase truncate">Quần Jean Slim</p>
+<p class="text-black/40 text-[9px] mt-0.5">Thử ngay</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between px-6 gap-4">
+<button class="flex shrink-0 items-center justify-center size-12 border border-black/10 rounded-lg hover:bg-black/5 transition-colors">
+<span class="material-symbols-outlined text-black">filter_none</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 bg-black text-white py-4 px-6 font-bold uppercase tracking-[0.2em] text-xs transition-all active:scale-95 rounded-lg shadow-md">
+<span class="material-symbols-outlined text-lg">check</span>
+                    Hoàn thành
+                </button>
+<button class="flex shrink-0 items-center justify-center size-12 border border-black/10 rounded-lg hover:bg-black/5 transition-colors">
+<span class="material-symbols-outlined text-black">cached</span>
+</button>
+</div>
+</div>
+<div class="h-1 bg-black/10 w-32 rounded-full self-center mb-2"></div>
+</div>
+
+
+
+
+<script src='app-navigation.js'></script>
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 pb-safe pt-2 px-6 z-[99999]" style="max-width: 430px; margin: 0 auto; padding-bottom: calc(env(safe-area-inset-bottom) + 16px);">
+    <nav class="flex justify-between items-end">
+        <a href="home-dashboard.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="home">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">home</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Trang chá»§</span>
+        </a>
+        <a href="categories-selection.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="products">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">checkroom</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Sáº£n pháº©m</span>
+        </a>
+        <a href="loyalty-activity.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="activities">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">bar_chart</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Hoáº¡t Ä‘á»™ng</span>
+        </a>
+        <a href="user-profile.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="account">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">person</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">TÃ i khoáº£n</span>
+        </a>
+    </nav>
+    
+    <!-- Home Indicator -->
+    <div class="h-1 w-32 bg-gray-300 rounded-full mx-auto mt-4"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach(item => {
+        const page = item.getAttribute('data-page');
+        let isActive = false;
+
+        if (page === 'home' && (currentPath.includes('home-dashboard') || currentPath.endsWith('/index.html') || currentPath.endsWith('/'))) isActive = true;
+        if (page === 'products' && (currentPath.includes('product') || currentPath.includes('categor') || currentPath.includes('cart') || currentPath.includes('check'))) isActive = true;
+        if (page === 'activities' && (currentPath.includes('activity') || currentPath.includes('loyalty') || currentPath.includes('game') || currentPath.includes('streak') || currentPath.includes('leaderboard'))) isActive = true;
+        if (page === 'account' && (currentPath.includes('profile') || currentPath.includes('user') || currentPath.includes('settings') || currentPath.includes('store'))) isActive = true;
+
+        const icon = item.querySelector('.material-symbols-outlined');
+        const text = item.querySelector('span:last-child');
+
+        if (isActive) {
+            icon.classList.add('text-black');
+            text.classList.add('text-black');
+            icon.classList.remove('text-gray-400');
+            text.classList.remove('text-gray-400');
+        } else {
+            icon.classList.add('text-gray-400');
+            text.classList.add('text-gray-400');
+            icon.classList.remove('text-black');
+            text.classList.remove('text-black');
+        }
+    });
+});
+</script>
+</body></html>

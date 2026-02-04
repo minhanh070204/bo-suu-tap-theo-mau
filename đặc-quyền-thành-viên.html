@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ecb613",
+                        "background-light": "#ffffff",
+                        "background-dark": "#121212",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <link rel="stylesheet" href="mobile.css" />
+<link rel='stylesheet' href='status-bar.css'/></head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#181611] dark:text-white font-display antialiased">
+<div class="status-bar">
+    <div class="status-bar-time">9:41</div>
+    <div class="status-bar-icons">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <rect x="12" y="4" width="2" height="8" rx="1" />
+            <rect x="9" y="6" width="2" height="6" rx="1" />
+            <rect x="6" y="3" width="2" height="9" rx="1" />
+            <rect x="3" y="5" width="2" height="7" rx="1" />
+        </svg>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 8.5C2 7.67 2.67 7 3.5 7h1C5.33 7 6 7.67 6 8.5v6c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-6zm4.5-3c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H8c-.83 0-1.5-.67-1.5-1.5v-9zm5.5-2c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-11z" />
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none" class="battery-icon">
+            <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor"/>
+            <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor"/>
+            <path d="M23 4V8" stroke="currentColor" stroke-linecap="round"/>
+        </svg>
+    </div>
+</div>
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+        <!-- TopAppBar -->
+        <div
+            class="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-background-dark/90 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
+            <div class="text-[#181611] dark:text-white flex size-10 shrink-0 items-center justify-start cursor-pointer">
+                <span class="material-symbols-outlined">arrow_back_ios</span>
+            </div>
+            <h2
+                class="text-[#181611] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">
+                Đặc quyền Thành viên</h2>
+        </div>
+        <!-- Profile/Status Header -->
+        <div class="flex p-6 @container">
+            <div class="flex w-full flex-col gap-6 items-center">
+                <div class="flex gap-4 flex-col items-center">
+                    <div class="relative">
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-24 w-24 border-2 border-primary p-1"
+                            data-alt="User profile avatar with gold border"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBm7ixYSnB7udMP3055jN0bju8n2tCqz7V8aYYrUSD4FKNPq3pX1ACYPw2E7wS1jONQAAXVBRZaJ8jvZ77KXAhneXTs_PyXc5bfx4opJSnjZ2SEl6gq2rcf6n1_kAIAVdlt2t97kOl8rOEmt8BI7wksYEoxXhoOHPX9itaxr_cAXPqghD8e5T35k6Ewve1YoXuXMyfqtyJNopX8cmqW5QCJjMRQ5ux_Bl7jaFD7AiMmEdRQ2LllA1B6r6GxxDB7FWIFCQBGa70USRM");'>
+                        </div>
+                        <div
+                            class="absolute bottom-0 right-0 bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                            Silver</div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center">
+                        <p
+                            class="text-[#181611] dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em] text-center">
+                            Hạng Bạc (Silver)</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal text-center mt-1">
+                            Chào mừng bạn trở lại, Minh Anh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tabs Navigation -->
+        <div class="pb-3 sticky top-[60px] bg-white dark:bg-background-dark z-40">
+            <div class="flex border-b border-gray-100 dark:border-gray-800 px-6 justify-between">
+                <a class="flex flex-col items-center justify-center border-b-2 border-b-transparent text-gray-400 pb-3 pt-2 flex-1 transition-all"
+                    href="#">
+                    <p class="text-sm font-semibold tracking-[0.05em] uppercase">Bronze</p>
+                </a>
+                <a class="flex flex-col items-center justify-center border-b-2 border-b-[#181611] dark:border-b-primary text-[#181611] dark:text-white pb-3 pt-2 flex-1 transition-all"
+                    href="#">
+                    <p class="text-sm font-bold tracking-[0.05em] uppercase">Silver</p>
+                </a>
+                <a class="flex flex-col items-center justify-center border-b-2 border-b-transparent text-gray-400 pb-3 pt-2 flex-1 transition-all"
+                    href="#">
+                    <div class="flex items-center gap-1">
+                        <p class="text-sm font-semibold tracking-[0.05em] uppercase">Gold</p>
+                        <span class="material-symbols-outlined text-[14px]">lock</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- ProgressBar Section -->
+        <div
+            class="flex flex-col gap-4 p-6 bg-gray-50 dark:bg-gray-900/50 mx-4 my-4 rounded-xl border border-gray-100 dark:border-gray-800">
+            <div class="flex gap-6 justify-between items-end">
+                <div class="flex flex-col gap-1">
+                    <p class="text-[#181611] dark:text-white text-sm font-bold uppercase tracking-wider">Tiến trình
+                        thăng hạng</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-xs">Tích lũy thêm 2.000.000đ để lên Gold</p>
+                </div>
+                <p class="text-[#181611] dark:text-white text-sm font-bold">3.000.000/5.000.000đ</p>
+            </div>
+            <div class="h-1.5 w-full rounded-full bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                <div class="h-full rounded-full bg-primary" style="width: 60%;"></div>
+            </div>
+        </div>
+        <!-- SectionHeader -->
+        <div class="px-6 pt-4 pb-2">
+            <h3 class="text-[#181611] dark:text-white text-lg font-bold leading-tight tracking-tight uppercase">Danh
+                sách đặc quyền</h3>
+            <div class="w-8 h-1 bg-primary mt-1 rounded-full"></div>
+        </div>
+        <!-- Privileges List -->
+        <div class="flex flex-col px-6 pb-10 divide-y divide-gray-100 dark:divide-gray-800">
+            <!-- Item 1: Unlocked -->
+            <div class="flex items-center gap-4 py-5">
+                <div
+                    class="flex size-12 items-center justify-center rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shrink-0">
+                    <span class="material-symbols-outlined text-2xl text-[#181611] dark:text-white">cake</span>
+                </div>
+                <div class="flex flex-1 flex-col">
+                    <div class="flex items-center justify-between">
+                        <p class="text-[#181611] dark:text-white text-base font-bold">Giảm giá sinh nhật</p>
+                        <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Ưu đãi 20% cho đơn hàng trong tháng sinh nhật.
+                    </p>
+                </div>
+            </div>
+            <!-- Item 2: Unlocked -->
+            <div class="flex items-center gap-4 py-5">
+                <div
+                    class="flex size-12 items-center justify-center rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shrink-0">
+                    <span
+                        class="material-symbols-outlined text-2xl text-[#181611] dark:text-white">local_shipping</span>
+                </div>
+                <div class="flex flex-1 flex-col">
+                    <div class="flex items-center justify-between">
+                        <p class="text-[#181611] dark:text-white text-base font-bold">Miễn phí vận chuyển</p>
+                        <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Miễn phí vận chuyển toàn quốc cho mọi đơn hàng.
+                    </p>
+                </div>
+            </div>
+            <!-- Item 3: Locked/Tier Specific -->
+            <div class="flex items-center gap-4 py-5 opacity-60">
+                <div
+                    class="flex size-12 items-center justify-center rounded-lg bg-gray-50 dark:bg-gray-900 border border-dashed border-gray-300 dark:border-gray-700 shrink-0">
+                    <span class="material-symbols-outlined text-2xl text-gray-400">new_releases</span>
+                </div>
+                <div class="flex flex-1 flex-col">
+                    <div class="flex items-center justify-between">
+                        <p class="text-gray-400 dark:text-gray-500 text-base font-bold">Quyền mua sớm</p>
+                        <span class="material-symbols-outlined text-gray-400 text-lg">lock</span>
+                    </div>
+                    <p class="text-gray-400 dark:text-gray-600 text-sm">Ưu tiên trải nghiệm bộ sưu tập mới trước 24h.
+                    </p>
+                </div>
+            </div>
+            <!-- Item 4: Locked/Tier Specific -->
+            <div class="flex items-center gap-4 py-5 opacity-60">
+                <div
+                    class="flex size-12 items-center justify-center rounded-lg bg-gray-50 dark:bg-gray-900 border border-dashed border-gray-300 dark:border-gray-700 shrink-0">
+                    <span class="material-symbols-outlined text-2xl text-gray-400">confirmation_number</span>
+                </div>
+                <div class="flex flex-1 flex-col">
+                    <div class="flex items-center justify-between">
+                        <p class="text-gray-400 dark:text-gray-500 text-base font-bold">Sự kiện đặc biệt</p>
+                        <span class="material-symbols-outlined text-gray-400 text-lg">lock</span>
+                    </div>
+                    <p class="text-gray-400 dark:text-gray-600 text-sm">Thư mời tham dự các show diễn thời trang độc
+                        quyền.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Action -->
+        <div class="p-6 mt-auto border-t border-gray-100 dark:border-gray-800 flex flex-col gap-3">
+            <button
+                class="w-full bg-[#181611] dark:bg-white text-white dark:text-[#181611] py-4 rounded-lg font-bold uppercase tracking-widest text-sm hover:opacity-90 transition-opacity">
+                Cách thức tăng hạng
+            </button>
+            <button
+                class="w-full border-2 border-[#181611] dark:border-white py-4 rounded-lg font-bold uppercase tracking-widest text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                onclick="navigateTo(APP_ROUTES.loyalty.activity)">
+                Lịch sử tích lũy
+            </button>
+        </div>
+        <div class="h-8"></div>
+    </div>
+
+    
+
+<script src='app-navigation.js'></script>
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 pb-safe pt-2 px-6 z-[99999]" style="max-width: 430px; margin: 0 auto; padding-bottom: calc(env(safe-area-inset-bottom) + 16px);">
+    <nav class="flex justify-between items-end">
+        <a href="home-dashboard.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="home">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">home</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Trang chá»§</span>
+        </a>
+        <a href="categories-selection.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="products">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">checkroom</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Sáº£n pháº©m</span>
+        </a>
+        <a href="loyalty-activity.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="activities">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">bar_chart</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Hoáº¡t Ä‘á»™ng</span>
+        </a>
+        <a href="user-profile.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="account">
+            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">person</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">TÃ i khoáº£n</span>
+        </a>
+    </nav>
+    
+    <!-- Home Indicator -->
+    <div class="h-1 w-32 bg-gray-300 rounded-full mx-auto mt-4"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach(item => {
+        const page = item.getAttribute('data-page');
+        let isActive = false;
+
+        if (page === 'home' && (currentPath.includes('home-dashboard') || currentPath.endsWith('/index.html') || currentPath.endsWith('/'))) isActive = true;
+        if (page === 'products' && (currentPath.includes('product') || currentPath.includes('categor') || currentPath.includes('cart') || currentPath.includes('check'))) isActive = true;
+        if (page === 'activities' && (currentPath.includes('activity') || currentPath.includes('loyalty') || currentPath.includes('game') || currentPath.includes('streak') || currentPath.includes('leaderboard'))) isActive = true;
+        if (page === 'account' && (currentPath.includes('profile') || currentPath.includes('user') || currentPath.includes('settings') || currentPath.includes('store'))) isActive = true;
+
+        const icon = item.querySelector('.material-symbols-outlined');
+        const text = item.querySelector('span:last-child');
+
+        if (isActive) {
+            icon.classList.add('text-black');
+            text.classList.add('text-black');
+            icon.classList.remove('text-gray-400');
+            text.classList.remove('text-gray-400');
+        } else {
+            icon.classList.add('text-gray-400');
+            text.classList.add('text-gray-400');
+            icon.classList.remove('text-black');
+            text.classList.remove('text-black');
+        }
+    });
+});
+</script>
+</body>
+
+</html>
