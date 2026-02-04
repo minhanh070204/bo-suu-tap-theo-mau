@@ -1,268 +1,485 @@
-﻿
 <!DOCTYPE html>
-<html class="light" lang="vi"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#ecb613",
-                        "background-light": "#ffffff",
-                        "background-dark": "#121212",
-                    },
-                    fontFamily: {
-                        "sans": ["Maven Pro", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "8px",
-                        "lg": "12px",
-                        "xl": "16px",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-<style type="text/tailwindcss">
-        :root {
-            --primary-color: #ecb613;
-        }
-        body {
-            font-family: 'Maven Pro', sans-serif;
-        }
-        .thin-stroke {
-            border: 1px solid #000000;
-        }
-        .dark .thin-stroke {
-            border: 1px solid #ffffff;
-        }
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  <link rel="stylesheet" href="mobile.css"/>
-<link rel='stylesheet' href='status-bar.css'/></head>
-<body class="bg-white dark:bg-background-dark min-h-screen text-black dark:text-white">
-<div class="status-bar">
-    <div class="status-bar-time">9:41</div>
-    <div class="status-bar-icons">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-            <rect x="12" y="4" width="2" height="8" rx="1" />
-            <rect x="9" y="6" width="2" height="6" rx="1" />
-            <rect x="6" y="3" width="2" height="9" rx="1" />
-            <rect x="3" y="5" width="2" height="7" rx="1" />
-        </svg>
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M2 8.5C2 7.67 2.67 7 3.5 7h1C5.33 7 6 7.67 6 8.5v6c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-6zm4.5-3c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H8c-.83 0-1.5-.67-1.5-1.5v-9zm5.5-2c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-11z" />
-        </svg>
-        <svg width="25" height="12" viewBox="0 0 25 12" fill="none" class="battery-icon">
-            <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor"/>
-            <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor"/>
-            <path d="M23 4V8" stroke="currentColor" stroke-linecap="round"/>
-        </svg>
-    </div>
-</div>
-<div class="relative flex h-auto min-h-screen w-full max-w-[480px] mx-auto flex-col bg-white dark:bg-background-dark overflow-x-hidden shadow-2xl">
-<div class="sticky top-0 z-50 flex items-center bg-white/80 backdrop-blur-md dark:bg-background-dark/80 border-b border-gray-100 dark:border-white/10 p-4 pb-4 justify-between">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined cursor-pointer" style="font-size: 24px;">arrow_back_ios</span>
-<h2 class="text-lg font-extrabold leading-tight tracking-tight">Bộ sưu tập theo Màu</h2>
-</div>
-<div class="flex items-center">
-<button class="flex items-center justify-center w-10 h-10 rounded-full border border-black dark:border-white hover:bg-black/5">
-<span class="material-symbols-outlined" style="font-size: 20px;">search</span>
-</button>
-</div>
-</div>
-<div class="px-4 pt-6 pb-2">
-<p class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">Chọn tông màu</p>
-</div>
-<div class="flex items-center gap-6 p-4 overflow-x-auto no-scrollbar">
-<label class="flex flex-col items-center gap-3 cursor-pointer group">
-<div class="size-14 rounded-full border border-black dark:border-white ring-offset-2 ring-black dark:ring-white has-[:checked]:ring-2 p-1 transition-all">
-<input class="sr-only" name="color-select" type="radio"/>
-<div class="w-full h-full rounded-full bg-black shadow-inner"></div>
-</div>
-<span class="text-[10px] font-bold uppercase tracking-wider">Đen</span>
-</label>
-<label class="flex flex-col items-center gap-3 cursor-pointer group">
-<div class="size-14 rounded-full border border-gray-100 dark:border-white/20 ring-offset-2 ring-black dark:ring-white has-[:checked]:ring-2 p-1 transition-all">
-<input class="sr-only" name="color-select" type="radio"/>
-<div class="w-full h-full rounded-full bg-white border border-gray-100 shadow-inner"></div>
-</div>
-<span class="text-[10px] font-bold uppercase tracking-wider">Trắng</span>
-</label>
-<label class="flex flex-col items-center gap-3 cursor-pointer group">
-<div class="size-14 rounded-full border border-gray-100 dark:border-white/20 ring-offset-2 ring-black dark:ring-white has-[:checked]:ring-2 p-1 transition-all">
-<input checked="" class="sr-only" name="color-select" type="radio"/>
-<div class="w-full h-full rounded-full bg-[#E6D5B8] shadow-inner"></div>
-</div>
-<span class="text-[10px] font-bold uppercase tracking-wider">Beige</span>
-</label>
-<label class="flex flex-col items-center gap-3 cursor-pointer group">
-<div class="size-14 rounded-full border border-gray-100 dark:border-white/20 ring-offset-2 ring-black dark:ring-white has-[:checked]:ring-2 p-1 transition-all">
-<input class="sr-only" name="color-select" type="radio"/>
-<div class="w-full h-full rounded-full bg-[#808080] shadow-inner"></div>
-</div>
-<span class="text-[10px] font-bold uppercase tracking-wider">Xám</span>
-</label>
-<label class="flex flex-col items-center gap-3 cursor-pointer group">
-<div class="size-14 rounded-full border border-gray-100 dark:border-white/20 ring-offset-2 ring-black dark:ring-white has-[:checked]:ring-2 p-1 transition-all">
-<input class="sr-only" name="color-select" type="radio"/>
-<div class="w-full h-full rounded-full bg-[#1560BD] shadow-inner"></div>
-</div>
-<span class="text-[10px] font-bold uppercase tracking-wider">Denim</span>
-</label>
-</div>
-<div class="flex items-center justify-between px-4 pb-4 pt-8">
-<h3 class="text-xl font-extrabold leading-tight tracking-tight">Bộ sưu tập Beige</h3>
-<span class="text-xs font-semibold text-gray-400">12 sản phẩm</span>
-</div>
-<div class="grid grid-cols-2 gap-4 px-4 mt-2">
-<div class="flex flex-col gap-3 group">
-<div class="relative w-full aspect-[3/4] bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2401avx1R_bHvemnBdluuyk-C82bAPiWy4aX63mBZAfSU_Y2aETi3n5mbCYQ2I5x3Ipp8c998krKrBBfv-vt_4C9AzNx7nqYEhIuqyz_llkmOP7wexaw7jrWpNOOkziFqJO_NZ8c_rKcXjIwyCLrAdJOoKu8NcHU-XS_y8Va_z1BHp0TvkzrbLAxW9uhoMN-TilJb8voRsStAE5Idw33mVG24dL4WAlYXnfc-KlZa0MA3iwOpp2kQpYV0gqSU16zi17wbZ64nIOc");'>
-<div class="absolute top-3 right-3">
-<button class="bg-white/90 dark:bg-black/90 size-8 flex items-center justify-center rounded-full">
-<span class="material-symbols-outlined text-black dark:text-white text-[18px]">favorite</span>
-</button>
-</div>
-<div class="absolute top-3 left-3">
-<span class="bg-black text-white dark:bg-white dark:text-black text-[9px] font-extrabold px-2 py-1 rounded-sm uppercase tracking-wider">Mới</span>
-</div>
-</div>
-<div class="flex flex-col gap-1 px-1">
-<p class="text-black dark:text-white text-sm font-bold leading-tight line-clamp-1">Áo Sơ Mi Linen Beige</p>
-<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">550.000đ</p>
-</div>
-<button class="w-full thin-stroke py-2.5 text-[10px] font-extrabold uppercase tracking-widest rounded hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
-                Thêm vào giỏ
-            </button>
-</div>
-<div class="flex flex-col gap-3 group">
-<div class="relative w-full aspect-[3/4] bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBFECq7z7crh9FbW7UjjA2wg65OUO7KNwMYaT9YJlzoRYM1WvawbSYcbh19PSh7OB9umvEP4qdZaVfzlBDzVZK12y3B0VlXOC5bor3j2hOfuViwixykwbyLbXR1PwSu0pVbeAR9ASFO-mOAzGDUHd1CKlrTODZid8o6a47P3k4wXyx0kRSa7__8s_T1s1v2OILLUE9fhkiVVR9Hq_i2KYSLEdRZ69i7Kr-bijHmvQoU7k50NOO__rIeyq5Efs7MbGG9t7xCs2dBwc8");'>
-<div class="absolute top-3 right-3">
-<button class="bg-white/90 dark:bg-black/90 size-8 flex items-center justify-center rounded-full">
-<span class="material-symbols-outlined text-black dark:text-white text-[18px]">favorite</span>
-</button>
-</div>
-</div>
-<div class="flex flex-col gap-1 px-1">
-<p class="text-black dark:text-white text-sm font-bold leading-tight line-clamp-1">Quần Khaki Slim Fit</p>
-<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">720.000đ</p>
-</div>
-<button class="w-full thin-stroke py-2.5 text-[10px] font-extrabold uppercase tracking-widest rounded hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
-                Thêm vào giỏ
-            </button>
-</div>
-<div class="flex flex-col gap-3 group">
-<div class="relative w-full aspect-[3/4] bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_uLXXPQCvF5O1w9O_rZVBxl7zUCTt30C5PM4b4ACEk0ypp0JnadvHHnC9sxwwAbb20F1swSImjRma0UZYKjvVlK4QPfqEGf08xBkr7pfCEEkB06ZG0drRfwMezgtrQ-52CymLzTytYCSfWp0hKUUeUkCuUW_nKc2p50WAZmBNFnAv15w-Wn74Q1im374GBQacCoNawG7x-x5GLbR42EjUUSK6JtRZsu7ZJXzUC_4wkfoCubL19iHlSD3Gjw3maB-GYRMNfSZlhb0");'>
-<div class="absolute top-3 right-3">
-<button class="bg-white/90 dark:bg-black/90 size-8 flex items-center justify-center rounded-full">
-<span class="material-symbols-outlined text-black dark:text-white text-[18px]">favorite</span>
-</button>
-</div>
-<div class="absolute bottom-3 left-3 bg-primary text-black text-[9px] font-extrabold px-2 py-1 rounded-sm uppercase tracking-wider">Routine Club</div>
-</div>
-<div class="flex flex-col gap-1 px-1">
-<p class="text-black dark:text-white text-sm font-bold leading-tight line-clamp-1">Áo Thun Cotton Organic</p>
-<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">350.000đ</p>
-</div>
-<button class="w-full thin-stroke py-2.5 text-[10px] font-extrabold uppercase tracking-widest rounded hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
-                Thêm vào giỏ
-            </button>
-</div>
-<div class="flex flex-col gap-3 group">
-<div class="relative w-full aspect-[3/4] bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATY0ZouLbIdnsWpCmrvmyx7arqXNg1Gsn6EtUFHXXBHX26u86NlaPHK7m44H6aiNKd6Oe97Z1cudookNrxdy621jvf7eYjsAdqLFbY0pTcs5fUI2ZV_iaPmjPUMMNQ2ZgkDrRGcc1p3BlRz0fTk-KLOLpfWgNiNTUTWd3JttZrWJ9rbOrD9l1RtHu4TiUPyOA7f89hRqSjTEU4tiMFZC77I94JfxZgiyhg1wAsoJGFcALnXddwh9ZZv7T3AaAryaG1LNNYje74yuE");'>
-<div class="absolute top-3 right-3">
-<button class="bg-white/90 dark:bg-black/90 size-8 flex items-center justify-center rounded-full">
-<span class="material-symbols-outlined text-black dark:text-white text-[18px]">favorite</span>
-</button>
-</div>
-<div class="absolute top-3 left-3">
-<span class="bg-red-600 text-white text-[9px] font-extrabold px-2 py-1 rounded-sm uppercase tracking-wider">Sale</span>
-</div>
-</div>
-<div class="flex flex-col gap-1 px-1">
-<p class="text-black dark:text-white text-sm font-bold leading-tight line-clamp-1">Áo Khoác Bomber Beige</p>
-<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">980.000đ</p>
-</div>
-<button class="w-full thin-stroke py-2.5 text-[10px] font-extrabold uppercase tracking-widest rounded hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
-                Thêm vào giỏ
-            </button>
-</div>
-</div>
-<div class="h-32"></div>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Routine Minimalist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- === WELCOME SCREEN (Overlay) === -->
+        <div id="welcome-screen" class="welcome-screen">
+            <!-- Correct iOS Status Bar for Welcome -->
+            <div class="status-bar" style="position: absolute; top: 0; left: 0; right: 0; background: transparent;">
+                <span class="status-bar-time">9:41</span>
+                <div class="status-bar-icons">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <rect x="12" y="4" width="2" height="8" rx="1" />
+                        <rect x="9" y="6" width="2" height="6" rx="1" />
+                        <rect x="6" y="3" width="2" height="9" rx="1" />
+                        <rect x="3" y="5" width="2" height="7" rx="1" />
+                    </svg>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path
+                            d="M2 8.5C2 7.67 2.67 7 3.5 7h1C5.33 7 6 7.67 6 8.5v6c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-6zm4.5-3c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H8c-.83 0-1.5-.67-1.5-1.5v-9zm5.5-2c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-11z" />
+                    </svg>
+                    <svg width="25" height="12" viewBox="0 0 25 12" fill="none" class="battery-icon">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor" />
+                        <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor" />
+                        <path d="M23 4V8" stroke="currentColor" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center justify-center h-full w-full p-6">
+                <img src="routine-logo.png" alt="Routine" style="width: 200px; margin-bottom: 60px;">
+                <button id="btn-explore" class="btn" style="background: #000; color: #fff; max-width: 200px;">
+                    KHÁM PHÁ
+                </button>
+            </div>
+        </div>
 
 
-<script src='app-navigation.js'></script>
-<div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 pb-safe pt-2 px-6 z-[99999]" style="max-width: 430px; margin: 0 auto; padding-bottom: calc(env(safe-area-inset-bottom) + 16px);">
-    <nav class="flex justify-between items-end">
-        <a href="home-dashboard.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="home">
-            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">home</span>
-            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Trang chá»§</span>
-        </a>
-        <a href="categories-selection.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="products">
-            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">checkroom</span>
-            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Sáº£n pháº©m</span>
-        </a>
-        <a href="loyalty-activity.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="activities">
-            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">bar_chart</span>
-            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">Hoáº¡t Ä‘á»™ng</span>
-        </a>
-        <a href="user-profile.html" class="nav-item flex flex-col items-center gap-1.5 flex-1 group" data-page="account">
-            <span class="material-symbols-outlined text-[26px] font-light transition-colors duration-200">person</span>
-            <span class="text-[9px] font-bold uppercase tracking-widest transition-colors duration-200">TÃ i khoáº£n</span>
-        </a>
-    </nav>
-    
-    <!-- Home Indicator -->
-    <div class="h-1 w-32 bg-gray-300 rounded-full mx-auto mt-4"></div>
-</div>
+        <!-- === GLOBAL STATUS BAR (For all inner screens) === -->
+        <div class="status-bar">
+            <span class="status-bar-time">9:41</span>
+            <div class="status-bar-icons">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <rect x="12" y="4" width="2" height="8" rx="1" />
+                    <rect x="9" y="6" width="2" height="6" rx="1" />
+                    <rect x="6" y="3" width="2" height="9" rx="1" />
+                    <rect x="3" y="5" width="2" height="7" rx="1" />
+                </svg>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                        d="M2 8.5C2 7.67 2.67 7 3.5 7h1C5.33 7 6 7.67 6 8.5v6c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-6zm4.5-3c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H8c-.83 0-1.5-.67-1.5-1.5v-9zm5.5-2c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-11z" />
+                </svg>
+                <svg width="25" height="12" viewBox="0 0 25 12" fill="none" class="battery-icon">
+                    <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor" />
+                    <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor" />
+                    <path d="M23 4V8" stroke="currentColor" stroke_linecap="round" />
+                </svg>
+            </div>
+        </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const currentPath = window.location.pathname;
-    const navItems = document.querySelectorAll('.nav-item');
-    
-    navItems.forEach(item => {
-        const page = item.getAttribute('data-page');
-        let isActive = false;
+        <!-- === VIEW: HOME (Dashboard) === -->
+        <div id="view-home" class="view-section content-scroll">
+            <header class="app-header">
+                <img src="routine-logo.png" alt="Routine">
+            </header>
 
-        if (page === 'home' && (currentPath.includes('home-dashboard') || currentPath.endsWith('/index.html') || currentPath.endsWith('/'))) isActive = true;
-        if (page === 'products' && (currentPath.includes('product') || currentPath.includes('categor') || currentPath.includes('cart') || currentPath.includes('check'))) isActive = true;
-        if (page === 'activities' && (currentPath.includes('activity') || currentPath.includes('loyalty') || currentPath.includes('game') || currentPath.includes('streak') || currentPath.includes('leaderboard'))) isActive = true;
-        if (page === 'account' && (currentPath.includes('profile') || currentPath.includes('user') || currentPath.includes('settings') || currentPath.includes('store'))) isActive = true;
+            <div class="p-6">
+                <!-- Member Card -->
+                <div class="card" style="border: 1px solid #000000;">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <p class="text-xs uppercase tracking-widest text-gray">Hạng thành viên</p>
+                            <h2 class="text-xl font-medium uppercase mt-1">Thành viên Bạc</h2>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs uppercase tracking-widest text-gray">Điểm</p>
+                            <p class="text-lg font-bold">1,264</p>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-fill" style="width: 75%;"></div>
+                    </div>
+                    <p class="text-xs text-gray mb-4">Cần <span class="text-black font-bold">36 điểm</span> để thăng
+                        hạng Vàng</p>
 
-        const icon = item.querySelector('.material-symbols-outlined');
-        const text = item.querySelector('span:last-child');
+                    <button class="btn btn-outline" style="font-size: 10px; padding: 10px;"
+                        onclick="switchTab('activities')">
+                        XEM ĐẶC QUYỀN
+                    </button>
+                </div>
 
-        if (isActive) {
-            icon.classList.add('text-black');
-            text.classList.add('text-black');
-            icon.classList.remove('text-gray-400');
-            text.classList.remove('text-gray-400');
-        } else {
-            icon.classList.add('text-gray-400');
-            text.classList.add('text-gray-400');
-            icon.classList.remove('text-black');
-            text.classList.remove('text-black');
-        }
-    });
-});
-</script>
-</body></html>
+                <!-- Collection Teaser -->
+                <div class="flex justify-between items-end mb-4 mt-8">
+                    <h3 class="text-lg font-medium">Bộ sưu tập Tết</h3>
+                    <a href="javascript:switchTab('collections')" class="text-xs uppercase font-bold"
+                        style="border-bottom: 1px solid #000; padding-bottom: 2px;">Xem tất cả</a>
+                </div>
+
+                <div class="flex gap-4" style="overflow-x: auto; padding-bottom: 15px; scroll-behavior: smooth;">
+                    <!-- Product Card 1 -->
+                    <div style="min-width: 160px;">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIRpPAX1So5Mik1n6QjoZlWvCsHpJmepe_XW1m4YSIc0Q2zSojQHHzWA0uP0BgW7yjWqIQD98At5QPWEqxHfAWlsJpOPcxnhGY4c8QJHx0gLYNP6r8KhMGofPNzgOM3ThMxDjzNf845ls847QRgS2zglwDo45QRLZUWIfckZQCAmpSsjnD2-HE0bE4bZhXDvp_ppajgM3HPw2w95ft0tuYm2aUP-E7oQOT11EGOMINPzVoJQ0nvJFNyT3Rdc4Sdwhy4uGtk6gQK5c"
+                            class="aspect-product mb-2">
+                        <p class="text-xs mb-1">Áo Linen Form Rộng</p>
+                        <p class="text-sm font-bold">590.000đ</p>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div style="min-width: 160px;">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnm6UTIcigwGsYWVTOnV-yw7p6wjlQ6QWtGPrb1QAIXyiHMvq9hYfY0BOS_i2JbgMY58VBtNhQbLJkEhFTO6wB6-kv58IQj25YiAlytycHCgQmRNbNjauwCgj7tD9OW6J8SddZDKzYy6-wJsdfPeTSwLv1CcjZqjYr7Yh3a7vWEdlc0lrrAmhe_1DyGSq6ifS1n9LVQD4V7yHh86-hwjCFNhVMan9Ib85Spi5v5Wtn5qnfhpr3vxCDEyYRXp-W-_5mQRUAyOMNCaM"
+                            class="aspect-product mb-2">
+                        <p class="text-xs mb-1">Quần Tây Slim Fit</p>
+                        <p class="text-sm font-bold">750.000đ</p>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div style="min-width: 160px;">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgYk7_IPxA3fnlqhxdPJDHvBAK4WBv2RpnKnHn_w8XOmZkSruEy4mfk-XfPx_5SbYpsnSzWLUHoj5ortcWWAg6Rh5goeFzskSat3qDzRdeyxza9b4aOTr-7Gvi7bZ3nZblHXK1vAuukxY9X4ybLHLQ5c70MIHQsNkVcwfGP0LGmEVtV8J332Tp3GXXkxNmd69PEsEca-pH4_E_K6FzGTtIEL-6QEDnDzREbq6RE0HJAvUx3CRtZsLMtWg3G0zFieGripZnaV2RdrU"
+                            class="aspect-product mb-2">
+                        <p class="text-xs mb-1">Áo Sơ Mi Linen Cổ Trụ</p>
+                        <p class="text-sm font-bold">550.000đ</p>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div style="min-width: 160px;">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf8xO1f5RXme_D-TCqbSiH10gN-1R2Lq9iaDdpehQdtmXwgwbKsHAffJIVrUIhVKB2NzKHkikfi9CYXx6W4ZN0fgGBqPP8HKCT51rwg1ADBkz8rkmEDn2NncnkvVeohKbKNJza7GzkBkhADHWVAO24MlFlZgpFnjrJR3lDgsaVJ-1UtZL1qhZc8Q3QUXxv3zFh-zr_5Py36s-gShJYqAhltBtp5vtTqogKJYCu9Jy0kd3WXELhkfI9OXJWUGQw9erE18xHApBFIvQ"
+                            class="aspect-product mb-2">
+                        <p class="text-xs mb-1">Áo Khoác Nam Streetwear</p>
+                        <p class="text-sm font-bold">850.000đ</p>
+                    </div>
+                </div>
+
+                <!-- Mini Menu -->
+                <div class="grid-2 mt-8">
+                    <div class="card flex flex-col items-center justify-center p-4">
+                        <span class="material-symbols-outlined text-2xl mb-2">history</span>
+                        <p class="text-xs font-bold uppercase">Lịch sử điểm</p>
+                    </div>
+                    <div class="card flex flex-col items-center justify-center p-4">
+                        <span class="material-symbols-outlined text-2xl mb-2">Confirmation_Number</span>
+                        <p class="text-xs font-bold uppercase">Voucher (3)</p>
+                    </div>
+                </div>
+
+                <!-- Vertical Product Grid Section -->
+                <div class="mt-10">
+                    <h3 class="text-lg font-medium mb-6">Gợi ý cho bạn</h3>
+                    <div class="grid-2">
+                        <div>
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk5MoAsqgKCMBRya2_JkCodlAVUq3bTuyYK-TbvfF2QTMPoodmgyV64jJ_UYz7QTZd2FLA5MbQgdw7umDGiJwLTI_U7Cu0Vin4PQp9SO3OMVO6nvD14zP9mq3PNCZDvZq58GtIMxyfAs_i0QQJDpvDfp9nvdgRJGSsqZJ0r_ZyJRnYBsD3rlAa_7zemy_v412CD-Hpbprv8skB56rrISZmBgBsouCbJYMB2YjcEoYJsEljSUanobcXyLjVlwsWS58UJDoP5SN-jn0"
+                                class="aspect-product mb-2">
+                            <p class="text-xs mb-1">Váy Nữ Thời Trang</p>
+                            <p class="text-sm font-bold">790.000đ</p>
+                        </div>
+                        <div>
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaNs8xGaZTYqqVJNCoflL-VlPl7bEmZKUdCIsrhi_nacqbizc-3dZNgkfeOKvgGuC9Ql3R6jvy36UIrh9AELXlTYyQfcn_DEz7NTpF-NSLoM-MTA8HKchPECK5Xh077i0VY2E38mbhz9InrBh0vzZJphTntU1DNi3jVKjpO8bkXgLYmFun1iau0gI3tQcDSQ1oSEo5NZymrXUN7c-J0vzEhyC9rfySHF6ZMZojyLLH8_lCo5XvSCGgYIqWAi-uSlisL22Pn4obF3o"
+                                class="aspect-product mb-2">
+                            <p class="text-xs mb-1">Áo Dài Cách Tân Tết</p>
+                            <p class="text-sm font-bold">990.000đ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === VIEW: PRODUCTS === -->
+        <div id="view-products" class="view-section content-scroll hidden">
+            <header class="app-header border-b">
+                <span class="text-sm font-bold uppercase tracking-widest">Sản phẩm</span>
+            </header>
+            <div class="p-4 grid-2">
+                <!-- Product 1 -->
+                <div>
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgYk7_IPxA3fnlqhxdPJDHvBAK4WBv2RpnKnHn_w8XOmZkSruEy4mfk-XfPx_5SbYpsnSzWLUHoj5ortcWWAg6Rh5goeFzskSat3qDzRdeyxza9b4aOTr-7Gvi7bZ3nZblHXK1vAuukxY9X4ybLHLQ5c70MIHQsNkVcwfGP0LGmEVtV8J332Tp3GXXkxNmd69PEsEca-pH4_E_K6FzGTtIEL-6QEDnDzREbq6RE0HJAvUx3CRtZsLMtWg3G0zFieGripZnaV2RdrU"
+                        class="aspect-product mb-2">
+                    <p class="text-xs">Áo Sơ Mi Linen Cổ Trụ</p>
+                    <p class="text-sm font-bold">550.000₫</p>
+                </div>
+                <!-- Product 2 -->
+                <div>
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIRpPAX1So5Mik1n6QjoZlWvCsHpJmepe_XW1m4YSIc0Q2zSojQHHzWA0uP0BgW7yjWqIQD98At5QPWEqxHfAWlsJpOPcxnhGY4c8QJHx0gLYNP6r8KhMGofPNzgOM6ThMxDjzNf845ls847QRgS2zglwDo45QRLZUWIfckZQCAmpSsjnD2-HE0bE4bZhXDvp_ppajgM3HPw2w95ft0tuYm2aUP-E7oQOT11EGOMINPzVoJQ0nvJFNyT3Rdc4Sdwhy4uGtk6gQK5c"
+                        class="aspect-product mb-2">
+                    <p class="text-xs">Áo Linen Form Rộng</p>
+                    <p class="text-sm font-bold">590.000₫</p>
+                </div>
+                <!-- Product 3 -->
+                <div>
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnm6UTIcigwGsYWVTOnV-yw7p6wjlQ6QWtGPrb1QAIXyiHMvq9hYfY0BOS_i2JbgMY58VBtNhQbLJkEhFTO6wB6-kv58IQj25YiAlytycHCgQmRNbNjauwCgj7tD9OW6J8SddZDKzYy6-wJsdfPeTSwLv1CcjZqjYr7Yh3a7vWEdlc0lrrAmhe_1DyGSq6ifS1n9LVQD4V7yHh86-hwjCFNhVMan9Ib85Spi5v5Wtn5qnfhpr3vxCDEyYRXp-W-_5mQRUAyOMNCaM"
+                        class="aspect-product mb-2">
+                    <p class="text-xs">Quần Tây Slim Fit</p>
+                    <p class="text-sm font-bold">750.000₫</p>
+                </div>
+                <!-- Product 4 -->
+                <div>
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf8xO1f5RXme_D-TCqbSiH10gN-1R2Lq9iaDdpehQdtmXwgwbKsHAffJIVrUIhVKB2NzKHkikfi9CYXx6W4ZN0fgGBqPP8HKCT51rwg1ADBkz8rkmEDn2NncnkvVeohKbKNJza7GzkBkhADHWVAO24MlFlZgpFnjrJR3lDgsaVJ-1UtZL1qhZc8Q3QUXxv3zFh-zr_5Py36s-gShJYqAhltBtp5vtTqogKJYCu9Jy0kd3WXELhkfI9OXJWUGQw9erE18xHApBFIvQ"
+                        class="aspect-product mb-2">
+                    <p class="text-xs">Áo Khoác Nam Streetwear</p>
+                    <p class="text-sm font-bold">850.000₫</p>
+                </div>
+                <!-- Product 5 -->
+                <div>
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk5MoAsqgKCMBRya2_JkCodlAVUq3bTuyYK-TbvfF2QTMPoodmgyV64jJ_UYz7QTZd2FLA5MbQgdw7umDGiJwLTI_U7Cu0Vin4PQp9SO3OMVO6nvD14zP9mq3PNCZDvZq58GtIMxyfAs_i0QQJDpvDfp9nvdgRJGSsqZJ0r_ZyJRnYBsD3rlAa_7zemy_v412CD-Hpbprv8skB56rrISZmBgBsouCbJYMB2YjcEoYJsEljSUanobcXyLjVlwsWS58UJDoP5SN-jn0"
+                        class="aspect-product mb-2">
+                    <p class="text-xs">Váy Nữ Thời Trang</p>
+                    <p class="text-sm font-bold">790.000₫</p>
+                </div>
+                <!-- Product 6 -->
+                <div>
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaNs8xGaZTYqqVJNCoflL-VlPl7bEmZKUdCIsrhi_nacqbizc-3dZNgkfeOKvgGuC9Ql3R6jvy36UIrh9AELXlTYyQfcn_DEz7NTpF-NSLoM-MTA8HKchPECK5Xh077i0VY2E38mbhz9InrBh0vzZJphTntU1DNi3jVKjpO8bkXgLYmFun1iau0gI3tQcDSQ1oSEo5NZymrXUN7c-J0vzEhyC9rfySHF6ZMZojyLLH8_lCo5XvSCGgYIqWAi-uSlisL22Pn4obF3o"
+                        class="aspect-product mb-2">
+                    <p class="text-xs">Áo Dài Cách Tân Tết</p>
+                    <p class="text-sm font-bold">990.000₫</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- === VIEW: ACTIVITIES (Loyalty) === -->
+        <div id="view-activities" class="view-section content-scroll hidden">
+            <header class="app-header border-b">
+                <span class="text-sm font-bold uppercase tracking-widest">Hoạt động</span>
+            </header>
+            <div class="p-6">
+                <!-- History List -->
+                <h3 class="text-sm font-bold uppercase mb-4">Lịch sử tích lũy</h3>
+                <div class="flex flex-col gap-4">
+                    <!-- Item 1 -->
+                    <div class="flex justify-between items-center bg-white p-3 rounded-lg border">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-gray">shopping_bag</span>
+                            <div>
+                                <p class="text-xs font-bold">Đơn hàng #9910</p>
+                                <p class="text-xs text-gray">Hôm qua</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-bold text-success">+120 điểm</span>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="flex justify-between items-center bg-white p-3 rounded-lg border">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-gray">cake</span>
+                            <div>
+                                <p class="text-xs font-bold">Thưởng sinh nhật</p>
+                                <p class="text-xs text-gray">24/10/2024</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-bold text-success">+500 điểm</span>
+                    </div>
+                </div>
+
+                <!-- Games Teaser -->
+                <h3 class="text-sm font-bold uppercase mb-4 mt-8">Minigame</h3>
+                <div class="card bg-black text-white p-4 flex justify-between items-center">
+                    <div>
+                        <p class="text-sm font-bold">Trung tâm giải trí</p>
+                        <p class="text-xs text-gray-400">Thử đồ ảo & Nhận quà</p>
+                    </div>
+                    <button class="btn" onclick="switchTab('game-hub')"
+                        style="width: auto; padding: 8px 16px; background: white; color: black; border-radius: 20px;">CHƠI</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- === VIEW: GAME HUB === -->
+        <div id="view-game-hub" class="view-section content-scroll hidden">
+            <header class="status-bar">
+                <span class="material-symbols-outlined" onclick="switchTab('activities')"
+                    style="cursor: pointer;">arrow_back_ios</span>
+                <span class="text-sm font-bold uppercase tracking-widest">Trung tâm trò chơi</span>
+            </header>
+            <div class="p-6">
+                <div class="card bg-black text-white p-6 mb-4" onclick="switchTab('game-tryon')"
+                    style="cursor: pointer; border: none; background-image: linear-gradient(to bottom right, #222, #000);">
+                    <span class="material-symbols-outlined text-4xl mb-4">accessibility_new</span>
+                    <h3 class="text-lg font-bold">Thử đồ ảo AI</h3>
+                    <p class="text-xs text-gray-400">Chọn outfit phù hợp nhất với bạn</p>
+                </div>
+                <div class="card bg-black text-white p-6" onclick="switchTab('game-makeup')"
+                    style="cursor: pointer; border: none; background-image: linear-gradient(to bottom right, #222, #000);">
+                    <span class="material-symbols-outlined text-4xl mb-4">face</span>
+                    <h3 class="text-lg font-bold">Makeup chuyên nghiệp</h3>
+                    <p class="text-xs text-gray-400">Biến hóa phong cách cá nhân</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- === VIEW: VIRTUAL TRY-ON GAME === -->
+        <div id="view-game-tryon" class="view-section hidden" style="height: 100vh;">
+            <div class="game-screen">
+                <header class="p-4 flex items-center gap-4">
+                    <span class="material-symbols-outlined" onclick="switchTab('game-hub')">close</span>
+                    <span class="text-xs font-bold uppercase">Virtual Try-On</span>
+                </header>
+                <div class="flex-1 flex flex-col items-center justify-center p-6 h-full">
+                    <div
+                        style="width: 250px; height: 450px; background: #222; border-radius: 20px; position: relative; overflow: hidden; border: 2px solid #333;">
+                        <img id="tryon-model"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgYk7_IPxA3fnlqhxdPJDHvBAK4WBv2RpnKnHn_w8XOmZkSruEy4mfk-XfPx_5SbYpsnSzWLUHoj5ortcWWAg6Rh5goeFzskSat3qDzRdeyxza9b4aOTr-7Gvi7bZ3nZblHXK1vAuukxY9X4ybLHLQ5c70MIHQsNkVcwfGP0LGmEVtV8J332Tp3GXXkxNmd69PEsEca-pH4_E_K6FzGTtIEL-6QEDnDzREbq6RE0HJAvUx3CRtZsLMtWg3G0zFieGripZnaV2RdrU"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="absolute bottom-4 left-0 right-0 p-4 flex justify-center gap-2">
+                            <div class="bg-white/10 backdrop-blur-md p-2 rounded-full border border-white/20">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">camera_alt</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full mt-8">
+                        <p class="text-center text-xs text-gray-400 mb-4">Gợi ý Outfit hôm nay</p>
+                        <div class="flex gap-4 overflow-x-auto pb-4">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIRpPAX1So5Mik1n6QjoZlWvCsHpJmepe_XW1m4YSIc0Q2zSojQHHzWA0uP0BgW7yjWqIQD98At5QPWEqxHfAWlsJpOPcxnhGY4c8QJHx0gLYmFun1iau0gI3tQcDSQ1oSEo5NZymrXUN7c-J0vzEhyC9rfySHF6ZMZojyLLH8_lCo5XvSCGgYIqWAi-uSlisL22Pn4obF3o"
+                                style="width: 60px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid #fff;"
+                                onclick="finishGame()">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf8xO1f5RXme_D-TCqbSiH10gN-1R2Lq9iaDdpehQdtmXwgwbKsHAffJIVrUIhVKB2NzKHkikfi9CYXx6W4ZN0fgGBqPP8HKCT51rwg1ADBkz8rkmEDn2NncnkvVeohKbKNJza7GzkBkhADHWVAO24MlFlZgpFnjrJR3lDgsaVJ-1UtZL1qhZc8Q3QUXxv3zFh-zr_5Py36s-gShJYqAhltBtp5vtTqogKJYCu9Jy0kd3WXELhkfI9OXJWUGQw9erE18xHApBFIvQ"
+                                style="width: 60px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid #333;"
+                                onclick="finishGame()">
+                            <div class="flex items-center justify-center bg-white/5 border border-dashed border-white/20 rounded-lg"
+                                style="min-width: 60px; height: 80px;">
+                                <span class="material-symbols-outlined">add</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === VIEW: MAKEUP GAME === -->
+        <div id="view-game-makeup" class="view-section hidden" style="height: 100vh;">
+            <div class="game-screen" style="background: radial-gradient(circle at center, #333, #000);">
+                <header class="p-4 flex items-center gap-4">
+                    <span class="material-symbols-outlined" onclick="switchTab('game-hub')">close</span>
+                    <span class="text-xs font-bold uppercase">AI Makeup Artist</span>
+                </header>
+                <div class="flex-1 flex flex-col items-center justify-center p-6 h-full">
+                    <div
+                        style="width: 250px; height: 250px; background: #eee; border-radius: 50%; border: 4px solid #fff; overflow: hidden; margin-top: -60px;">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk5MoAsqgKCMBRya2_JkCodlAVUq3bTuyYK-TbvfF2QTMPoodmgyV64jJ_UYz7QTZd2FLA5MbQgdw7umDGiJwLTI_U7Cu0Vin4PQp9SO3OMVO6nvD14zP9mq3PNCZDvZq58GtIMxyfAs_i0QQJDpvDfp9nvdgRJGSsqZJ0r_ZyJRnYBsD3rlAa_7zemy_v412CD-Hpbprv8skB56rrISZmBgBsouCbJYMB2YjcEoYJsEljSUanobcXyLjVlwsWS58UJDoP5SN-jn0"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="w-full mt-12">
+                        <div class="grid-2 gap-4">
+                            <button class="btn btn-outline" style="color: #fff; border-color: #333;"
+                                onclick="finishGame()">Natural Pink</button>
+                            <button class="btn btn-outline" style="color: #fff; border-color: #333;"
+                                onclick="finishGame()">Spicy Red</button>
+                            <button class="btn btn-outline" style="color: #fff; border-color: #333;"
+                                onclick="finishGame()">Brown Nude</button>
+                            <button class="btn btn-outline" style="color: #fff; border-color: #333;"
+                                onclick="finishGame()">Sunset Glow</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === REWARD OVERLAY === -->
+        <div id="reward-popup" class="reward-overlay">
+            <span class="material-symbols-outlined"
+                style="font-size: 64px; color: #fee500; margin-bottom: 20px;">stars</span>
+            <h2 class="text-xl font-bold mb-2">CHÚC MỪNG!</h2>
+            <p class="text-sm text-gray mb-6">Bạn vừa nhận được <br><span class="text-black font-bold">+36 điểm
+                    thưởng</span> & <br><span class="text-black font-bold">1 Voucher 50k</span></p>
+            <button class="btn" onclick="hideReward()">MUA SẮM NGAY</button>
+        </div>
+
+        <!-- === VIEW: ACCOUNT === -->
+        <div id="view-account" class="view-section content-scroll hidden">
+            <header class="app-header border-b">
+                <span class="text-sm font-bold uppercase tracking-widest">Tài khoản</span>
+            </header>
+            <div class="p-6 flex flex-col items-center">
+                <div style="width: 80px; height: 80px; background: #eee; border-radius: 50%; margin-bottom: 16px;">
+                </div>
+                <h2 class="text-lg font-bold">Le Minh Anh</h2>
+                <p class="text-sm text-gray mb-6">Thành viên Bạc</p>
+
+                <div class="w-full flex flex-col gap-2">
+                    <button class="btn btn-outline" style="text-align: left; border-color: #eee; color: #000;">Thông tin
+                        cá nhân</button>
+                    <button class="btn btn-outline" style="text-align: left; border-color: #eee; color: #000;">Địa chỉ
+                        giao hàng</button>
+                    <button class="btn btn-outline" style="text-align: left; border-color: #eee; color: #000;">Cài
+                        đặt</button>
+                    <button class="btn btn-outline" style="text-align: left; border-color: #eee; color: red;">Đăng
+                        xuất</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- === VIEW: COLLECTIONS (SEE ALL) === -->
+        <div id="view-collections" class="view-section content-scroll hidden">
+            <header class="status-bar"
+                style="position: sticky; top: 0; background: #fff; display: flex; align-items: center; justify-content: flex-start; gap: 16px;">
+                <span class="material-symbols-outlined" onclick="switchTab('home')"
+                    style="cursor: pointer;">arrow_back_ios</span>
+                <span class="text-sm font-bold uppercase tracking-widest">Bộ sưu tập</span>
+            </header>
+
+            <div class="p-4">
+                <!-- Category Tabs -->
+                <div class="flex gap-2 mb-6" style="overflow-x: auto; padding-bottom: 8px;">
+                    <div class="category-tab active">Bộ sưu tập Tết</div>
+                    <div class="category-tab">Thời trang Nam</div>
+                    <div class="category-tab">Thời trang Nữ</div>
+                    <div class="category-tab">Phụ kiện</div>
+                </div>
+
+                <div class="grid-2">
+                    <!-- Flash Sale Item 1 -->
+                    <div style="position: relative;">
+                        <span class="discount-badge">-30%</span>
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgYk7_IPxA3fnlqhxdPJDHvBAK4WBv2RpnKnHn_w8XOmZkSruEy4mfk-XfPx_5SbYpsnSzWLUHoj5ortcWWAg6Rh5goeFzskSat3qDzRdeyxza9b4aOTr-7Gvi7bZ3nZblHXK1vAuukxY9X4ybLHLQ5c70MIHQsNkVcwfGP0LGmEVtV8J332Tp3GXXkxNmd69PEsEca-pH4_E_K6FzGTtIEL-6QEDnDzREbq6RE0HJAvUx3CRtZsLMtWg3G0zFieGripZnaV2RdrU"
+                            class="aspect-product mb-2">
+                        <p class="text-xs">Áo Sơ Mi Linen Cổ Trụ</p>
+                        <div class="flex items-center mt-1">
+                            <span class="price-old">790k</span>
+                            <span class="price-new">550k</span>
+                        </div>
+                    </div>
+                    <!-- Flash Sale Item 2 -->
+                    <div style="position: relative;">
+                        <span class="discount-badge">-15%</span>
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIRpPAX1So5Mik1n6QjoZlWvCsHpJmepe_XW1m4YSIc0Q2zSojQHHzWA0uP0BgW7yjWqIQD98At5QPWEqxHfAWlsJpOPcxnhGY4c8QJHx0gLYNP6r8KhMGofPNzgOM6ThMxDjzNf845ls847QRgS2zglwDo45QRLZUWIfckZQCAmpSsjnD2-HE0bE4bZhXDvp_ppajgM3HPw2w95ft0tuYm2aUP-E7oQOT11EGOMINPzVoJQ0nvJFNyT3Rdc4Sdwhy4uGtk6gQK5c"
+                            class="aspect-product mb-2">
+                        <p class="text-xs">Áo Linen Form Rộng</p>
+                        <div class="flex items-center mt-1">
+                            <span class="price-old">695k</span>
+                            <span class="price-new">590k</span>
+                        </div>
+                    </div>
+                    <!-- Flash Sale Item 3 -->
+                    <div style="position: relative;">
+                        <span class="discount-badge">-20%</span>
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf8xO1f5RXme_D-TCqbSiH10gN-1R2Lq9iaDdpehQdtmXwgwbKsHAffJIVrUIhVKB2NzKHkikfi9CYXx6W4ZN0fgGBqPP8HKCT51rwg1ADBkz8rkmEDn2NncnkvVeohKbKNJza7GzkBkhADHWVAO24MlFlZgpFnjrJR3lDgsaVJ-1UtZL1qhZc8Q3QUXxv3zFh-zr_5Py36s-gShJYqAhltBtp5vtTqogKJYCu9Jy0kd3WXELhkfI9OXJWUGQw9erE18xHApBFIvQ"
+                            class="aspect-product mb-2">
+                        <p class="text-xs">Áo Khoác Nam Streetwear</p>
+                        <div class="flex items-center mt-1">
+                            <span class="price-old">1.100k</span>
+                            <span class="price-new">850k</span>
+                        </div>
+                    </div>
+                    <!-- Flash Sale Item 4 -->
+                    <div style="position: relative;">
+                        <span class="discount-badge">SALE</span>
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaNs8xGaZTYqqVJNCoflL-VlPl7bEmZKUdCIsrhi_nacqbizc-3dZNgkfeOKvgGuC9Ql3R6jvy36UIrh9AELXlTYyQfcn_DEz7NTpF-NSLoM-MTA8HKchPECK5Xh077i0VY2E38mbhz9InrBh0vzZJphTntU1DNi3jVKjpO8bkXgLYmFun1iau0gI3tQcDSQ1oSEo5NZymrXUN7c-J0vzEhyC9rfySHF6ZMZojyLLH8_lCo5XvSCGgYIqWAi-uSlisL22Pn4obF3o"
+                            class="aspect-product mb-2">
+                        <p class="text-xs">Áo Dài Cách Tân Tết</p>
+                        <div class="flex items-center mt-1">
+                            <span class="price-old">1.250k</span>
+                            <span class="price-new">990k</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === BOTTOM NAVIGATION (Fixed) === -->
+        <nav class="bottom-nav">
+            <a href="#home" class="nav-item active">
+                <span class="material-symbols-outlined icon">home</span>
+                <span>Trang chủ</span>
+            </a>
+            <a href="#products" class="nav-item">
+                <span class="material-symbols-outlined icon">checkroom</span>
+                <span>Sản phẩm</span>
+            </a>
+            <a href="#activities" class="nav-item">
+                <span class="material-symbols-outlined icon">analytics</span>
+                <span>Hoạt động</span>
+            </a>
+            <a href="#account" class="nav-item">
+                <span class="material-symbols-outlined icon">person</span>
+                <span>Tài khoản</span>
+            </a>
+        </nav>
+
+    </div> <!-- End App Container -->
+
+    <script src="main.js"></script>
+</body>
+
+</html>
