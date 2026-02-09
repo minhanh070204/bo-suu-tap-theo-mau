@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Routine Minimalist</title>
+    <title>ROUTINE | Minimalism Fashion</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,472 +12,648 @@
 
     <div class="app-container">
 
-        <!-- === WELCOME SCREEN (Overlay) === -->
-        <div id="welcome-screen" class="welcome-screen">
-            <!-- Correct iOS Status Bar for Welcome -->
-            <div class="status-bar" style="position: absolute; top: 0; left: 0; right: 0; background: transparent;">
-                <span class="status-bar-time">9:41</span>
-                <div class="status-bar-icons">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                        <rect x="12" y="4" width="2" height="8" rx="1" />
-                        <rect x="9" y="6" width="2" height="6" rx="1" />
-                        <rect x="6" y="3" width="2" height="9" rx="1" />
-                        <rect x="3" y="5" width="2" height="7" rx="1" />
-                    </svg>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                        <path
-                            d="M2 8.5C2 7.67 2.67 7 3.5 7h1C5.33 7 6 7.67 6 8.5v6c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-6zm4.5-3c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H8c-.83 0-1.5-.67-1.5-1.5v-9zm5.5-2c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-11z" />
-                    </svg>
-                    <svg width="25" height="12" viewBox="0 0 25 12" fill="none" class="battery-icon">
-                        <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor" />
-                        <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor" />
-                        <path d="M23 4V8" stroke="currentColor" stroke-linecap="round" />
-                    </svg>
-                </div>
-            </div>
-
-            <div class="flex flex-col items-center justify-center h-full w-full p-6">
-                <img src="routine-logo.png" alt="Routine" style="width: 200px; margin-bottom: 60px;">
-                <button id="btn-explore" class="btn" style="background: #000; color: #fff; max-width: 200px;">
-                    KHÁM PHÁ
-                </button>
-            </div>
-        </div>
-
-
-        <!-- === GLOBAL STATUS BAR (For all inner screens) === -->
-        <div class="status-bar">
-            <span class="status-bar-time">9:41</span>
-            <div class="status-bar-icons">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                    <rect x="12" y="4" width="2" height="8" rx="1" />
-                    <rect x="9" y="6" width="2" height="6" rx="1" />
-                    <rect x="6" y="3" width="2" height="9" rx="1" />
-                    <rect x="3" y="5" width="2" height="7" rx="1" />
-                </svg>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                    <path
-                        d="M2 8.5C2 7.67 2.67 7 3.5 7h1C5.33 7 6 7.67 6 8.5v6c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-6zm4.5-3c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H8c-.83 0-1.5-.67-1.5-1.5v-9zm5.5-2c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5v-11z" />
-                </svg>
-                <svg width="25" height="12" viewBox="0 0 25 12" fill="none" class="battery-icon">
-                    <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor" />
-                    <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor" />
-                    <path d="M23 4V8" stroke="currentColor" stroke_linecap="round" />
-                </svg>
-            </div>
-        </div>
-
-        <!-- === VIEW: HOME (Dashboard) === -->
-        <div id="view-home" class="view-section content-scroll">
-            <header class="app-header">
-                <img src="routine-logo.png" alt="Routine">
-            </header>
-
-            <div class="p-6">
-                <!-- Member Card -->
-                <div class="card" style="border: 1px solid #000000;">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <p class="text-xs uppercase tracking-widest text-gray">Hạng thành viên</p>
-                            <h2 class="text-xl font-medium uppercase mt-1">Thành viên Bạc</h2>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-xs uppercase tracking-widest text-gray">Điểm</p>
-                            <p class="text-lg font-bold">1,264</p>
-                        </div>
-                    </div>
-                    <div class="progress-container">
-                        <div class="progress-fill" style="width: 75%;"></div>
-                    </div>
-                    <p class="text-xs text-gray mb-4">Cần <span class="text-black font-bold">36 điểm</span> để thăng
-                        hạng Vàng</p>
-
-                    <button class="btn btn-outline" style="font-size: 10px; padding: 10px;"
-                        onclick="switchTab('activities')">
-                        XEM ĐẶC QUYỀN
-                    </button>
-                </div>
-
-                <!-- Collection Teaser -->
-                <div class="flex justify-between items-end mb-4 mt-8">
-                    <h3 class="text-lg font-medium">Bộ sưu tập Tết</h3>
-                    <a href="javascript:switchTab('collections')" class="text-xs uppercase font-bold"
-                        style="border-bottom: 1px solid #000; padding-bottom: 2px;">Xem tất cả</a>
-                </div>
-
-                <div class="flex gap-4" style="overflow-x: auto; padding-bottom: 15px; scroll-behavior: smooth;">
-                    <!-- Product Card 1 -->
-                    <div style="min-width: 160px;">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIRpPAX1So5Mik1n6QjoZlWvCsHpJmepe_XW1m4YSIc0Q2zSojQHHzWA0uP0BgW7yjWqIQD98At5QPWEqxHfAWlsJpOPcxnhGY4c8QJHx0gLYNP6r8KhMGofPNzgOM3ThMxDjzNf845ls847QRgS2zglwDo45QRLZUWIfckZQCAmpSsjnD2-HE0bE4bZhXDvp_ppajgM3HPw2w95ft0tuYm2aUP-E7oQOT11EGOMINPzVoJQ0nvJFNyT3Rdc4Sdwhy4uGtk6gQK5c"
-                            class="aspect-product mb-2">
-                        <p class="text-xs mb-1">Áo Linen Form Rộng</p>
-                        <p class="text-sm font-bold">590.000đ</p>
-                    </div>
-                    <!-- Product Card 2 -->
-                    <div style="min-width: 160px;">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnm6UTIcigwGsYWVTOnV-yw7p6wjlQ6QWtGPrb1QAIXyiHMvq9hYfY0BOS_i2JbgMY58VBtNhQbLJkEhFTO6wB6-kv58IQj25YiAlytycHCgQmRNbNjauwCgj7tD9OW6J8SddZDKzYy6-wJsdfPeTSwLv1CcjZqjYr7Yh3a7vWEdlc0lrrAmhe_1DyGSq6ifS1n9LVQD4V7yHh86-hwjCFNhVMan9Ib85Spi5v5Wtn5qnfhpr3vxCDEyYRXp-W-_5mQRUAyOMNCaM"
-                            class="aspect-product mb-2">
-                        <p class="text-xs mb-1">Quần Tây Slim Fit</p>
-                        <p class="text-sm font-bold">750.000đ</p>
-                    </div>
-                    <!-- Product Card 3 -->
-                    <div style="min-width: 160px;">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgYk7_IPxA3fnlqhxdPJDHvBAK4WBv2RpnKnHn_w8XOmZkSruEy4mfk-XfPx_5SbYpsnSzWLUHoj5ortcWWAg6Rh5goeFzskSat3qDzRdeyxza9b4aOTr-7Gvi7bZ3nZblHXK1vAuukxY9X4ybLHLQ5c70MIHQsNkVcwfGP0LGmEVtV8J332Tp3GXXkxNmd69PEsEca-pH4_E_K6FzGTtIEL-6QEDnDzREbq6RE0HJAvUx3CRtZsLMtWg3G0zFieGripZnaV2RdrU"
-                            class="aspect-product mb-2">
-                        <p class="text-xs mb-1">Áo Sơ Mi Linen Cổ Trụ</p>
-                        <p class="text-sm font-bold">550.000đ</p>
-                    </div>
-                    <!-- Product Card 4 -->
-                    <div style="min-width: 160px;">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf8xO1f5RXme_D-TCqbSiH10gN-1R2Lq9iaDdpehQdtmXwgwbKsHAffJIVrUIhVKB2NzKHkikfi9CYXx6W4ZN0fgGBqPP8HKCT51rwg1ADBkz8rkmEDn2NncnkvVeohKbKNJza7GzkBkhADHWVAO24MlFlZgpFnjrJR3lDgsaVJ-1UtZL1qhZc8Q3QUXxv3zFh-zr_5Py36s-gShJYqAhltBtp5vtTqogKJYCu9Jy0kd3WXELhkfI9OXJWUGQw9erE18xHApBFIvQ"
-                            class="aspect-product mb-2">
-                        <p class="text-xs mb-1">Áo Khoác Nam Streetwear</p>
-                        <p class="text-sm font-bold">850.000đ</p>
-                    </div>
-                </div>
-
-                <!-- Mini Menu -->
-                <div class="grid-2 mt-8">
-                    <div class="card flex flex-col items-center justify-center p-4">
-                        <span class="material-symbols-outlined text-2xl mb-2">history</span>
-                        <p class="text-xs font-bold uppercase">Lịch sử điểm</p>
-                    </div>
-                    <div class="card flex flex-col items-center justify-center p-4">
-                        <span class="material-symbols-outlined text-2xl mb-2">Confirmation_Number</span>
-                        <p class="text-xs font-bold uppercase">Voucher (3)</p>
-                    </div>
-                </div>
-
-                <!-- Vertical Product Grid Section -->
-                <div class="mt-10">
-                    <h3 class="text-lg font-medium mb-6">Gợi ý cho bạn</h3>
-                    <div class="grid-2">
-                        <div>
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk5MoAsqgKCMBRya2_JkCodlAVUq3bTuyYK-TbvfF2QTMPoodmgyV64jJ_UYz7QTZd2FLA5MbQgdw7umDGiJwLTI_U7Cu0Vin4PQp9SO3OMVO6nvD14zP9mq3PNCZDvZq58GtIMxyfAs_i0QQJDpvDfp9nvdgRJGSsqZJ0r_ZyJRnYBsD3rlAa_7zemy_v412CD-Hpbprv8skB56rrISZmBgBsouCbJYMB2YjcEoYJsEljSUanobcXyLjVlwsWS58UJDoP5SN-jn0"
-                                class="aspect-product mb-2">
-                            <p class="text-xs mb-1">Váy Nữ Thời Trang</p>
-                            <p class="text-sm font-bold">790.000đ</p>
-                        </div>
-                        <div>
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaNs8xGaZTYqqVJNCoflL-VlPl7bEmZKUdCIsrhi_nacqbizc-3dZNgkfeOKvgGuC9Ql3R6jvy36UIrh9AELXlTYyQfcn_DEz7NTpF-NSLoM-MTA8HKchPECK5Xh077i0VY2E38mbhz9InrBh0vzZJphTntU1DNi3jVKjpO8bkXgLYmFun1iau0gI3tQcDSQ1oSEo5NZymrXUN7c-J0vzEhyC9rfySHF6ZMZojyLLH8_lCo5XvSCGgYIqWAi-uSlisL22Pn4obF3o"
-                                class="aspect-product mb-2">
-                            <p class="text-xs mb-1">Áo Dài Cách Tân Tết</p>
-                            <p class="text-sm font-bold">990.000đ</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- === VIEW: PRODUCTS === -->
-        <div id="view-products" class="view-section content-scroll hidden">
-            <header class="app-header border-b">
-                <span class="text-sm font-bold uppercase tracking-widest">Sản phẩm</span>
-            </header>
-            <div class="p-4 grid-2">
-                <!-- Product 1 -->
-                <div>
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgYk7_IPxA3fnlqhxdPJDHvBAK4WBv2RpnKnHn_w8XOmZkSruEy4mfk-XfPx_5SbYpsnSzWLUHoj5ortcWWAg6Rh5goeFzskSat3qDzRdeyxza9b4aOTr-7Gvi7bZ3nZblHXK1vAuukxY9X4ybLHLQ5c70MIHQsNkVcwfGP0LGmEVtV8J332Tp3GXXkxNmd69PEsEca-pH4_E_K6FzGTtIEL-6QEDnDzREbq6RE0HJAvUx3CRtZsLMtWg3G0zFieGripZnaV2RdrU"
-                        class="aspect-product mb-2">
-                    <p class="text-xs">Áo Sơ Mi Linen Cổ Trụ</p>
-                    <p class="text-sm font-bold">550.000₫</p>
-                </div>
-                <!-- Product 2 -->
-                <div>
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIRpPAX1So5Mik1n6QjoZlWvCsHpJmepe_XW1m4YSIc0Q2zSojQHHzWA0uP0BgW7yjWqIQD98At5QPWEqxHfAWlsJpOPcxnhGY4c8QJHx0gLYNP6r8KhMGofPNzgOM6ThMxDjzNf845ls847QRgS2zglwDo45QRLZUWIfckZQCAmpSsjnD2-HE0bE4bZhXDvp_ppajgM3HPw2w95ft0tuYm2aUP-E7oQOT11EGOMINPzVoJQ0nvJFNyT3Rdc4Sdwhy4uGtk6gQK5c"
-                        class="aspect-product mb-2">
-                    <p class="text-xs">Áo Linen Form Rộng</p>
-                    <p class="text-sm font-bold">590.000₫</p>
-                </div>
-                <!-- Product 3 -->
-                <div>
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnm6UTIcigwGsYWVTOnV-yw7p6wjlQ6QWtGPrb1QAIXyiHMvq9hYfY0BOS_i2JbgMY58VBtNhQbLJkEhFTO6wB6-kv58IQj25YiAlytycHCgQmRNbNjauwCgj7tD9OW6J8SddZDKzYy6-wJsdfPeTSwLv1CcjZqjYr7Yh3a7vWEdlc0lrrAmhe_1DyGSq6ifS1n9LVQD4V7yHh86-hwjCFNhVMan9Ib85Spi5v5Wtn5qnfhpr3vxCDEyYRXp-W-_5mQRUAyOMNCaM"
-                        class="aspect-product mb-2">
-                    <p class="text-xs">Quần Tây Slim Fit</p>
-                    <p class="text-sm font-bold">750.000₫</p>
-                </div>
-                <!-- Product 4 -->
-                <div>
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf8xO1f5RXme_D-TCqbSiH10gN-1R2Lq9iaDdpehQdtmXwgwbKsHAffJIVrUIhVKB2NzKHkikfi9CYXx6W4ZN0fgGBqPP8HKCT51rwg1ADBkz8rkmEDn2NncnkvVeohKbKNJza7GzkBkhADHWVAO24MlFlZgpFnjrJR3lDgsaVJ-1UtZL1qhZc8Q3QUXxv3zFh-zr_5Py36s-gShJYqAhltBtp5vtTqogKJYCu9Jy0kd3WXELhkfI9OXJWUGQw9erE18xHApBFIvQ"
-                        class="aspect-product mb-2">
-                    <p class="text-xs">Áo Khoác Nam Streetwear</p>
-                    <p class="text-sm font-bold">850.000₫</p>
-                </div>
-                <!-- Product 5 -->
-                <div>
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk5MoAsqgKCMBRya2_JkCodlAVUq3bTuyYK-TbvfF2QTMPoodmgyV64jJ_UYz7QTZd2FLA5MbQgdw7umDGiJwLTI_U7Cu0Vin4PQp9SO3OMVO6nvD14zP9mq3PNCZDvZq58GtIMxyfAs_i0QQJDpvDfp9nvdgRJGSsqZJ0r_ZyJRnYBsD3rlAa_7zemy_v412CD-Hpbprv8skB56rrISZmBgBsouCbJYMB2YjcEoYJsEljSUanobcXyLjVlwsWS58UJDoP5SN-jn0"
-                        class="aspect-product mb-2">
-                    <p class="text-xs">Váy Nữ Thời Trang</p>
-                    <p class="text-sm font-bold">790.000₫</p>
-                </div>
-                <!-- Product 6 -->
-                <div>
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaNs8xGaZTYqqVJNCoflL-VlPl7bEmZKUdCIsrhi_nacqbizc-3dZNgkfeOKvgGuC9Ql3R6jvy36UIrh9AELXlTYyQfcn_DEz7NTpF-NSLoM-MTA8HKchPECK5Xh077i0VY2E38mbhz9InrBh0vzZJphTntU1DNi3jVKjpO8bkXgLYmFun1iau0gI3tQcDSQ1oSEo5NZymrXUN7c-J0vzEhyC9rfySHF6ZMZojyLLH8_lCo5XvSCGgYIqWAi-uSlisL22Pn4obF3o"
-                        class="aspect-product mb-2">
-                    <p class="text-xs">Áo Dài Cách Tân Tết</p>
-                    <p class="text-sm font-bold">990.000₫</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- === VIEW: ACTIVITIES (Loyalty) === -->
-        <div id="view-activities" class="view-section content-scroll hidden">
-            <header class="app-header border-b">
-                <span class="text-sm font-bold uppercase tracking-widest">Hoạt động</span>
-            </header>
-            <div class="p-6">
-                <!-- History List -->
-                <h3 class="text-sm font-bold uppercase mb-4">Lịch sử tích lũy</h3>
-                <div class="flex flex-col gap-4">
-                    <!-- Item 1 -->
-                    <div class="flex justify-between items-center bg-white p-3 rounded-lg border">
-                        <div class="flex items-center gap-3">
-                            <span class="material-symbols-outlined text-gray">shopping_bag</span>
-                            <div>
-                                <p class="text-xs font-bold">Đơn hàng #9910</p>
-                                <p class="text-xs text-gray">Hôm qua</p>
-                            </div>
-                        </div>
-                        <span class="text-xs font-bold text-success">+120 điểm</span>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="flex justify-between items-center bg-white p-3 rounded-lg border">
-                        <div class="flex items-center gap-3">
-                            <span class="material-symbols-outlined text-gray">cake</span>
-                            <div>
-                                <p class="text-xs font-bold">Thưởng sinh nhật</p>
-                                <p class="text-xs text-gray">24/10/2024</p>
-                            </div>
-                        </div>
-                        <span class="text-xs font-bold text-success">+500 điểm</span>
-                    </div>
-                </div>
-
-                <!-- Games Teaser -->
-                <h3 class="text-sm font-bold uppercase mb-4 mt-8">Minigame</h3>
-                <div class="card bg-black text-white p-4 flex justify-between items-center">
-                    <div>
-                        <p class="text-sm font-bold">Trung tâm giải trí</p>
-                        <p class="text-xs text-gray-400">Thử đồ ảo & Nhận quà</p>
-                    </div>
-                    <button class="btn" onclick="switchTab('game-hub')"
-                        style="width: auto; padding: 8px 16px; background: white; color: black; border-radius: 20px;">CHƠI</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- === VIEW: GAME HUB === -->
-        <div id="view-game-hub" class="view-section content-scroll hidden">
-            <header class="status-bar">
-                <span class="material-symbols-outlined" onclick="switchTab('activities')"
-                    style="cursor: pointer;">arrow_back_ios</span>
-                <span class="text-sm font-bold uppercase tracking-widest">Trung tâm trò chơi</span>
-            </header>
-            <div class="p-6">
-                <div class="card bg-black text-white p-6 mb-4" onclick="switchTab('game-tryon')"
-                    style="cursor: pointer; border: none; background-image: linear-gradient(to bottom right, #222, #000);">
-                    <span class="material-symbols-outlined text-4xl mb-4">accessibility_new</span>
-                    <h3 class="text-lg font-bold">Thử đồ ảo AI</h3>
-                    <p class="text-xs text-gray-400">Chọn outfit phù hợp nhất với bạn</p>
-                </div>
-                <div class="card bg-black text-white p-6" onclick="switchTab('game-makeup')"
-                    style="cursor: pointer; border: none; background-image: linear-gradient(to bottom right, #222, #000);">
-                    <span class="material-symbols-outlined text-4xl mb-4">face</span>
-                    <h3 class="text-lg font-bold">Makeup chuyên nghiệp</h3>
-                    <p class="text-xs text-gray-400">Biến hóa phong cách cá nhân</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- === VIEW: VIRTUAL TRY-ON GAME === -->
-        <div id="view-game-tryon" class="view-section hidden" style="height: 100vh;">
-            <div class="game-screen">
-                <header class="p-4 flex items-center gap-4">
-                    <span class="material-symbols-outlined" onclick="switchTab('game-hub')">close</span>
-                    <span class="text-xs font-bold uppercase">Virtual Try-On</span>
-                </header>
-                <div class="flex-1 flex flex-col items-center justify-center p-6 h-full">
-                    <div
-                        style="width: 250px; height: 450px; background: #222; border-radius: 20px; position: relative; overflow: hidden; border: 2px solid #333;">
-                        <img id="tryon-model"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgYk7_IPxA3fnlqhxdPJDHvBAK4WBv2RpnKnHn_w8XOmZkSruEy4mfk-XfPx_5SbYpsnSzWLUHoj5ortcWWAg6Rh5goeFzskSat3qDzRdeyxza9b4aOTr-7Gvi7bZ3nZblHXK1vAuukxY9X4ybLHLQ5c70MIHQsNkVcwfGP0LGmEVtV8J332Tp3GXXkxNmd69PEsEca-pH4_E_K6FzGTtIEL-6QEDnDzREbq6RE0HJAvUx3CRtZsLMtWg3G0zFieGripZnaV2RdrU"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="absolute bottom-4 left-0 right-0 p-4 flex justify-center gap-2">
-                            <div class="bg-white/10 backdrop-blur-md p-2 rounded-full border border-white/20">
-                                <span class="material-symbols-outlined" style="font-size: 20px;">camera_alt</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full mt-8">
-                        <p class="text-center text-xs text-gray-400 mb-4">Gợi ý Outfit hôm nay</p>
-                        <div class="flex gap-4 overflow-x-auto pb-4">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIRpPAX1So5Mik1n6QjoZlWvCsHpJmepe_XW1m4YSIc0Q2zSojQHHzWA0uP0BgW7yjWqIQD98At5QPWEqxHfAWlsJpOPcxnhGY4c8QJHx0gLYmFun1iau0gI3tQcDSQ1oSEo5NZymrXUN7c-J0vzEhyC9rfySHF6ZMZojyLLH8_lCo5XvSCGgYIqWAi-uSlisL22Pn4obF3o"
-                                style="width: 60px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid #fff;"
-                                onclick="finishGame()">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf8xO1f5RXme_D-TCqbSiH10gN-1R2Lq9iaDdpehQdtmXwgwbKsHAffJIVrUIhVKB2NzKHkikfi9CYXx6W4ZN0fgGBqPP8HKCT51rwg1ADBkz8rkmEDn2NncnkvVeohKbKNJza7GzkBkhADHWVAO24MlFlZgpFnjrJR3lDgsaVJ-1UtZL1qhZc8Q3QUXxv3zFh-zr_5Py36s-gShJYqAhltBtp5vtTqogKJYCu9Jy0kd3WXELhkfI9OXJWUGQw9erE18xHApBFIvQ"
-                                style="width: 60px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid #333;"
-                                onclick="finishGame()">
-                            <div class="flex items-center justify-center bg-white/5 border border-dashed border-white/20 rounded-lg"
-                                style="min-width: 60px; height: 80px;">
-                                <span class="material-symbols-outlined">add</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- === VIEW: MAKEUP GAME === -->
-        <div id="view-game-makeup" class="view-section hidden" style="height: 100vh;">
-            <div class="game-screen" style="background: radial-gradient(circle at center, #333, #000);">
-                <header class="p-4 flex items-center gap-4">
-                    <span class="material-symbols-outlined" onclick="switchTab('game-hub')">close</span>
-                    <span class="text-xs font-bold uppercase">AI Makeup Artist</span>
-                </header>
-                <div class="flex-1 flex flex-col items-center justify-center p-6 h-full">
-                    <div
-                        style="width: 250px; height: 250px; background: #eee; border-radius: 50%; border: 4px solid #fff; overflow: hidden; margin-top: -60px;">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk5MoAsqgKCMBRya2_JkCodlAVUq3bTuyYK-TbvfF2QTMPoodmgyV64jJ_UYz7QTZd2FLA5MbQgdw7umDGiJwLTI_U7Cu0Vin4PQp9SO3OMVO6nvD14zP9mq3PNCZDvZq58GtIMxyfAs_i0QQJDpvDfp9nvdgRJGSsqZJ0r_ZyJRnYBsD3rlAa_7zemy_v412CD-Hpbprv8skB56rrISZmBgBsouCbJYMB2YjcEoYJsEljSUanobcXyLjVlwsWS58UJDoP5SN-jn0"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="w-full mt-12">
-                        <div class="grid-2 gap-4">
-                            <button class="btn btn-outline" style="color: #fff; border-color: #333;"
-                                onclick="finishGame()">Natural Pink</button>
-                            <button class="btn btn-outline" style="color: #fff; border-color: #333;"
-                                onclick="finishGame()">Spicy Red</button>
-                            <button class="btn btn-outline" style="color: #fff; border-color: #333;"
-                                onclick="finishGame()">Brown Nude</button>
-                            <button class="btn btn-outline" style="color: #fff; border-color: #333;"
-                                onclick="finishGame()">Sunset Glow</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- === REWARD OVERLAY === -->
-        <div id="reward-popup" class="reward-overlay">
-            <span class="material-symbols-outlined"
-                style="font-size: 64px; color: #fee500; margin-bottom: 20px;">stars</span>
-            <h2 class="text-xl font-bold mb-2">CHÚC MỪNG!</h2>
-            <p class="text-sm text-gray mb-6">Bạn vừa nhận được <br><span class="text-black font-bold">+36 điểm
-                    thưởng</span> & <br><span class="text-black font-bold">1 Voucher 50k</span></p>
-            <button class="btn" onclick="hideReward()">MUA SẮM NGAY</button>
-        </div>
-
-        <!-- === VIEW: ACCOUNT === -->
-        <div id="view-account" class="view-section content-scroll hidden">
-            <header class="app-header border-b">
-                <span class="text-sm font-bold uppercase tracking-widest">Tài khoản</span>
-            </header>
-            <div class="p-6 flex flex-col items-center">
-                <div style="width: 80px; height: 80px; background: #eee; border-radius: 50%; margin-bottom: 16px;">
-                </div>
-                <h2 class="text-lg font-bold">Le Minh Anh</h2>
-                <p class="text-sm text-gray mb-6">Thành viên Bạc</p>
-
-                <div class="w-full flex flex-col gap-2">
-                    <button class="btn btn-outline" style="text-align: left; border-color: #eee; color: #000;">Thông tin
-                        cá nhân</button>
-                    <button class="btn btn-outline" style="text-align: left; border-color: #eee; color: #000;">Địa chỉ
-                        giao hàng</button>
-                    <button class="btn btn-outline" style="text-align: left; border-color: #eee; color: #000;">Cài
-                        đặt</button>
-                    <button class="btn btn-outline" style="text-align: left; border-color: #eee; color: red;">Đăng
-                        xuất</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- === VIEW: COLLECTIONS (SEE ALL) === -->
-        <div id="view-collections" class="view-section content-scroll hidden">
-            <header class="status-bar"
-                style="position: sticky; top: 0; background: #fff; display: flex; align-items: center; justify-content: flex-start; gap: 16px;">
-                <span class="material-symbols-outlined" onclick="switchTab('home')"
-                    style="cursor: pointer;">arrow_back_ios</span>
-                <span class="text-sm font-bold uppercase tracking-widest">Bộ sưu tập</span>
-            </header>
-
-            <div class="p-4">
-                <!-- Category Tabs -->
-                <div class="flex gap-2 mb-6" style="overflow-x: auto; padding-bottom: 8px;">
-                    <div class="category-tab active">Bộ sưu tập Tết</div>
-                    <div class="category-tab">Thời trang Nam</div>
-                    <div class="category-tab">Thời trang Nữ</div>
-                    <div class="category-tab">Phụ kiện</div>
-                </div>
-
-                <div class="grid-2">
-                    <!-- Flash Sale Item 1 -->
-                    <div style="position: relative;">
-                        <span class="discount-badge">-30%</span>
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgYk7_IPxA3fnlqhxdPJDHvBAK4WBv2RpnKnHn_w8XOmZkSruEy4mfk-XfPx_5SbYpsnSzWLUHoj5ortcWWAg6Rh5goeFzskSat3qDzRdeyxza9b4aOTr-7Gvi7bZ3nZblHXK1vAuukxY9X4ybLHLQ5c70MIHQsNkVcwfGP0LGmEVtV8J332Tp3GXXkxNmd69PEsEca-pH4_E_K6FzGTtIEL-6QEDnDzREbq6RE0HJAvUx3CRtZsLMtWg3G0zFieGripZnaV2RdrU"
-                            class="aspect-product mb-2">
-                        <p class="text-xs">Áo Sơ Mi Linen Cổ Trụ</p>
-                        <div class="flex items-center mt-1">
-                            <span class="price-old">790k</span>
-                            <span class="price-new">550k</span>
-                        </div>
-                    </div>
-                    <!-- Flash Sale Item 2 -->
-                    <div style="position: relative;">
-                        <span class="discount-badge">-15%</span>
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIRpPAX1So5Mik1n6QjoZlWvCsHpJmepe_XW1m4YSIc0Q2zSojQHHzWA0uP0BgW7yjWqIQD98At5QPWEqxHfAWlsJpOPcxnhGY4c8QJHx0gLYNP6r8KhMGofPNzgOM6ThMxDjzNf845ls847QRgS2zglwDo45QRLZUWIfckZQCAmpSsjnD2-HE0bE4bZhXDvp_ppajgM3HPw2w95ft0tuYm2aUP-E7oQOT11EGOMINPzVoJQ0nvJFNyT3Rdc4Sdwhy4uGtk6gQK5c"
-                            class="aspect-product mb-2">
-                        <p class="text-xs">Áo Linen Form Rộng</p>
-                        <div class="flex items-center mt-1">
-                            <span class="price-old">695k</span>
-                            <span class="price-new">590k</span>
-                        </div>
-                    </div>
-                    <!-- Flash Sale Item 3 -->
-                    <div style="position: relative;">
-                        <span class="discount-badge">-20%</span>
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf8xO1f5RXme_D-TCqbSiH10gN-1R2Lq9iaDdpehQdtmXwgwbKsHAffJIVrUIhVKB2NzKHkikfi9CYXx6W4ZN0fgGBqPP8HKCT51rwg1ADBkz8rkmEDn2NncnkvVeohKbKNJza7GzkBkhADHWVAO24MlFlZgpFnjrJR3lDgsaVJ-1UtZL1qhZc8Q3QUXxv3zFh-zr_5Py36s-gShJYqAhltBtp5vtTqogKJYCu9Jy0kd3WXELhkfI9OXJWUGQw9erE18xHApBFIvQ"
-                            class="aspect-product mb-2">
-                        <p class="text-xs">Áo Khoác Nam Streetwear</p>
-                        <div class="flex items-center mt-1">
-                            <span class="price-old">1.100k</span>
-                            <span class="price-new">850k</span>
-                        </div>
-                    </div>
-                    <!-- Flash Sale Item 4 -->
-                    <div style="position: relative;">
-                        <span class="discount-badge">SALE</span>
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaNs8xGaZTYqqVJNCoflL-VlPl7bEmZKUdCIsrhi_nacqbizc-3dZNgkfeOKvgGuC9Ql3R6jvy36UIrh9AELXlTYyQfcn_DEz7NTpF-NSLoM-MTA8HKchPECK5Xh077i0VY2E38mbhz9InrBh0vzZJphTntU1DNi3jVKjpO8bkXgLYmFun1iau0gI3tQcDSQ1oSEo5NZymrXUN7c-J0vzEhyC9rfySHF6ZMZojyLLH8_lCo5XvSCGgYIqWAi-uSlisL22Pn4obF3o"
-                            class="aspect-product mb-2">
-                        <p class="text-xs">Áo Dài Cách Tân Tết</p>
-                        <div class="flex items-center mt-1">
-                            <span class="price-old">1.250k</span>
-                            <span class="price-new">990k</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- === BOTTOM NAVIGATION (Fixed) === -->
+        <!-- === GLOBAL NAVIGATION === -->
         <nav class="bottom-nav">
-            <a href="#home" class="nav-item active">
+            <a href="javascript:void(0)" class="nav-item active" id="nav-home" onclick="showView('home')">
                 <span class="material-symbols-outlined icon">home</span>
                 <span>Trang chủ</span>
             </a>
-            <a href="#products" class="nav-item">
-                <span class="material-symbols-outlined icon">checkroom</span>
-                <span>Sản phẩm</span>
+            <a href="javascript:void(0)" class="nav-item" id="nav-shop" onclick="showView('shop')">
+                <span class="material-symbols-outlined icon">shopping_bag</span>
+                <span>Mua sắm</span>
             </a>
-            <a href="#activities" class="nav-item">
-                <span class="material-symbols-outlined icon">analytics</span>
-                <span>Hoạt động</span>
+            <a href="javascript:void(0)" class="nav-item" id="nav-loyalty" onclick="showView('loyalty')">
+                <span class="material-symbols-outlined icon">stars</span>
+                <span>Loyalty</span>
             </a>
-            <a href="#account" class="nav-item">
+            <a href="javascript:void(0)" class="nav-item" id="nav-stores" onclick="showView('stores')">
+                <span class="material-symbols-outlined icon">location_on</span>
+                <span>Cửa hàng</span>
+            </a>
+            <a href="javascript:void(0)" class="nav-item" id="nav-account" onclick="showView('account')">
                 <span class="material-symbols-outlined icon">person</span>
-                <span>Tài khoản</span>
+                <span>Cá nhân</span>
             </a>
         </nav>
 
-    </div> <!-- End App Container -->
+        <!-- === VIEW: TRANG CHỦ === -->
+        <div id="view-home" class="view-section">
+            <header class="app-header">
+                <h1 class="brand-logo">ROUT<span class="brand-logo-i">i</span>NE</h1>
+            </header>
+
+            <div class="p-4">
+                <div class="hero-banner"
+                    style="background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=1200');">
+                    <div class="hero-content">
+                        <p class="text-xs uppercase tracking-wide font-bold mb-2">Member Day</p>
+                        <h2 class="text-xl font-bold tracking-tight mb-2">Routine Membership</h2>
+                        <button class="btn" style="width: auto; padding: 10px 20px; font-size: 11px;"
+                            onclick="showTiers()">KHÁM PHÁ NGAY</button>
+                    </div>
+                </div>
+
+                <!-- Membership Card -->
+                <div class="card mb-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <p class="text-xs text-gray uppercase font-bold">Thành viên Bạc Member</p>
+                            <h3 class="text-lg font-bold">Lê Minh Anh</h3>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs text-gray uppercase font-bold">Điểm tích lũy</p>
+                            <p class="text-lg font-bold">1,250</p>
+                        </div>
+                    </div>
+                    <div class="loyalty-progress">
+                        <div class="loyalty-fill" style="width: 70%;"></div>
+                    </div>
+                    <p class="text-xs text-center text-gray mt-2">Cần 250 điểm nữa để thăng hạng <b>Vàng</b></p>
+                </div>
+
+                <!-- Menu Grid -->
+                <div class="grid-2 gap-4 mb-8" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div class="game-card" onclick="showView('shop')">
+                        <span class="material-symbols-outlined game-icon">checkroom</span>
+                        <p class="text-xs font-bold uppercase">Mua sắm</p>
+                    </div>
+                    <div class="game-card" onclick="showView('loyalty')">
+                        <span class="material-symbols-outlined game-icon">confirmation_number</span>
+                        <p class="text-xs font-bold uppercase">Voucher</p>
+                    </div>
+                    <div class="game-card" onclick="openGameHub()">
+                        <span class="material-symbols-outlined game-icon">casino</span>
+                        <p class="text-xs font-bold uppercase">Mini Game</p>
+                    </div>
+                    <div class="game-card" onclick="showView('stores')">
+                        <span class="material-symbols-outlined game-icon">storefront</span>
+                        <p class="text-xs font-bold uppercase">Cửa hàng</p>
+                    </div>
+                </div>
+
+                <!-- Suggested Products -->
+                <h3 class="text-base font-bold mb-4 uppercase tracking-wide">Gợi ý cho bạn</h3>
+                <div class="product-grid" id="home-featured-products">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </div>
+
+        <!-- === VIEW: MUA SẮM === -->
+        <div id="view-shop" class="view-section hidden">
+            <header class="app-header">
+                <h1>MUA SẮM</h1>
+            </header>
+            <div class="p-4">
+                <div class="search-bar">
+                    <span class="material-symbols-outlined text-gray">search</span>
+                    <input type="text" id="shop-search-input" placeholder="Tìm sản phẩm..."
+                        oninput="handleSearch(this.value)">
+                </div>
+
+                <div class="tabs">
+                    <div class="tab active" onclick="switchShopTab('nam')">Nam</div>
+                    <div class="tab" onclick="switchShopTab('nu')">Nữ</div>
+
+                </div>
+
+                <div class="product-grid" id="shop-product-grid">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </div>
+
+        <!-- === VIEW: LOYALTY === -->
+        <div id="view-loyalty" class="view-section hidden">
+            <header class="app-header">
+                <h1>LOYALTY</h1>
+            </header>
+            <div class="p-6">
+                <!-- Member Summary -->
+                <div class="card mb-6" style="background-color: #000; color: #fff;">
+                    <p class="text-xs uppercase tracking-widest mb-1">Hạng thành viên</p>
+                    <h2 class="text-xl font-bold mb-4">Silver Member</h2>
+                    <div class="flex justify-between items-end mb-4">
+                        <p class="text-xs">Số điểm hiện có</p>
+                        <p class="text-2xl font-bold">750</p>
+                    </div>
+                    <button class="btn"
+                        style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); height: 36px; font-size: 10px;"
+                        onclick="showTiers()">XEM THÊM</button>
+                </div>
+
+                <h3 class="text-base font-bold mb-4 uppercase">Đổi điểm thưởng</h3>
+                <div class="flex flex-col gap-4">
+                    <div class="card flex justify-between items-center">
+                        <div>
+                            <p class="text-sm font-bold">Voucher 50k</p>
+                            <p class="text-xs text-gray">Đổi 500 điểm</p>
+                        </div>
+                        <button class="btn" style="width: 80px; height: 32px; font-size: 10px;"
+                            onclick="redeemVoucher(50)">ĐỔI</button>
+                    </div>
+                    <div class="card flex justify-between items-center">
+                        <div>
+                            <p class="text-sm font-bold">Voucher 100k</p>
+                            <p class="text-xs text-gray">Đổi 900 điểm</p>
+                        </div>
+                        <button class="btn" style="width: 80px; height: 32px; font-size: 10px;"
+                            onclick="redeemVoucher(100)">ĐỔI</button>
+                    </div>
+                </div>
+
+                <h3 class="text-base font-bold mt-8 mb-4 uppercase">Voucher của bạn</h3>
+                <div id="user-vouchers" class="flex flex-col gap-3 mb-6">
+                    <!-- Vouchers dynamic -->
+                </div>
+                <button class="btn btn-outline" onclick="showView('shop')">MUA SẮM NGAY</button>
+            </div>
+        </div>
+
+        <!-- === VIEW: CỬA HÀNG === -->
+        <div id="view-stores" class="view-section hidden">
+            <header class="app-header">
+                <h1>CỬA HÀNG</h1>
+            </header>
+            <div class="p-4">
+                <div class="card mb-4" style="background: var(--accent-color); color: #fff;">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs uppercase font-bold mb-1">Cửa hàng gần bạn</p>
+                            <h3 class="text-base font-bold">Routine Nguyễn Trãi</h3>
+                            <p class="text-xs opacity-70">554 Nguyễn Trãi, Thanh Xuân, Hà Nội</p>
+                        </div>
+                        <button class="btn"
+                            style="width: auto; height: auto; padding: 6px 12px; font-size: 10px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);"
+                            onclick="openBooking('Routine Nguyễn Trãi')">ĐẶT LỊCH</button>
+                    </div>
+                    <p class="text-xs mt-2">Mở cửa: 09:00 - 22:00</p>
+                </div>
+
+                <h3 class="text-sm font-bold uppercase mb-4 text-gray">Danh sách cửa hàng</h3>
+                <div class="flex flex-col gap-4">
+                    <div class="card flex justify-between items-center">
+                        <div>
+                            <p class="text-sm font-bold">Routine Bà Triệu</p>
+                            <p class="text-xs text-gray">12 Bà Triệu, Hoàn Kiếm, Hà Nội</p>
+                        </div>
+                        <button class="btn btn-outline"
+                            style="width: auto; height: auto; padding: 6px 12px; font-size: 10px;"
+                            onclick="openBooking('Routine Bà Triệu')">ĐẶT LỊCH</button>
+                    </div>
+                    <div class="card flex justify-between items-center">
+                        <div>
+                            <p class="text-sm font-bold">Routine Cầu Giấy</p>
+                            <p class="text-xs text-gray">234 Cầu Giấy, Hà Nội</p>
+                        </div>
+                        <button class="btn btn-outline"
+                            style="width: auto; height: auto; padding: 6px 12px; font-size: 10px;"
+                            onclick="openBooking('Routine Cầu Giấy')">ĐẶT LỊCH</button>
+                    </div>
+                    <div class="card flex justify-between items-center">
+                        <div>
+                            <p class="text-sm font-bold">Routine Lý Tự Trọng</p>
+                            <p class="text-xs text-gray">120 Lý Tự Trọng, Quận 1, TP. HCM</p>
+                        </div>
+                        <button class="btn btn-outline"
+                            style="width: auto; height: auto; padding: 6px 12px; font-size: 10px;"
+                            onclick="openBooking('Routine Lý Tự Trọng')">ĐẶT LỊCH</button>
+                    </div>
+                </div>
+
+                <!-- Real Google Map -->
+                <div class="card mt-8" style="height: 250px; padding: 0; overflow: hidden;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.123456789!2d105.7987654321!3d20.9912345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac9633e08f5d%3A0xe7a0c8123456789!2zNTU0IE5ndXnhu4VuIFRyw6NpLCBUaGFuaCBYdcOibiwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- === VIEW: CÁ NHÂN === -->
+        <div id="view-account" class="view-section hidden">
+            <header class="app-header">
+                <h1>CÁ NHÂN</h1>
+            </header>
+            <div class="p-6 flex flex-col items-center">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300"
+                    style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-bottom: 16px; border: 3px solid #f8f8f8;">
+                <h2 class="text-lg font-bold">Lee Ji-eun (IU)</h2>
+                <p class="text-sm text-gray mb-8">iu.official@routine.vn</p>
+
+                <div class="w-full flex flex-col gap-2">
+                    <div class="card flex justify-between items-center py-4" onclick="showOrderHistory()">
+                        <span class="text-sm font-medium">Lịch sử đơn hàng</span>
+                        <span class="material-symbols-outlined text-gray">chevron_right</span>
+                    </div>
+                    <div class="card flex justify-between items-center py-4" onclick="showPersonalInfo()">
+                        <span class="text-sm font-medium">Thông tin cá nhân</span>
+                        <span class="material-symbols-outlined text-gray">chevron_right</span>
+                    </div>
+                    <div class="card flex justify-between items-center py-4" onclick="showPolicies()">
+                        <span class="text-sm font-medium">Chính sách & Quy định</span>
+                        <span class="material-symbols-outlined text-gray">chevron_right</span>
+                    </div>
+                    <div class="card flex justify-between items-center py-4" onclick="alert('Đang phát triển')">
+                        <span class="text-sm font-medium">Cài đặt</span>
+                        <span class="material-symbols-outlined text-gray">chevron_right</span>
+                    </div>
+                    <button class="btn btn-secondary mt-8" style="color: #ff3b30;">Đăng xuất</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- === OVERLAY: PRODUCT DETAIL === -->
+        <div id="overlay-product-detail" class="overlay-view hidden">
+            <header class="overlay-header">
+                <span class="material-symbols-outlined back-btn"
+                    onclick="closeOverlay('product-detail')">arrow_back</span>
+                <span class="text-sm font-bold uppercase">Chi tiết sản phẩm</span>
+            </header>
+            <div class="view-section">
+                <img id="pd-image" src="" class="product-detail-img">
+                <div class="p-6">
+                    <h2 id="pd-name" class="text-xl font-bold mb-2"></h2>
+                    <p id="pd-price" class="text-lg font-bold text-black mb-6"></p>
+
+                    <p class="text-xs font-bold uppercase mb-2">Kích thước</p>
+                    <div class="size-selector">
+                        <div class="size-box selected" onclick="selectSize(this)">S</div>
+                        <div class="size-box" onclick="selectSize(this)">M</div>
+                        <div class="size-box" onclick="selectSize(this)">L</div>
+                        <div class="size-box" onclick="selectSize(this)">XL</div>
+                    </div>
+
+                    <p class="text-xs font-bold uppercase mt-8 mb-4">Mô tả sản phẩm</p>
+                    <p class="text-sm text-gray leading-relaxed mb-8">
+                        Chất liệu vải cao cấp, thoáng mát, giữ form tốt. Thiết kế tối giản mang lại vẻ ngoài thanh lịch
+                        và hiện đại. Phù hợp cho mọi sự kiện từ công sở đến dạo phố.
+                    </p>
+
+                    <button class="btn" onclick="addToCart()">THÊM VÀO GIỎ HÀNG</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- === OVERLAY: CART === -->
+        <div id="overlay-cart" class="overlay-view hidden">
+            <header class="overlay-header">
+                <span class="material-symbols-outlined back-btn" onclick="closeOverlay('cart')">arrow_back</span>
+                <span class="text-sm font-bold uppercase">Giỏ hàng</span>
+            </header>
+            <div class="view-section p-4" style="display: flex; flex-direction: column;">
+                <div id="cart-items-list" class="flex-1">
+                    <!-- Dynamic Cart Items -->
+                </div>
+                <div class="cart-summary p-4 border-t">
+                    <div class="flex justify-between mb-2">
+                        <p class="text-sm text-gray">Tạm tính</p>
+                        <p id="cart-subtotal" class="text-sm font-bold">0đ</p>
+                    </div>
+                    <div class="flex justify-between mb-6">
+                        <p class="text-base font-bold">Tổng cộng</p>
+                        <p id="cart-total" class="text-lg font-bold text-black">0đ</p>
+                    </div>
+                    <button class="btn" onclick="showCheckout()">THANH TOÁN</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- === OVERLAY: CHECKOUT === -->
+        <div id="overlay-checkout" class="overlay-view hidden">
+            <header class="overlay-header">
+                <span class="material-symbols-outlined back-btn" onclick="closeOverlay('checkout')">arrow_back</span>
+                <span class="text-sm font-bold uppercase">Thanh toán</span>
+            </header>
+            <div class="view-section p-6">
+                <h3 class="text-sm font-bold uppercase mb-4">Thông tin giao hàng</h3>
+                <div class="flex flex-col gap-4 mb-8">
+                    <input type="text" class="card px-4 py-3" style="background: #fff; border: 1px solid #ddd;"
+                        placeholder="Họ và tên" value="Lê Minh Anh">
+                    <input type="text" class="card px-4 py-3" style="background: #fff; border: 1px solid #ddd;"
+                        placeholder="Số điện thoại" value="098****123">
+                    <input type="text" class="card px-4 py-3" style="background: #fff; border: 1px solid #ddd;"
+                        placeholder="Địa chỉ giao hàng">
+                </div>
+
+                <h3 class="text-sm font-bold uppercase mb-4">Voucher ưu đãi</h3>
+                <div class="card flex justify-between items-center mb-8" onclick="openVoucherSelect()">
+                    <span id="selected-voucher-name" class="text-sm text-gray">Chọn hoặc nhập mã</span>
+                    <span class="material-symbols-outlined text-gray">chevron_right</span>
+                </div>
+
+                <h3 class="text-sm font-bold uppercase mb-4">Phương thức thanh toán</h3>
+                <div class="flex flex-col gap-3 mb-8">
+                    <div class="card flex items-center gap-3 py-3" style="border: 1px solid #000;">
+                        <span class="material-symbols-outlined">payments</span>
+                        <span class="text-sm font-bold">Thanh toán khi nhận hàng (COD)</span>
+                    </div>
+                    <div class="card flex items-center gap-3 py-3 opacity-50">
+                        <span class="material-symbols-outlined">credit_card</span>
+                        <span class="text-sm font-medium">Thẻ tín dụng / Ghi nợ</span>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-surface rounded-lg mb-8" style="background: #f8f8f8;">
+                    <div class="flex justify-between mb-2">
+                        <p class="text-xs text-gray">Giá trị đơn hàng</p>
+                        <p id="checkout-subtotal" class="text-xs font-bold">0đ</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <p class="text-xs text-gray">Giảm giá voucher</p>
+                        <p id="checkout-discount" class="text-xs font-bold" style="color: #ff3b30;">-0đ</p>
+                    </div>
+                </div>
+
+                <button class="btn" onclick="placeOrder()">ĐẶT HÀNG</button>
+            </div>
+        </div>
+
+        <!-- === OVERLAY: SUCCESS === -->
+        <div id="overlay-success" class="overlay-view hidden items-center justify-center p-8">
+            <div class="success-check">
+                <span class="material-symbols-outlined">done</span>
+            </div>
+            <h2 class="text-xl font-bold mb-2">🎉 Đặt hàng thành công!</h2>
+            <p class="text-center text-sm text-gray mb-8">Cảm ơn bạn đã lựa chọn Routine. Đơn hàng của bạn đang được xử
+                lý.</p>
+
+            <div class="card w-full mb-8">
+                <div class="flex justify-between mb-2">
+                    <p class="text-xs text-gray">Mã đơn hàng</p>
+                    <p class="text-xs font-bold">#ROUTINE-99120</p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-xs text-gray">Thời gian</p>
+                    <p class="text-xs font-bold">Hôm nay, 11:20</p>
+                </div>
+            </div>
+
+            <button class="btn mb-4" onclick="closeAllOverlays(); showView('home')">QUAY VỀ TRANG CHỦ</button>
+            <button class="btn btn-outline" onclick="closeAllOverlays(); showView('shop')">TIẾP TỤC MUA SẮM</button>
+        </div>
+
+        <!-- === OVERLAY: GAME HUB === -->
+        <div id="overlay-game-hub" class="overlay-view hidden">
+            <header class="overlay-header">
+                <span class="material-symbols-outlined back-btn" onclick="closeOverlay('game-hub')">close</span>
+                <span class="text-sm font-bold uppercase">Mini Games</span>
+            </header>
+            <div class="view-section p-6">
+                <div class="card mb-4 flex items-center gap-4 py-6" onclick="openGame('wheel')">
+                    <span class="material-symbols-outlined text-2xl">casino</span>
+                    <div>
+                        <p class="text-sm font-bold">Lucky Wheel</p>
+                        <p class="text-xs text-gray">Quay thưởng nhận Voucher</p>
+                    </div>
+                </div>
+                <div class="card mb-4 flex items-center gap-4 py-6"
+                    onclick="alert('Mix & Match UI Demo: Đang phát triển tính năng kéo thả')">
+                    <span class="material-symbols-outlined text-2xl">checkroom</span>
+                    <div>
+                        <p class="text-sm font-bold">Mix & Match</p>
+                        <p class="text-xs text-gray">Phối đồ phong cách Routine</p>
+                    </div>
+                </div>
+                <div class="card mb-4 flex items-center gap-4 py-6"
+                    onclick="alert('Virtual Try-on UI Demo: Đang kết nối AI Camera')">
+                    <span class="material-symbols-outlined text-2xl">camera_alt</span>
+                    <div>
+                        <p class="text-sm font-bold">Virtual Try-on</p>
+                        <p class="text-xs text-gray">Thử đồ chuẩn form với AI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === OVERLAY: ORDER HISTORY === -->
+        <div id="overlay-order-history" class="overlay-view hidden">
+            <header class="overlay-header">
+                <span class="material-symbols-outlined back-btn"
+                    onclick="closeOverlay('order-history')">arrow_back</span>
+                <span class="text-sm font-bold uppercase">Lịch sử đơn hàng</span>
+            </header>
+            <div class="view-section p-4" id="order-list-content">
+                <!-- Orders dynamic -->
+            </div>
+        </div>
+
+        <!-- === OVERLAY: PERSONAL INFO === -->
+        <div id="overlay-personal-info" class="overlay-view hidden">
+            <header class="overlay-header">
+                <span class="material-symbols-outlined back-btn"
+                    onclick="closeOverlay('personal-info')">arrow_back</span>
+                <span class="text-sm font-bold uppercase">Thông tin cá nhân</span>
+            </header>
+            <div class="view-section p-6">
+                <div class="flex flex-col gap-6">
+                    <div>
+                        <p class="text-xs text-gray uppercase font-bold mb-1">Họ và tên</p>
+                        <p class="text-sm font-medium border-b pb-2">Lee Ji-eun (IU)</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray uppercase font-bold mb-1">Số điện thoại</p>
+                        <p class="text-sm font-medium border-b pb-2">098****123</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray uppercase font-bold mb-1">Email</p>
+                        <p class="text-sm font-medium border-b pb-2">iu.official@routine.vn</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray uppercase font-bold mb-1">Ngày sinh</p>
+                        <p class="text-sm font-medium border-b pb-2">16/05/1993</p>
+                    </div>
+                </div>
+                <button class="btn mt-12">CẬP NHẬT THÔNG TIN</button>
+            </div>
+        </div>
+
+        <!-- === OVERLAY: POLICIES === -->
+        <div id="overlay-policies" class="overlay-view hidden">
+            <header class="overlay-header">
+                <span class="material-symbols-outlined back-btn" onclick="closeOverlay('policies')">arrow_back</span>
+                <span class="text-sm font-bold uppercase">Chính sách & Quy định</span>
+            </header>
+            <div class="view-section p-6">
+                <div class="mb-8">
+                    <h3 class="text-base font-bold mb-3 uppercase tracking-wide" style="color: var(--accent-color);">1.
+                        Đăng ký thành viên</h3>
+                    <p class="text-sm text-gray leading-relaxed mb-3">Chương trình Routine Membership áp dụng cho mọi
+                        khách hàng mua sắm tại hệ thống cửa hàng và kênh online. Mỗi khách hàng sẽ có một tài khoản duy
+                        nhất tương ứng với một số điện thoại.</p>
+                    <ul class="text-sm text-gray leading-relaxed list-none pl-0">
+                        <li class="mb-2">• Đăng ký miễn phí tại quầy thu ngân hoặc ứng dụng.</li>
+                        <li class="mb-2">• Thông tin yêu cầu: Họ tên, Số điện thoại, Ngày sinh, Giới tính.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-base font-bold mb-3 uppercase tracking-wide" style="color: var(--accent-color);">2.
+                        Tích điểm & Xếp hạng</h3>
+                    <p class="text-sm text-gray leading-relaxed mb-3">Điểm xét hạng được tính dựa trên giá trị thanh
+                        toán thực tế của hóa đơn (10.000 VNĐ = 1 điểm).</p>
+                    <div class="card p-4 bg-surface" style="background: #fdfdfd; border: 1px solid #eee;">
+                        <ul class="text-sm text-gray leading-relaxed list-none pl-0 mb-0">
+                            <li class="mb-2"><b>• Bronze Member:</b> Khách hàng mới đăng ký.</li>
+                            <li class="mb-2"><b>• Silver Member:</b> Tích lũy từ 1.000 điểm.</li>
+                            <li class="mb-2"><b>• Golden Member:</b> Tích lũy từ 5.000 điểm.</li>
+                        </ul>
+                    </div>
+                    <p class="text-xs text-gray mt-2 italic">* Kỳ xét hạng là 12 tháng liên tiếp kể từ ngày thăng hạng.
+                    </p>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-base font-bold mb-3 uppercase tracking-wide" style="color: var(--accent-color);">3.
+                        Đặc quyền ưu đãi</h3>
+                    <ul class="text-sm text-gray leading-relaxed list-none pl-0">
+                        <li class="mb-2"><b>• Giảm giá theo hạng:</b> Silver (5%), Gold (10%) đối với hàng nguyên giá.
+                        </li>
+                        <li class="mb-2"><b>• Ưu đãi sinh nhật:</b> Voucher giảm giá lên đến 30% trong tháng sinh nhật.
+                        </li>
+                        <li class="mb-2"><b>• Quà tặng:</b> Nhận quà tặng đặc biệt vào các dịp lễ hoặc sự kiện thành
+                            viên.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-base font-bold mb-3 uppercase tracking-wide" style="color: var(--accent-color);">4.
+                        Quy định đổi trả</h3>
+                    <p class="text-sm text-gray leading-relaxed mb-3">Routine hỗ trợ đổi trả sản phẩm linh hoạt nhằm đảm
+                        bảo sự hài lòng của khách hàng:</p>
+                    <ul class="text-sm text-gray leading-relaxed list-none pl-0">
+                        <li class="mb-2">• Thời hạn đổi trả: 15 ngày kể từ ngày nhận hàng.</li>
+                        <li class="mb-2">• Điều kiện: Sản phẩm còn nguyên tem mác, chưa qua sử dụng, giặt là.</li>
+                        <li class="mb-2">• Không áp dụng đổi trả đối với hàng giảm giá trên 50% hoặc phụ kiện cá nhân
+                            (đồ lót, tất).</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-base font-bold mb-3 uppercase tracking-wide" style="color: var(--accent-color);">5.
+                        Bảo mật thông tin</h3>
+                    <p class="text-sm text-gray leading-relaxed">Routine cam kết bảo mật tuyệt đối thông tin khách hàng.
+                        Thông tin cá nhân chỉ được sử dụng để tích điểm, gửi thông báo ưu đãi và nâng cao chất lượng
+                        dịch vụ chăm sóc khách hàng. Chúng tôi không chia sẻ thông tin cho bên thứ ba vì mục đích thương
+                        mại.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- === OVERLAY: MEMBERSHIP TIERS === -->
+        <div id="overlay-tiers" class="overlay-view hidden">
+            <header class="overlay-header">
+                <span class="material-symbols-outlined back-btn" onclick="closeOverlay('tiers')">arrow_back</span>
+                <span class="text-sm font-bold uppercase">Membership Tiers</span>
+            </header>
+            <div class="view-section p-6">
+                <div class="card mb-4"
+                    style="background: linear-gradient(135deg, #FFD700, #DAA520); color: #fff; border: none;">
+                    <h3 class="text-lg font-bold">Golden Member</h3>
+                    <p class="text-xs opacity-80 mt-1">Dành cho khách hàng trên 5.000 điểm</p>
+                    <p class="text-sm mt-4">Đặc quyền cao cấp, quà tặng sinh nhật đặc biệt và ưu tiên phục vụ.</p>
+                </div>
+                <div class="card mb-4"
+                    style="background: linear-gradient(135deg, #C0C0C0, #808080); color: #fff; border: none;">
+                    <h3 class="text-lg font-bold">Silver Member</h3>
+                    <p class="text-xs opacity-80 mt-1">Dành cho khách hàng trên 1.000 điểm</p>
+                    <p class="text-sm mt-4">Tích điểm đổi voucher và nhận ưu đãi từ đối tác của Routine.</p>
+                </div>
+                <div class="card mb-4"
+                    style="background: linear-gradient(135deg, #CD7F32, #A0522D); color: #fff; border: none;">
+                    <h3 class="text-lg font-bold">Bronze Member</h3>
+                    <p class="text-xs opacity-80 mt-1">Dành cho khách hàng mới</p>
+                    <p class="text-sm mt-4">Tham gia chương trình tích điểm và nhận tin báo khuyến mãi sớm nhất.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- === OVERLAY: VOUCHER SELECT === -->
+        <div id="overlay-voucher-select" class="overlay-view hidden">
+            <header class="overlay-header">
+                <span class="material-symbols-outlined back-btn"
+                    onclick="closeOverlay('voucher-select')">arrow_back</span>
+                <span class="text-sm font-bold uppercase">Chọn Voucher</span>
+            </header>
+            <div class="view-section p-4" id="voucher-selection-list">
+                <!-- Vouchers dynamic -->
+            </div>
+        </div>
+
+        <!-- === OVERLAY: BOOKING FORM === -->
+        <div id="overlay-booking" class="overlay-view hidden">
+            <header class="overlay-header">
+                <span class="material-symbols-outlined back-btn" onclick="closeOverlay('booking')">arrow_back</span>
+                <span class="text-sm font-bold uppercase">Đặt lịch hẹn</span>
+            </header>
+            <div class="view-section p-6">
+                <h2 id="booking-store-name" class="text-lg font-bold mb-6">Store Name</h2>
+                <div class="flex flex-col gap-6">
+                    <div>
+                        <p class="text-xs text-gray uppercase font-bold mb-2">Chọn ngày</p>
+                        <input type="date" id="booking-date" class="input-field" value="2026-02-10">
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray uppercase font-bold mb-2">Chọn khung giờ</p>
+                        <select id="booking-time" class="input-field">
+                            <option>09:00 - 10:00</option>
+                            <option>10:00 - 11:00</option>
+                            <option>14:00 - 15:00</option>
+                            <option>15:00 - 16:00</option>
+                            <option>19:00 - 20:00</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray uppercase font-bold mb-2">Ghi chú</p>
+                        <textarea class="input-field" placeholder="Ví dụ: Tôi muốn thử đồ mẫu mới..."
+                            rows="3"></textarea>
+                    </div>
+                </div>
+                <button class="btn mt-12" onclick="confirmBooking()">XÁC NHẬN ĐẶT LỊCH</button>
+            </div>
+        </div>
+
+        <!-- === OVERLAY: BOOKING SUCCESS === -->
+        <div id="overlay-booking-success" class="overlay-view hidden items-center justify-center p-8">
+            <div class="success-check" style="background: #000;">
+                <span class="material-symbols-outlined" style="color: #fff;">event_available</span>
+            </div>
+            <h2 class="text-xl font-bold mb-2 text-center">🎉 Đặt lịch thành công!</h2>
+            <p id="booking-success-msg" class="text-center text-sm text-gray mb-8">Lịch hẹn của bạn tại Routine đã được
+                ghi nhận.</p>
+            <button class="btn" onclick="closeAllOverlays(); showView('stores')">QUAY LẠI CỬA HÀNG</button>
+        </div>
+
+        <!-- === OVERLAY: WHEEL GAME === -->
+        <div id="overlay-wheel" class="overlay-view hidden">
+            <header class="overlay-header">
+                <span class="material-symbols-outlined back-btn" onclick="closeOverlay('wheel')">close</span>
+                <span class="text-sm font-bold uppercase">Lucky Wheel</span>
+            </header>
+            <div class="view-section items-center p-8">
+                <h2 class="text-lg font-bold text-center mb-2">Vòng quay may mắn</h2>
+                <p class="text-sm text-gray text-center mb-8">Quay để nhận ngay voucher Routine cực xịn!</p>
+
+                <div id="wheel" class="wheel-container">
+                    <div class="wheel-segment" style="transform: rotate(0deg); background: #f8f8f8;"></div>
+                    <div class="wheel-segment" style="transform: rotate(60deg); background: #eee;"></div>
+                    <div class="wheel-segment" style="transform: rotate(120deg); background: #f8f8f8;"></div>
+                    <div class="wheel-segment" style="transform: rotate(180deg); background: #eee;"></div>
+                    <div class="wheel-segment" style="transform: rotate(240deg); background: #f8f8f8;"></div>
+                    <div class="wheel-segment" style="transform: rotate(300deg); background: #eee;"></div>
+                </div>
+
+                <div id="wheel-pointer"
+                    style="width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-top: 30px solid black; margin-top: -15px; z-index: 10;">
+                </div>
+
+                <button id="spin-btn" class="btn mt-12" onclick="spinWheel()">QUAY NGAY</button>
+            </div>
+        </div>
+
+    </div>
 
     <script src="main.js"></script>
 </body>
