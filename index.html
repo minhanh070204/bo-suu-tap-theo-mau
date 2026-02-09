@@ -62,7 +62,7 @@
                         </div>
                         <div class="text-right">
                             <p class="text-xs text-gray uppercase font-bold">Điểm tích lũy</p>
-                            <p class="text-lg font-bold">1,250</p>
+                            <p id="home-current-points" class="text-lg font-bold">1,250</p>
                         </div>
                     </div>
                     <div class="loyalty-progress">
@@ -130,15 +130,15 @@
             </header>
             <div class="p-6">
                 <!-- Member Summary -->
-                <div class="card mb-6" style="background-color: #000; color: #fff;">
+                <div class="card mb-6 loyalty-membership-card">
                     <p class="text-xs uppercase tracking-widest mb-1">Hạng thành viên</p>
                     <h2 class="text-xl font-bold mb-4">Silver Member</h2>
                     <div class="flex justify-between items-end mb-4">
                         <p class="text-xs">Số điểm hiện có</p>
-                        <p class="text-2xl font-bold">750</p>
+                        <p id="loyalty-current-points" class="text-2xl font-bold">1,250</p>
                     </div>
                     <button class="btn"
-                        style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); height: 36px; font-size: 10px;"
+                        style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.35); height: 36px; font-size: 10px;"
                         onclick="showTiers()">XEM THÊM</button>
                 </div>
 
@@ -557,7 +557,8 @@
                     <div class="flex justify-between items-end">
                         <div>
                             <p class="text-xs opacity-70">Số điểm hiện có</p>
-                            <p class="text-lg font-bold">1,250</p>
+                            <p id="tier-current-points" class="text-lg font-bold">1,250</p>
+                            <p id="tier-remaining-inline" class="text-xs mt-2" style="opacity: 0.9;">Còn 250 điểm để lên hạng Vàng</p>
                         </div>
                         <span class="material-symbols-outlined text-4xl opacity-50">workspace_premium</span>
                     </div>
@@ -567,7 +568,7 @@
                 <div class="mb-10">
                     <div class="flex justify-between items-center mb-2">
                         <span class="text-xs font-bold text-gray uppercase">Tiến trình hạng</span>
-                        <span class="text-xs font-bold text-gray">Gold: 1,500đ</span>
+                        <span id="tier-next-label" class="text-xs font-bold text-gray">Gold: 1,500đ</span>
                     </div>
                     <div class="tier-progress-container mb-3">
                         <div class="tier-progress-bar" style="width: 83%;"></div>
@@ -575,7 +576,7 @@
                         <div class="tier-marker gold" style="left: 54%;"></div>
                         <div class="tier-marker diamond" style="left: 100%;"></div>
                     </div>
-                    <p class="text-center text-sm font-medium">Bạn cần thêm <span class="font-bold">250 điểm</span> nữa
+                    <p id="tier-remaining-summary" class="text-center text-sm font-medium">Bạn cần thêm <span class="font-bold">250 điểm</span> nữa
                         để thăng hạng <span class="text-gold font-bold">Vàng</span></p>
                 </div>
 

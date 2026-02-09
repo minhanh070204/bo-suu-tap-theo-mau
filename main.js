@@ -16,11 +16,10 @@ const PRODUCTS = {
         { id: 'w4', name: 'CHÂN VÁY MIDI XẾP LY', price: 690000, img: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=600', category: 'Nữ', product_type: 'Chân váy' },
         { id: 'w5', name: 'ÁO LEN DỆT KIM NỮ TAY DÀI VẶN THỪNG THÊU TRÁI TIM', price: 790000, img: 'https://images.unsplash.com/photo-1574201635302-388dd92a4c3f?q=80&w=600', category: 'Nữ', product_type: 'Áo' },
         { id: 'w6', name: 'QUẦN TÂY SLIM FIT NỮ', price: 650000, img: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=600', category: 'Nữ', product_type: 'Quần' },
-        { id: 'w7', name: 'ĐẦM HOA NHÍ DÁNG XÒE', price: 850000, img: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=600', category: 'Nữ', product_type: 'Váy' },
-        { id: 'w8', name: 'ÁO KHOÁC BLAZER OVERSIZE', price: 1150000, img: 'https://images.unsplash.com/photo-1548624149-f7b31640e1ee?q=80&w=600', category: 'Nữ', product_type: 'Áo' },
-        { id: 'w9', name: 'QUẦN TÂY ỐNG RỘNG CẠP CAO', price: 690000, img: 'https://images.unsplash.com/photo-1509551353322-c3744c517c8c?q=80&w=600', category: 'Nữ', product_type: 'Quần' },
-        { id: 'w10', name: 'ÁO CROP TOP LEN TĂM', price: 350000, img: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=600', category: 'Nữ', product_type: 'Áo' },
-        { id: 'w11', name: 'ÁO KHOÁC CARDIGAN MỎNG', price: 590000, img: 'https://images.unsplash.com/photo-1434389677669-e08b4eb31052?q=80&w=600', category: 'Nữ', product_type: 'Áo' }
+        { id: 'w7', name: 'ĐẦM HOA NHÍ DÁNG XÒE', price: 850000, img: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=600&q=80', category: 'Nữ', product_type: 'Váy' },
+        { id: 'w8', name: 'ÁO KHOÁC BLAZER OVERSIZE', price: 1150000, img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80', category: 'Nữ', product_type: 'Áo' },
+        { id: 'w9', name: 'QUẦN TÂY ỐNG RỘNG CẠP CAO', price: 690000, img: 'https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=600&q=80', category: 'Nữ', product_type: 'Quần' },
+        { id: 'w10', name: 'ÁO CROP TOP LEN TĂM', price: 350000, img: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80', category: 'Nữ', product_type: 'Áo' }
     ]
 };
 
@@ -121,6 +120,7 @@ function showPolicies() {
 }
 
 function showTiers() {
+    updateTierProgress();
     openOverlay('tier-details');
 }
 
@@ -130,15 +130,82 @@ function openTierComparison() {
     openOverlay('tier-comparison');
 }
 
+function updateTierProgress() {
+    const currentPoints = userPoints;
+
+    // Ngưỡng điểm giả lập cho demo
+    const goldThreshold = 1500;
+    const diamondThreshold = 5000;
+
+    let nextTierLabel = '';
+    let remaining = 0;
+    let progressPercent = 0;
+
+    if (currentPoints < goldThreshold) {
+        nextTierLabel = 'Vàng';
+        remaining = goldThreshold - currentPoints;
+        progressPercent = (currentPoints / goldThreshold) * 100;
+    } else if (currentPoints < diamondThreshold) {
+        nextTierLabel = 'Kim cương';
+        remaining = diamondThreshold - currentPoints;
+        progressPercent = ((currentPoints - goldThreshold) / (diamondThreshold - goldThreshold)) * 100;
+    } else {
+        nextTierLabel = 'cao nhất';
+        remaining = 0;
+        progressPercent = 100;
+    }
+
+    progressPercent = Math.max(0, Math.min(100, progressPercent));
+
+    const bar = document.querySelector('.tier-progress-bar');
+    if (bar) {
+        bar.style.width = `${progressPercent}%`;
+    }
+
+    const currentPointLabel = document.getElementById('tier-current-points');
+    if (currentPointLabel) {
+        currentPointLabel.innerText = currentPoints.toLocaleString();
+    }
+
+    const inline = document.getElementById('tier-remaining-inline');
+    if (inline) {
+        inline.innerText = remaining > 0
+            ? `Còn ${remaining.toLocaleString()} điểm để lên hạng ${nextTierLabel}`
+            : 'Bạn đã đạt hạng cao nhất, hãy tận hưởng quyền lợi VIP.';
+    }
+
+    const summary = document.getElementById('tier-remaining-summary');
+    if (summary) {
+        summary.innerHTML = remaining > 0
+            ? `Bạn cần thêm <span class="font-bold">${remaining.toLocaleString()} điểm</span> nữa để thăng hạng <span class="text-gold font-bold">${nextTierLabel}</span>`
+            : 'Bạn đang ở <span class="font-bold">hạng cao nhất</span> của Routine.';
+    }
+
+    const nextLabel = document.getElementById('tier-next-label');
+    if (nextLabel) {
+        if (currentPoints < goldThreshold) {
+            nextLabel.innerText = 'Gold: 1,500đ';
+        } else if (currentPoints < diamondThreshold) {
+            nextLabel.innerText = 'Diamond: 5,000đ';
+        } else {
+            nextLabel.innerText = 'Bạn đang ở hạng cao nhất';
+        }
+    }
+}
+
 function renderAllTiersComparison() {
     const container = document.getElementById('comparison-table-content');
     const benefits = [
-        { label: "Tích điểm", silver: "1.0x", gold: "1.5x", diamond: "2.0x" },
-        { label: "Vận chuyển", silver: ">500k", gold: "Free", diamond: "Hỏa tốc" },
-        { label: "Quà S.Nhật", silver: "100k", gold: "200k", diamond: "500k" },
-        { label: "Ưu đãi (%)", silver: "5%", gold: "10%", diamond: "15%" },
-        { label: "Ưu tiên BST", silver: "✕", gold: "✓", diamond: "✓" },
-        { label: "Support", silver: "✕", gold: "Hotline", diamond: "VIP" }
+        { label: "Điều kiện hạng / năm", silver: "Dưới 5.000.000đ", gold: "Từ 5.000.000 - 15.000.000đ", diamond: "Trên 15.000.000đ" },
+        { label: "Tích điểm", silver: "1 điểm / 10.000đ", gold: "1.5 điểm / 10.000đ", diamond: "2 điểm / 10.000đ" },
+        { label: "Giảm giá thành viên", silver: "Giảm 5%", gold: "Giảm 10%", diamond: "Giảm 15%" },
+        { label: "Ưu đãi sinh nhật", silver: "Giảm 10%", gold: "Giảm 15%", diamond: "Giảm 20%" },
+        { label: "Miễn phí vận chuyển", silver: "✕", gold: "Đơn từ 400.000đ", diamond: "Tất cả đơn" },
+        { label: "Ưu tiên mua BST mới", silver: "✕", gold: "Trước 24 giờ", diamond: "Trước 48 giờ" },
+        { label: "Giữ hàng tại cửa hàng", silver: "✕", gold: "24 giờ", diamond: "48 giờ" },
+        { label: "Voucher độc quyền / tháng", silver: "✕", gold: "01 voucher 50.000đ", diamond: "01 voucher 100.000đ" },
+        { label: "Quà / sự kiện riêng", silver: "✕", gold: "✕", diamond: "Có (sự kiện VIP / quà giới hạn)" },
+        { label: "CSKH ưu tiên", silver: "✕", gold: "Ưu tiên hotline", diamond: "CSKH VIP riêng" }
     ];
 
     let html = `
@@ -429,13 +496,21 @@ function renderVouchers() {
 }
 
 function renderPoints() {
-    // Basic point display updates
-    const pointLabels = document.querySelectorAll('.text-lg.font-bold, .text-2xl.font-bold');
-    pointLabels.forEach(el => {
-        if (el.innerText.includes('1,250') || el.innerText.includes('1.250') || el.parentElement.innerText.includes('Số điểm hiện có')) {
-            el.innerText = userPoints.toLocaleString();
-        }
-    });
+    // Update explicit point labels
+    const homePoint = document.getElementById('home-current-points');
+    if (homePoint) {
+        homePoint.innerText = userPoints.toLocaleString();
+    }
+
+    const tierPoint = document.getElementById('tier-current-points');
+    if (tierPoint) {
+        tierPoint.innerText = userPoints.toLocaleString();
+    }
+
+    const loyaltyHeaderPoint = document.getElementById('loyalty-current-points');
+    if (loyaltyHeaderPoint) {
+        loyaltyHeaderPoint.innerText = userPoints.toLocaleString();
+    }
 }
 
 // --- CHECKOUT VOUCHER SELECTION ---
@@ -512,5 +587,6 @@ function spinWheel() {
 // --- INIT ---
 document.addEventListener('DOMContentLoaded', () => {
     validateProducts();
+    renderPoints();
     showView('home');
 });
