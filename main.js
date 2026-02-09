@@ -2,15 +2,25 @@
 const PRODUCTS = {
     nam: [
         { id: 'm1', name: 'ÁO NỈ ĐỎ THÊU HỌA TIẾT', price: 650000, img: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600', category: 'Nam', product_type: 'Áo' },
-        { id: 'm2', name: 'QUẦN TÂY SLIM FIT', price: 650000, img: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=600', category: 'Nam', product_type: 'Quần' },
         { id: 'm3', name: 'ÁO POLO COTTON TRƠN', price: 390000, img: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=600', category: 'Nam', product_type: 'Áo' },
-        { id: 'm4', name: 'QUẦN SHORT KAKI', price: 450000, img: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=600', category: 'Nam', product_type: 'Quần' }
+        { id: 'm4', name: 'QUẦN SHORT KAKI', price: 450000, img: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=600', category: 'Nam', product_type: 'Quần' },
+        { id: 'm5', name: 'ÁO KHOÁC BLAZER NAVY BASIC', price: 1250000, img: 'https://images.unsplash.com/photo-1593032465175-481ac7f401a0?q=80&w=600', category: 'Nam', product_type: 'Áo' },
+        { id: 'm6', name: 'QUẦN JEAN STRAIGHT FIT DENIM', price: 890000, img: 'https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=600', category: 'Nam', product_type: 'Quần' },
+        { id: 'm7', name: 'ÁO SƠ MI LINEN CỔ TÀU', price: 550000, img: 'https://images.unsplash.com/photo-1621335829175-95f437384d7c?q=80&w=600', category: 'Nam', product_type: 'Áo' },
+        { id: 'm9', name: 'ÁO THUN GÂN CỔ TRÒN', price: 350000, img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600', category: 'Nam', product_type: 'Áo' }
     ],
     nu: [
         { id: 'w1', name: 'ÁO THUN COTTON NỮ', price: 290000, img: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=600', category: 'Nữ', product_type: 'Áo' },
         { id: 'w2', name: 'QUẦN JEAN SUÔNG', price: 750000, img: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600', category: 'Nữ', product_type: 'Quần' },
         { id: 'w3', name: 'ÁO SƠ MI FORM RỘNG', price: 590000, img: 'https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?q=80&w=600', category: 'Nữ', product_type: 'Áo' },
-        { id: 'w4', name: 'CHÂN VÁY MIDI XẾP LY', price: 690000, img: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=600', category: 'Nữ', product_type: 'Chân váy' }
+        { id: 'w4', name: 'CHÂN VÁY MIDI XẾP LY', price: 690000, img: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=600', category: 'Nữ', product_type: 'Chân váy' },
+        { id: 'w5', name: 'ÁO LEN DỆT KIM NỮ TAY DÀI VẶN THỪNG THÊU TRÁI TIM', price: 790000, img: 'https://images.unsplash.com/photo-1574201635302-388dd92a4c3f?q=80&w=600', category: 'Nữ', product_type: 'Áo' },
+        { id: 'w6', name: 'QUẦN TÂY SLIM FIT NỮ', price: 650000, img: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=600', category: 'Nữ', product_type: 'Quần' },
+        { id: 'w7', name: 'ĐẦM HOA NHÍ DÁNG XÒE', price: 850000, img: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=600', category: 'Nữ', product_type: 'Váy' },
+        { id: 'w8', name: 'ÁO KHOÁC BLAZER OVERSIZE', price: 1150000, img: 'https://images.unsplash.com/photo-1548624149-f7b31640e1ee?q=80&w=600', category: 'Nữ', product_type: 'Áo' },
+        { id: 'w9', name: 'QUẦN TÂY ỐNG RỘNG CẠP CAO', price: 690000, img: 'https://images.unsplash.com/photo-1509551353322-c3744c517c8c?q=80&w=600', category: 'Nữ', product_type: 'Quần' },
+        { id: 'w10', name: 'ÁO CROP TOP LEN TĂM', price: 350000, img: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=600', category: 'Nữ', product_type: 'Áo' },
+        { id: 'w11', name: 'ÁO KHOÁC CARDIGAN MỎNG', price: 590000, img: 'https://images.unsplash.com/photo-1434389677669-e08b4eb31052?q=80&w=600', category: 'Nữ', product_type: 'Áo' }
     ]
 };
 
@@ -46,9 +56,39 @@ let appliedVoucher = null;
 
 // --- DOM ELEMENTS ---
 const views = ['home', 'shop', 'loyalty', 'stores', 'account'];
-const overlays = ['product-detail', 'cart', 'checkout', 'success', 'wheel', 'game-hub', 'order-history', 'personal-info', 'policies', 'voucher-select', 'tiers', 'booking', 'booking-success'];
+const overlays = ['product-detail', 'cart', 'checkout', 'success', 'wheel', 'game-hub', 'order-history', 'personal-info', 'policies', 'voucher-select', 'tier-details', 'tier-comparison', 'booking', 'booking-success'];
 
 // --- MOCK DATA ---
+const COMPARISON_DATA = {
+    silver: {
+        points: "✓ 1.0x",
+        shipping: "Đơn > 500k",
+        birthday: "Voucher 100k",
+        sale: "5%",
+        early: "✕",
+        support: "✕",
+        promo: 'Chỉ còn <span class="font-bold">250 điểm</span> để lên hạng <span class="text-gold font-bold">Vàng</span>'
+    },
+    gold: {
+        points: "✓ 1.5x",
+        shipping: "Tất cả đơn",
+        birthday: "Voucher 200k",
+        sale: "10%",
+        early: "✓ (Thường xuyên)",
+        support: "✓ (Hotline RIÊNG)",
+        promo: 'Chỉ còn <span class="font-bold">3,750 điểm</span> để lên hạng <span class="text-black font-bold">Kim cương</span>'
+    },
+    diamond: {
+        points: "✓ 2.0x",
+        shipping: "Tất cả đơn + Hỏa tốc",
+        birthday: "Voucher 500k + Quà",
+        sale: "15%",
+        early: "✓ (SỚM NHẤT)",
+        support: "✓ (Quản lý riêng)",
+        promo: '<span class="text-black font-bold">HẠNG CAO NHẤT</span> - Tận hưởng đặc quyền VIP'
+    }
+};
+
 const ORDERS = [
     { id: 'ROUTINE-99120', date: '09/02/2026', total: 650000, status: 'Đang giao' },
     { id: 'ROUTINE-98441', date: '20/01/2026', total: 1250000, status: 'Đã hoàn thành' }
@@ -81,7 +121,47 @@ function showPolicies() {
 }
 
 function showTiers() {
-    openOverlay('tiers');
+    openOverlay('tier-details');
+}
+
+// --- TIER FLOW ---
+function openTierComparison() {
+    renderAllTiersComparison();
+    openOverlay('tier-comparison');
+}
+
+function renderAllTiersComparison() {
+    const container = document.getElementById('comparison-table-content');
+    const benefits = [
+        { label: "Tích điểm", silver: "1.0x", gold: "1.5x", diamond: "2.0x" },
+        { label: "Vận chuyển", silver: ">500k", gold: "Free", diamond: "Hỏa tốc" },
+        { label: "Quà S.Nhật", silver: "100k", gold: "200k", diamond: "500k" },
+        { label: "Ưu đãi (%)", silver: "5%", gold: "10%", diamond: "15%" },
+        { label: "Ưu tiên BST", silver: "✕", gold: "✓", diamond: "✓" },
+        { label: "Support", silver: "✕", gold: "Hotline", diamond: "VIP" }
+    ];
+
+    let html = `
+        <div class="table-row header">
+            <div class="col-benefit">QUYỀN LỢI</div>
+            <div class="col-tier col-silver">BẠC</div>
+            <div class="col-tier col-gold">VÀNG</div>
+            <div class="col-tier col-diamond">K.CƯƠNG</div>
+        </div>
+    `;
+
+    benefits.forEach(b => {
+        html += `
+            <div class="table-row">
+                <div class="col-benefit">${b.label}</div>
+                <div class="col-tier">${b.silver}</div>
+                <div class="col-tier">${b.gold}</div>
+                <div class="col-tier">${b.diamond}</div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
 }
 
 // --- BOOKING FLOW ---

@@ -542,30 +542,93 @@
             </div>
         </div>
 
-        <!-- === OVERLAY: MEMBERSHIP TIERS === -->
-        <div id="overlay-tiers" class="overlay-view hidden">
+        <!-- === OVERLAY: TIER DETAILS (SCREEN 1) === -->
+        <div id="overlay-tier-details" class="overlay-view hidden">
             <header class="overlay-header">
-                <span class="material-symbols-outlined back-btn" onclick="closeOverlay('tiers')">arrow_back</span>
-                <span class="text-sm font-bold uppercase">Membership Tiers</span>
+                <span class="material-symbols-outlined back-btn"
+                    onclick="closeOverlay('tier-details')">arrow_back</span>
+                <span class="text-sm font-bold uppercase">Hạng thành viên</span>
             </header>
             <div class="view-section p-6">
-                <div class="card mb-4"
-                    style="background: linear-gradient(135deg, #FFD700, #DAA520); color: #fff; border: none;">
-                    <h3 class="text-lg font-bold">Golden Member</h3>
-                    <p class="text-xs opacity-80 mt-1">Dành cho khách hàng trên 5.000 điểm</p>
-                    <p class="text-sm mt-4">Đặc quyền cao cấp, quà tặng sinh nhật đặc biệt và ưu tiên phục vụ.</p>
+                <!-- Large Member Card -->
+                <div class="tier-card-large silver-gradient mb-8">
+                    <p class="text-xs uppercase font-bold opacity-70 mb-1">Hạng hiện tại</p>
+                    <h2 class="text-2xl font-bold mb-4">Silver Member</h2>
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <p class="text-xs opacity-70">Số điểm hiện có</p>
+                            <p class="text-lg font-bold">1,250</p>
+                        </div>
+                        <span class="material-symbols-outlined text-4xl opacity-50">workspace_premium</span>
+                    </div>
                 </div>
-                <div class="card mb-4"
-                    style="background: linear-gradient(135deg, #C0C0C0, #808080); color: #fff; border: none;">
-                    <h3 class="text-lg font-bold">Silver Member</h3>
-                    <p class="text-xs opacity-80 mt-1">Dành cho khách hàng trên 1.000 điểm</p>
-                    <p class="text-sm mt-4">Tích điểm đổi voucher và nhận ưu đãi từ đối tác của Routine.</p>
+
+                <!-- Progress Section -->
+                <div class="mb-10">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-bold text-gray uppercase">Tiến trình hạng</span>
+                        <span class="text-xs font-bold text-gray">Gold: 1,500đ</span>
+                    </div>
+                    <div class="tier-progress-container mb-3">
+                        <div class="tier-progress-bar" style="width: 83%;"></div>
+                        <div class="tier-marker silver active" style="left: 0;"></div>
+                        <div class="tier-marker gold" style="left: 54%;"></div>
+                        <div class="tier-marker diamond" style="left: 100%;"></div>
+                    </div>
+                    <p class="text-center text-sm font-medium">Bạn cần thêm <span class="font-bold">250 điểm</span> nữa
+                        để thăng hạng <span class="text-gold font-bold">Vàng</span></p>
                 </div>
-                <div class="card mb-4"
-                    style="background: linear-gradient(135deg, #CD7F32, #A0522D); color: #fff; border: none;">
-                    <h3 class="text-lg font-bold">Bronze Member</h3>
-                    <p class="text-xs opacity-80 mt-1">Dành cho khách hàng mới</p>
-                    <p class="text-sm mt-4">Tham gia chương trình tích điểm và nhận tin báo khuyến mãi sớm nhất.</p>
+
+                <!-- Benefits Card -->
+                <div class="card bg-surface border-none mb-8">
+                    <h3 class="text-sm font-bold uppercase mb-4">Quyền lợi hạng Silver</h3>
+                    <ul class="benefit-list">
+                        <li>
+                            <span class="material-symbols-outlined icon text-success">check_circle</span>
+                            <p class="text-sm">Tích 1 điểm cho mỗi 10.000đ mua sắm</p>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined icon text-success">check_circle</span>
+                            <p class="text-sm">Miễn phí vận chuyển đơn từ 500.000đ</p>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined icon text-success">check_circle</span>
+                            <p class="text-sm">Quà tặng đặc biệt dịp Sinh nhật</p>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined icon text-success">check_circle</span>
+                            <p class="text-sm">Ưu đãi 5% khi mua hàng nguyên giá</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="btn btn-outline" onclick="openTierComparison()">XEM BẢNG SO SÁNH HẠNG</button>
+            </div>
+        </div>
+
+        <!-- === OVERLAY: TIER COMPARISON (SCREEN 2) === -->
+        <div id="overlay-tier-comparison" class="overlay-view hidden">
+            <header class="overlay-header">
+                <span class="material-symbols-outlined back-btn"
+                    onclick="closeOverlay('tier-comparison')">arrow_back</span>
+                <span class="text-sm font-bold uppercase">So sánh hạng hội viên</span>
+            </header>
+            <div class="view-section p-0">
+                <div class="p-4">
+                    <p class="text-xs text-gray text-center mb-6">Tất cả quyền lợi được so sánh trực quan dưới đây</p>
+
+                    <!-- Comparison Table All Tiers -->
+                    <div id="comparison-table-content" class="comparison-table">
+                        <!-- Dynamic Content from JS -->
+                    </div>
+                </div>
+
+                <div class="p-6 bg-surface mt-auto">
+                    <p class="text-center text-sm font-medium" id="comparison-promo-msg">Chỉ còn <span
+                            class="font-bold">250 điểm</span> để lên hạng <span class="text-gold font-bold">Vàng</span>
+                    </p>
+                    <button class="btn mt-4" onclick="closeAllOverlays(); showView('shop')">MUA SẮM TÍCH ĐIỂM
+                        NGAY</button>
                 </div>
             </div>
         </div>
