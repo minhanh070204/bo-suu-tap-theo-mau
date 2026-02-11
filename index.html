@@ -65,10 +65,10 @@
                             <p id="home-current-points" class="text-lg font-bold">1,250</p>
                         </div>
                     </div>
-                    <div class="loyalty-progress">
+                    <div class="loyalty-progress mb-1">
                         <div class="loyalty-fill" style="width: 70%;"></div>
                     </div>
-                    <p class="text-xs text-center text-gray mt-2">Cần 250 điểm nữa để thăng hạng <b>Vàng</b></p>
+                    <p class="text-xs text-center text-gray mt-1">Cần 250 điểm nữa để thăng hạng <b>Vàng</b></p>
                 </div>
 
                 <!-- Menu Grid -->
@@ -130,7 +130,7 @@
             </header>
             <div class="p-6">
                 <!-- Member Summary -->
-                <div class="card mb-6 loyalty-membership-card">
+                <div class="card mb-10 loyalty-membership-card">
                     <p class="text-xs uppercase tracking-widest mb-1">Hạng thành viên</p>
                     <h2 class="text-xl font-bold mb-4">Silver Member</h2>
                     <div class="flex justify-between items-end mb-4">
@@ -142,7 +142,7 @@
                         onclick="showTiers()">XEM THÊM</button>
                 </div>
 
-                <h3 class="text-base font-bold mb-4 uppercase">Đổi điểm thưởng</h3>
+                <h3 class="text-base font-bold mb-4 mt-2 uppercase">Đổi điểm thưởng</h3>
                 <div class="flex flex-col gap-4">
                     <div class="card flex justify-between items-center">
                         <div>
@@ -176,49 +176,34 @@
                 <h1>CỬA HÀNG</h1>
             </header>
             <div class="p-4">
-                <div class="card mb-4" style="background: var(--accent-color); color: #fff;">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <p class="text-xs uppercase font-bold mb-1">Cửa hàng gần bạn</p>
-                            <h3 class="text-base font-bold">Routine Nguyễn Trãi</h3>
-                            <p class="text-xs opacity-70">554 Nguyễn Trãi, Thanh Xuân, Hà Nội</p>
+                <div class="card mb-10 store-card-near"
+                    style="background: var(--accent-color); color: #fff; padding: 24px; border-radius: 20px;">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex flex-col">
+                            <p class="text-xs uppercase font-bold tracking-widest opacity-60 mb-2">Cửa hàng gần bạn</p>
+                            <h3 class="text-xl font-bold mb-2">Routine Nguyễn Trãi</h3>
+                            <p class="text-xs opacity-70 leading-relaxed">554 Nguyễn Trãi, Thanh Xuân, Hà Nội</p>
                         </div>
                         <button class="btn"
-                            style="width: auto; height: auto; padding: 6px 12px; font-size: 10px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);"
+                            style="width: auto; height: auto; padding: 10px 20px; font-size: 11px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;"
                             onclick="openBooking('Routine Nguyễn Trãi')">ĐẶT LỊCH</button>
                     </div>
-                    <p class="text-xs mt-2">Mở cửa: 09:00 - 22:00</p>
+                    <div class="flex items-center gap-2 pt-4 border-t border-white border-opacity-10">
+                        <span class="material-symbols-outlined text-sm opacity-60">schedule</span>
+                        <p class="text-xs font-medium opacity-80">Mở cửa: 09:00 - 22:00</p>
+                    </div>
                 </div>
 
-                <h3 class="text-sm font-bold uppercase mb-4 text-gray">Danh sách cửa hàng</h3>
-                <div class="flex flex-col gap-4">
-                    <div class="card flex justify-between items-center">
-                        <div>
-                            <p class="text-sm font-bold">Routine Bà Triệu</p>
-                            <p class="text-xs text-gray">12 Bà Triệu, Hoàn Kiếm, Hà Nội</p>
-                        </div>
-                        <button class="btn btn-outline"
-                            style="width: auto; height: auto; padding: 6px 12px; font-size: 10px;"
-                            onclick="openBooking('Routine Bà Triệu')">ĐẶT LỊCH</button>
-                    </div>
-                    <div class="card flex justify-between items-center">
-                        <div>
-                            <p class="text-sm font-bold">Routine Cầu Giấy</p>
-                            <p class="text-xs text-gray">234 Cầu Giấy, Hà Nội</p>
-                        </div>
-                        <button class="btn btn-outline"
-                            style="width: auto; height: auto; padding: 6px 12px; font-size: 10px;"
-                            onclick="openBooking('Routine Cầu Giấy')">ĐẶT LỊCH</button>
-                    </div>
-                    <div class="card flex justify-between items-center">
-                        <div>
-                            <p class="text-sm font-bold">Routine Lý Tự Trọng</p>
-                            <p class="text-xs text-gray">120 Lý Tự Trọng, Quận 1, TP. HCM</p>
-                        </div>
-                        <button class="btn btn-outline"
-                            style="width: auto; height: auto; padding: 6px 12px; font-size: 10px;"
-                            onclick="openBooking('Routine Lý Tự Trọng')">ĐẶT LỊCH</button>
-                    </div>
+                <div class="tabs mb-6" style="gap: 16px; border-bottom: none;">
+                    <div class="tab store-filter-tab active" onclick="renderStores('Tất cả')">Tất cả</div>
+                    <div class="tab store-filter-tab" onclick="renderStores('Hà Nội')">Hà Nội</div>
+                    <div class="tab store-filter-tab" onclick="renderStores('TP HCM')">TP HCM</div>
+                    <div class="tab store-filter-tab" onclick="renderStores('Khu vực khác')">Khu vực khác</div>
+                </div>
+
+                <h3 class="text-xs font-bold uppercase mb-4 text-gray tracking-widest">Danh sách cửa hàng</h3>
+                <div id="store-list-dynamic" class="flex flex-col gap-2">
+                    <!-- Stores dynamic -->
                 </div>
 
                 <!-- Real Google Map -->
@@ -241,9 +226,9 @@
                 <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300"
                     style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-bottom: 16px; border: 3px solid #f8f8f8;">
                 <h2 class="text-lg font-bold">Lee Ji-eun (IU)</h2>
-                <p class="text-sm text-gray mb-8">iu.official@routine.vn</p>
+                <p class="text-sm text-gray mb-10">iu.official@routine.vn</p>
 
-                <div class="w-full flex flex-col gap-2">
+                <div class="w-full flex flex-col gap-3">
                     <div class="card flex justify-between items-center py-4" onclick="showOrderHistory()">
                         <span class="text-sm font-medium">Lịch sử đơn hàng</span>
                         <span class="material-symbols-outlined text-gray">chevron_right</span>
@@ -483,9 +468,9 @@
                     <p class="text-sm text-gray leading-relaxed mb-3">Chương trình Routine Membership áp dụng cho mọi
                         khách hàng mua sắm tại hệ thống cửa hàng và kênh online. Mỗi khách hàng sẽ có một tài khoản duy
                         nhất tương ứng với một số điện thoại.</p>
-                    <ul class="text-sm text-gray leading-relaxed list-none pl-0">
-                        <li class="mb-2">• Đăng ký miễn phí tại quầy thu ngân hoặc ứng dụng.</li>
-                        <li class="mb-2">• Thông tin yêu cầu: Họ tên, Số điện thoại, Ngày sinh, Giới tính.</li>
+                    <ul class="text-sm text-gray leading-relaxed list-none">
+                        <li class="mb-2">Đăng ký miễn phí tại quầy thu ngân hoặc ứng dụng.</li>
+                        <li class="mb-2">Thông tin yêu cầu: Họ tên, Số điện thoại, Ngày sinh, Giới tính.</li>
                     </ul>
                 </div>
 
@@ -495,10 +480,10 @@
                     <p class="text-sm text-gray leading-relaxed mb-3">Điểm xét hạng được tính dựa trên giá trị thanh
                         toán thực tế của hóa đơn (10.000 VNĐ = 1 điểm).</p>
                     <div class="card p-4 bg-surface" style="background: #fdfdfd; border: 1px solid #eee;">
-                        <ul class="text-sm text-gray leading-relaxed list-none pl-0 mb-0">
-                            <li class="mb-2"><b>• Bronze Member:</b> Khách hàng mới đăng ký.</li>
-                            <li class="mb-2"><b>• Silver Member:</b> Tích lũy từ 1.000 điểm.</li>
-                            <li class="mb-2"><b>• Golden Member:</b> Tích lũy từ 5.000 điểm.</li>
+                        <ul class="text-sm text-gray leading-relaxed list-none mb-0">
+                            <li class="mb-2"><b>Bronze Member:</b> Khách hàng mới đăng ký.</li>
+                            <li class="mb-2"><b>Silver Member:</b> Tích lũy từ 1.000 điểm.</li>
+                            <li class="mb-2"><b>Golden Member:</b> Tích lũy từ 5.000 điểm.</li>
                         </ul>
                     </div>
                     <p class="text-xs text-gray mt-2 italic">* Kỳ xét hạng là 12 tháng liên tiếp kể từ ngày thăng hạng.
@@ -508,12 +493,12 @@
                 <div class="mb-8">
                     <h3 class="text-base font-bold mb-3 uppercase tracking-wide" style="color: var(--accent-color);">3.
                         Đặc quyền ưu đãi</h3>
-                    <ul class="text-sm text-gray leading-relaxed list-none pl-0">
-                        <li class="mb-2"><b>• Giảm giá theo hạng:</b> Silver (5%), Gold (10%) đối với hàng nguyên giá.
+                    <ul class="text-sm text-gray leading-relaxed list-none">
+                        <li class="mb-2"><b>Giảm giá theo hạng:</b> Silver (5%), Gold (10%) đối với hàng nguyên giá.
                         </li>
-                        <li class="mb-2"><b>• Ưu đãi sinh nhật:</b> Voucher giảm giá lên đến 30% trong tháng sinh nhật.
+                        <li class="mb-2"><b>Ưu đãi sinh nhật:</b> Voucher giảm giá lên đến 30% trong tháng sinh nhật.
                         </li>
-                        <li class="mb-2"><b>• Quà tặng:</b> Nhận quà tặng đặc biệt vào các dịp lễ hoặc sự kiện thành
+                        <li class="mb-2"><b>Quà tặng:</b> Nhận quà tặng đặc biệt vào các dịp lễ hoặc sự kiện thành
                             viên.</li>
                     </ul>
                 </div>
@@ -523,10 +508,10 @@
                         Quy định đổi trả</h3>
                     <p class="text-sm text-gray leading-relaxed mb-3">Routine hỗ trợ đổi trả sản phẩm linh hoạt nhằm đảm
                         bảo sự hài lòng của khách hàng:</p>
-                    <ul class="text-sm text-gray leading-relaxed list-none pl-0">
-                        <li class="mb-2">• Thời hạn đổi trả: 15 ngày kể từ ngày nhận hàng.</li>
-                        <li class="mb-2">• Điều kiện: Sản phẩm còn nguyên tem mác, chưa qua sử dụng, giặt là.</li>
-                        <li class="mb-2">• Không áp dụng đổi trả đối với hàng giảm giá trên 50% hoặc phụ kiện cá nhân
+                    <ul class="text-sm text-gray leading-relaxed list-none">
+                        <li class="mb-2">Thời hạn đổi trả: 15 ngày kể từ ngày nhận hàng.</li>
+                        <li class="mb-2">Điều kiện: Sản phẩm còn nguyên tem mác, chưa qua sử dụng, giặt là.</li>
+                        <li class="mb-2">Không áp dụng đổi trả đối với hàng giảm giá trên 50% hoặc phụ kiện cá nhân
                             (đồ lót, tất).</li>
                     </ul>
                 </div>
@@ -558,7 +543,8 @@
                         <div>
                             <p class="text-xs opacity-70">Số điểm hiện có</p>
                             <p id="tier-current-points" class="text-lg font-bold">1,250</p>
-                            <p id="tier-remaining-inline" class="text-xs mt-2" style="opacity: 0.9;">Còn 250 điểm để lên hạng Vàng</p>
+                            <p id="tier-remaining-inline" class="text-xs mt-2" style="opacity: 0.9;">Còn 250 điểm để lên
+                                hạng Vàng</p>
                         </div>
                         <span class="material-symbols-outlined text-4xl opacity-50">workspace_premium</span>
                     </div>
@@ -576,7 +562,8 @@
                         <div class="tier-marker gold" style="left: 54%;"></div>
                         <div class="tier-marker diamond" style="left: 100%;"></div>
                     </div>
-                    <p id="tier-remaining-summary" class="text-center text-sm font-medium">Bạn cần thêm <span class="font-bold">250 điểm</span> nữa
+                    <p id="tier-remaining-summary" class="text-center text-sm font-medium">Bạn cần thêm <span
+                            class="font-bold">250 điểm</span> nữa
                         để thăng hạng <span class="text-gold font-bold">Vàng</span></p>
                 </div>
 

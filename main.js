@@ -15,11 +15,7 @@ const PRODUCTS = {
         { id: 'w3', name: 'ÁO SƠ MI FORM RỘNG', price: 590000, img: 'https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?q=80&w=600', category: 'Nữ', product_type: 'Áo' },
         { id: 'w4', name: 'CHÂN VÁY MIDI XẾP LY', price: 690000, img: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=600', category: 'Nữ', product_type: 'Chân váy' },
         { id: 'w5', name: 'ÁO LEN DỆT KIM NỮ TAY DÀI VẶN THỪNG THÊU TRÁI TIM', price: 790000, img: 'https://images.unsplash.com/photo-1574201635302-388dd92a4c3f?q=80&w=600', category: 'Nữ', product_type: 'Áo' },
-        { id: 'w6', name: 'QUẦN TÂY SLIM FIT NỮ', price: 650000, img: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=600', category: 'Nữ', product_type: 'Quần' },
-        { id: 'w7', name: 'ĐẦM HOA NHÍ DÁNG XÒE', price: 850000, img: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=600&q=80', category: 'Nữ', product_type: 'Váy' },
-        { id: 'w8', name: 'ÁO KHOÁC BLAZER OVERSIZE', price: 1150000, img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80', category: 'Nữ', product_type: 'Áo' },
-        { id: 'w9', name: 'QUẦN TÂY ỐNG RỘNG CẠP CAO', price: 690000, img: 'https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=600&q=80', category: 'Nữ', product_type: 'Quần' },
-        { id: 'w10', name: 'ÁO CROP TOP LEN TĂM', price: 350000, img: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80', category: 'Nữ', product_type: 'Áo' }
+        { id: 'w6', name: 'QUẦN TÂY SLIM FIT NỮ', price: 650000, img: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=600', category: 'Nữ', product_type: 'Quần' }
     ]
 };
 
@@ -91,6 +87,18 @@ const COMPARISON_DATA = {
 const ORDERS = [
     { id: 'ROUTINE-99120', date: '09/02/2026', total: 650000, status: 'Đang giao' },
     { id: 'ROUTINE-98441', date: '20/01/2026', total: 1250000, status: 'Đã hoàn thành' }
+];
+
+const STORES = [
+    { id: 's1', name: 'Routine Nguyễn Trãi', address: '554 Nguyễn Trãi, Thanh Xuân, Hà Nội', city: 'Hà Nội', hours: '09:00 - 22:00' },
+    { id: 's2', name: 'Routine Bà Triệu', address: '12 Bà Triệu, Hoàn Kiếm, Hà Nội', city: 'Hà Nội', hours: '09:00 - 22:00' },
+    { id: 's3', name: 'Routine Cầu Giấy', address: '234 Cầu Giấy, Hà Nội', city: 'Hà Nội', hours: '09:00 - 22:00' },
+    { id: 's4', name: 'Routine Chùa Bộc', address: '102 Chùa Bộc, Đống Đa, Hà Nội', city: 'Hà Nội', hours: '09:00 - 22:00' },
+    { id: 's5', name: 'Routine Lý Tự Trọng', address: '120 Lý Tự Trọng, Quận 1, TP. HCM', city: 'TP HCM', hours: '09:00 - 22:00' },
+    { id: 's6', name: 'Routine Võ Văn Ngân', address: '242 Võ Văn Ngân, Thủ Đức, TP. HCM', city: 'TP HCM', hours: '09:00 - 22:00' },
+    { id: 's7', name: 'Routine CMT8', address: '640 CMT8, Quận 3, TP. HCM', city: 'TP HCM', hours: '09:00 - 22:00' },
+    { id: 's8', name: 'Routine Đà Nẵng', address: '330 Hùng Vương, Đà Nẵng', city: 'Khu vực khác', hours: '09:00 - 21:30' },
+    { id: 's9', name: 'Routine Cần Thơ', address: '14 Đại lộ Hòa Bình, Cần Thơ', city: 'Khu vực khác', hours: '09:00 - 21:30' }
 ];
 
 // --- ACCOUNT FUNCTIONS ---
@@ -259,6 +267,35 @@ function showView(viewId) {
 
     if (viewId === 'home') renderHome();
     if (viewId === 'shop') renderShop('nam');
+    if (viewId === 'stores') renderStores('Tất cả');
+}
+
+// Store Rendering
+function renderStores(cityFilter) {
+    const listContainer = document.getElementById('store-list-dynamic');
+    if (!listContainer) return;
+
+    const filtered = STORES.filter(s => cityFilter === 'Tất cả' || s.city === cityFilter);
+
+    listContainer.innerHTML = filtered.map(s => `
+        <div class="card flex justify-between items-center mb-4 store-item-card">
+            <div>
+                <p class="text-sm font-bold mb-1">${s.name}</p>
+                <p class="text-xs text-gray mb-1">${s.address}</p>
+                <p class="text-xs text-gray opacity-70">${s.hours}</p>
+            </div>
+            <button class="btn btn-outline"
+                style="width: auto; height: auto; padding: 8px 14px; font-size: 10px;"
+                onclick="openBooking('${s.name}')">ĐẶT LỊCH</button>
+        </div>
+    `).join('');
+
+    // Update active tab UI
+    const tabs = document.querySelectorAll('.store-filter-tab');
+    tabs.forEach(t => {
+        if (t.innerText === cityFilter) t.classList.add('active');
+        else t.classList.remove('active');
+    });
 }
 
 function openOverlay(overlayId) {
